@@ -1,0 +1,665 @@
+@import "foundation_and_overrides";
+
+@import url(https://fonts.googleapis.com/css?family=Exo|Tinos);
+
+@import url('https://fonts.googleapis.com/css?family=Courgette|Damion|PT+Sans+Caption|Ubuntu|Voltaire');
+
+/* NAVIGATION BAR STYLING */
+
+.top-bar  {
+  overflow: hidden;
+  top: 0;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0px 1px 3px #888888;
+}
+
+.top-bar.nav {
+  background-color: #fff;
+  width: 100%;
+  z-index: 10;
+}
+
+.top-bar li {
+  font-family: 'Ubuntu', sans-serif;
+  letter-spacing: 2px;
+  font-size: 22px;
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  padding: 10px 15px;
+  margin-top: 4px;
+}
+
+.top-bar a {
+  color: #47677a;
+}
+
+.top-bar-left li:hover {
+  font-weight: bold;
+}
+
+#search-box {
+  background-color: white;
+  border: 1px solid #939598;
+  padding-right: 20px;
+}
+
+#submit-box {
+  background-color: white;
+  border: 1px solid #47677a;
+  color: #47677a;
+}
+
+#submit-box:hover {
+  background-color: #47677a;
+  border: 1px solid #47677a;
+  color: #fff;
+}
+
+#submit-box.button {
+  height: 39px;
+  margin-bottom: 1px;
+}
+
+.menu>li:nth-child(1){
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+.menu>li:nth-child(2){
+  padding-right: 75px;
+  padding-left: 0px;
+}
+
+
+/*MOBILE NAVIGATION BAR*/
+
+.title-bar {
+  width: 100%;
+  margin-top: 0;
+  /*background-color: #47677a;*/
+  background-color: #fff;
+  height: 68px;
+  padding: 0px;
+  box-shadow: 0px 0px 5px #888888;
+}
+
+.title-bar .menu-icon {
+  margin-left: 15px;
+  font-size: 1.5em;
+}
+
+.title-bar-title {
+  margin-top: 15px;
+  margin-left: 5px;
+  font-family: 'Ubuntu', sans-serif;
+  letter-spacing: 2px;
+}
+
+.title-bar img {
+  float: center;
+}
+
+.list-item {
+  font-family: 'Ubuntu', sans-serif;
+  border-top: 1px solid #cacaca;
+  color: #47677a;
+  font-weight: bold;
+}
+
+.list-item:last-child {
+  border-bottom: 1px solid #cacaca;
+}
+
+.list-item a {
+  color: #1f3033;
+  letter-spacing: 2px;
+  font-size: 20px;
+  margin-top: 14px;
+  margin-bottom: 14px;
+  margin-left: 20px;
+}
+
+.list-item a:hover {
+  color: #cacaca;
+}
+
+.mobile-menu-toggle {
+  border-right: 1px solid #1F3033;
+  height: 68px;
+  width: 80px;
+}
+
+.mobile-menu-toggle button {
+  height: 68px;
+}
+
+.mobile-logo {
+  display: inline;
+  margin-left: 6%;
+  overflow: hidden;
+}
+
+#profile-icon {
+  margin-right: 0px;
+  float: right;
+}
+
+.mobile-menu-profile {
+  border-left: 1px solid #1F3033;
+  height: 68px;
+  width: 80px;
+}
+
+
+/*NAVIGATION BAR LOGO*/
+
+#logo {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  margin-right: 5px;
+  margin-left: 20px;
+  text-align: center;
+}
+
+#logo2 {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  margin-top: 2px;
+  margin-bottom: -5px;
+  margin-right: 5px;
+  margin-left: 0px;
+}
+
+/*NAVIGATION BAR ICONS */
+
+#profile {
+  margin-right: 50px;
+  margin-left: -80px;
+  display: none;
+}
+
+/*MAIN CONTAINER BELOW NAV*/
+
+.main-content {
+  margin-top: 80px;
+  width: 100%;
+}
+
+.image {
+   position: relative;
+   margin-top: 80px;
+   width: 100%;
+   background: url("./geo-hero.png")
+}
+
+.image h1 {
+   position: absolute;
+   top: 200px;
+   left: 0;
+   width: 100%;
+   text-align: center;
+   font-family: 'Ubuntu', sans-serif;
+   font-size: 80px;
+}
+
+/*FOOTER STYLING */
+
+.footer {
+  overflow: hidden;
+  width:  100%;
+  position: absolute;
+  text-align: center;
+  background-color: #47677a;
+  margin-bottom: 0px;
+  margin-top: 100px;
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+#footer-area li {
+  font-family: 'Ubuntu', sans-serif;
+  letter-spacing: 2px;
+  font-size: 22px;
+  text-transform: uppercase;
+  list-style-type: none;
+  color: white;
+}
+
+.footer>ul:nth-child(1) {
+  border-right: 1px solid white;
+}
+
+.footer-bar  {
+  bottom: 0;
+  background-color: #78868e;
+}
+
+.footer-bar.nav {
+  background-color: #fff;
+  width: 100%;
+}
+
+.footer-bar a {
+  color: white;
+}
+
+.footer-bar li {
+  font-family: 'Ubuntu', sans-serif;
+  letter-spacing: 2px;
+  font-size: 22px;
+  float: left;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  padding: 10px 15px;
+  margin-top: 4px;
+}
+
+.footer-bar-left li:hover {
+  font-weight: bold;
+}
+
+.menu>li:nth-child(1){
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+.menu>li:nth-child(2){
+  padding-right: 75px;
+  padding-left: 0px;
+}
+
+.nav-bar-right {
+  margin-left: 50px;
+}
+
+
+/*BOTTOM EMAIL SIGNUP*/
+
+#email-search-box {
+  background-color: white;
+  border: 1px solid white;
+  right: 0px;
+  float: left;
+  width: 70%;
+}
+
+#email-submit-box {
+  background-color: #47677a;
+  border: 1px solid white;
+  color: white;
+  right: 0px;
+  width: 25%;
+}
+
+#email-submit-box:hover {
+  background-color: #77848b;
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+#email-submit-box.button {
+  height: 39px;
+  margin-bottom: 1px;
+}
+
+#loop {
+  text-align: left;
+}
+
+/*FORM STYLING */
+
+.information {
+  background: linear-gradient(45deg, #002f4b 0%, transparent 100%), url("./geo-hero.png") no-repeat center;
+  opacity: 0.8;
+  background-size: cover;
+  width: 100%;
+  position: relative;
+  z-index: -5;
+}
+
+.form {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+}
+
+.form-position {
+  margin-bottom: 80px;
+  margin-top: 80px;
+}
+
+.form-style {
+  font-family: 'Ubuntu', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.form-style label {
+  font-weight: bold;
+  color: #fff;
+  font-size: 16px;
+}
+
+.form-style input {
+  background-color: transparent;
+  border: 2px solid white;
+}
+
+.form-button {
+  font-family: 'Ubuntu', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background-color: transparent;
+  border: 2px solid white;
+  font-weight: bold;
+}
+
+.information h3 {
+  font-family: 'Ubuntu', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: white;
+  font-weight: bold;
+}
+
+
+/*FORM LEFT SIDE DESCRIPTION STYLING */
+
+.information h2 {
+  font-family: 'Ubuntu', sans-serif;
+  text-align: center;
+  letter-spacing: 3px;
+  color: white;
+  font-weight: bold;
+}
+
+.information h5 {
+  font-family: 'Ubuntu', sans-serif;
+  text-align: center;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.description li {
+  letter-spacing: 2px;
+  font-size: 14.25px;
+  text-transform: uppercase;
+  color: white;
+  line-height: 5.2;
+  font-weight: bold;
+  border-top: 2px solid white;
+  list-style-type: none;
+}
+
+.form-position.description ul {
+  margin-top: -25px;
+}
+
+.form-position.description li:first-child {
+  border-top: 0px solid white;
+  text-align: center;
+  letter-spacing: 3px;
+}
+
+.form-position.description li:last-child {
+  border-bottom: 2px solid white;
+}
+
+.form-position {
+  width: 45%;
+}
+
+/*MOBILE HOMEPAGE STYLING */
+
+#mobile-greeting {
+  width: 95%;
+}
+
+#mobile-greeting h2 {
+  font-size: 32px;
+}
+
+#mobile-greeting li {
+  font-size: 63%;
+  text-transform: uppercase;
+  color: white;
+  line-height: 5;
+  font-weight: bold;
+  border-top: 2px solid white;
+  list-style-type: none;
+  letter-spacing: 1px;
+}
+
+#mobile-greeting li:first-child {
+  text-align: center;
+  border-top: 0px;
+  font-size: 100%;
+}
+
+#mobile-greeting ul {
+  margin-top: -76px;
+}
+
+/*HERO CONTAINER */
+
+.hero-text {
+  font-family: 'Ubuntu', sans-serif;
+  margin: 10%;
+  text-align: left;
+  color: white;
+}
+
+.hero-text h1 {
+  font-family: 'Ubuntu', sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+.hero-text h4 {
+  font-family: 'Ubuntu', sans-serif;
+  text-transform: uppercase;
+  font-weight: lighter;
+  letter-spacing: 2px;
+  margin-top: -10px;
+  font-weight: bold;
+}
+
+#get-started-button {
+  font-family: 'Ubuntu', sans-serif;
+  background-color: transparent;
+  border: 2px solid white;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-top: 4px;
+}
+
+.hero-text button:hover {
+  background-color: #1f3033;
+}
+
+.information.row {
+  text-align: center;
+}
+
+/*NEW NAV BAR STYLING*/
+
+.nav-bar-div {
+  overflow: hidden;
+  top: 0;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0px 1px 3px #888888;
+  text-align: center;
+}
+
+.small-3.large-1.columns.menu {
+  height: 68px;
+  text-align: right;
+}
+
+.small-3.large-1.columns.menu-profile {
+  height: 68px;
+  text-align: center;
+}
+
+.small-3.large-1.columns.profile {
+  height: 68px;
+  text-align: right;
+}
+
+.small-3.large-1.columns.profile {
+  height: 68px;
+  text-align: center;
+}
+
+.nav-bar-div.row span {
+  margin-left: 0px;
+  text-align: center;
+  margin: 20px;
+}
+
+#nav-logo img {
+  margin: 12px;
+  text-align: center;
+}
+
+#logo-center {
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+#nav-logo-mobile img {
+  margin-top: 18px;
+  margin-bottom: 18px;
+}
+
+#menu-icon-div {
+  left: 0;
+  right: 0;
+  border-right: 1px solid #cacaca;
+  height: 68px;
+  margin-left: 0px;
+}
+
+#menu-profile-div {
+  border-left: 1px solid #cacaca;
+}
+
+#menu-icon-div {
+  position: absolute;
+  left: 0px;
+}
+
+#menu-profile-div {
+  position: absolute;
+  right: 0px;
+}
+
+#nav-menu-icon img {
+  margin-top: 22px;
+  height: 21px;
+  width: 36px;
+}
+
+#menu-icon-div img {
+  margin-top: 22px;
+}
+
+#nav-profile-icon img {
+  margin-top: 18px;
+}
+
+#dropdown-menu {
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  background-color: white;
+}
+
+
+/*MOVIE CARD STYLING */
+
+.searchbox {
+  margin-top: 70px;
+  margin-bottom: -150px;
+}
+
+#poster img {
+  float: left;
+  display: inline;
+  margin-right: 20px;
+}
+
+#movie-search-form {
+  margin-top: 100px;
+}
+
+#movie-input-box {
+  display: inline;
+  width: 90%;
+  border: 1px solid black;
+  box-shadow: none;
+  height: 55px;
+  text-transform: capitalize;
+}
+#movie-search-button {
+  border: 1px solid black;
+  background-color: white;
+  height: 55px;
+  width: 117px;
+  border-left: 0px;
+  font-family: 'Ubuntu', sans-serif;
+  text-transform: uppercase;
+  float: right;
+  display: inline;
+  letter-spacing: 1px;
+  font-size: 18px;
+}
+
+#movie-search-button:hover {
+  background-color: #cacaca;
+}
+
+.search-component h2 {
+  margin-top: 20px;
+  margin-bottom: -50px;
+}
+
+/*ABOUT US PAGE STYLING*/
+
+.about h1, h2, h3, h4, h5, p {
+  font-family: 'Ubuntu', sans-serif;
+  color: black;
+}
+
+.about h1{
+  margin-top: 30px;
+}
+
+#movie-row {
+  margin-top: 40px;
+}
+
+.new-mobile-menu {
+  overflow: hidden;
+  top: 0;
+  width: 100%;
+}
+
+.hidden {
+  display: none;
+}

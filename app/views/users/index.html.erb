@@ -1,0 +1,7 @@
+<div id="app">
+</div>
+
+
+<% @users.each do |user| %>
+  <%= link_to user.first_name, user_lists_path(user) %>
+<% end %>
