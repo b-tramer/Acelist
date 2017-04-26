@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   match 'auth/failure', to: redirect('/'), via: [:get, :post]
   match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
 
-  root 'home#index'
+  root 'media#index'
   resources :media
+
+  resources :login
 
   resources :users do
     resources :lists
@@ -16,7 +18,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :media, :lists
+      resources :media, :lists, :users
     end
   end
 

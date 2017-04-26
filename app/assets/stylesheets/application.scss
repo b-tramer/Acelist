@@ -663,3 +663,30 @@
 .hidden {
   display: none;
 }
+
+// FACEBOOK LOGIN PAGE STYLING
+
+.facebook-react-page h1 {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.facebook-react-page {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: -20px;
+}
+
+#user-widget {
+  font-family: 'Ubuntu', sans-serif;
+  margin-top: 50px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hidden {
+  display: none;
+}
+
+#sign_out {
+
+}
