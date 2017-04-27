@@ -5,7 +5,7 @@ import Root from './Root'
 
 $(function() {
   ReactDOM.render(
-    <Root />,
+    <Root user={document.getElementById('app').dataset.user}/>,
     document.getElementById('app')
   );
 });

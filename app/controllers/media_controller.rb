@@ -3,6 +3,7 @@ class MediaController < ApplicationController
   def index
     @media = Media.new
     @medias = Media.all
+    @user = current_user
   end
 
   def show

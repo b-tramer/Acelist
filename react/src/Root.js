@@ -4,6 +4,7 @@ import HeroContainer from './containers/HeroContainer';
 import NavContainer from './containers/NavContainer';
 import ProfileContainer from './containers/ProfileContainer';
 import CrudContainer from './containers/CrudContainer';
+import LoginContainer from './containers/LoginContainer';
 
 class App extends Component {
   constructor(props){
@@ -16,7 +17,8 @@ class App extends Component {
       <Router history={browserHistory}>
         <Route path="/" component={NavContainer}>
           <IndexRoute component={HeroContainer} />
-          <Route path='user' component={ProfileContainer} />
+          <Route path='login' component={() => (<LoginContainer user={this.props.user} />)}/>
+          <Route path='users' component={ProfileContainer} />
           <Route path='media' component={CrudContainer} />
           <Route path='media/:id' component={CrudContainer} />
         </Route>

@@ -1,29 +1,62 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import AllMedia from '../components/AllMedia';
 
 class ProfileContainer extends Component{
   constructor(props){
     super(props);
     this.state = {
-      media: {}
+      user: {},
+      lists: [],
+      media: []
     }
   }
 
   componentDidMount() {
-    this.getData();
+    this.getUserData();
+    this.getMediaData();
   }
 
-  getData() {
-    fetch(`/api/v1/lists/1`)
+  getUserData() {
+    fetch(`/api/v1/users`, { credentials: 'same-origin' })
       .then(response => response.json())
       .then(responseData => {
-        this.setState({media: responseData})
-      });
+        this.setState({
+          user: responseData.user,
+          lists: responseData.lists,
+          media: responseData.media
+        })
+    });
+  }
+
+  getMediaData() {
+    fetch(`/api/v1/media`)
+      .then(response => response.json())
+      .then(responseData => {
+        this.setState({ media: responseData })
+    });
   }
 
   render() {
+    let user_media = this.state.lists.map((list) => {
+      return(
+        <p> {list.name} </p>
+      )
+
+    })
+
     return(
       <div>
+        <center>
+
+          <h2> {this.state.user.name} </h2>
+          {user_media}
+        </center>
+
+        <AllMedia
+          media = {this.state.media}
+        />
+
       </div>
 
     )

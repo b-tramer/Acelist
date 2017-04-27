@@ -646,12 +646,8 @@
   color: black;
 }
 
-.about h1{
-  margin-top: 30px;
-}
-
-#movie-row {
-  margin-top: 40px;
+.about h1 {
+  margin-top: 0px;
 }
 
 .new-mobile-menu {
@@ -662,4 +658,39 @@
 
 .hidden {
   display: none;
+}
+
+// FACEBOOK LOGIN PAGE STYLING
+
+.facebook-react-page h1 {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.facebook-react-page {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: -20px;
+}
+
+#user-widget {
+  font-family: 'Ubuntu', sans-serif;
+  margin-top: 50px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hidden {
+  display: none;
+}
+
+// MOVIE TILE STYLING
+
+#movie-row {
+  background-color: #f4f4f4;
+  padding: 5px;
+  padding-top: 17px;
+  padding-bottom: 17px;
+  margin-top: 10px;
+  margin-right: 0px;
+  margin-left: 0px;
 }
