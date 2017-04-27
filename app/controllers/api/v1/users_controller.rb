@@ -4,9 +4,13 @@ class Api::V1::UsersController < ApplicationController
 
   def index
     @lists = List.where(user_id: current_user.id)
+    @media = []
+    @lists.each do |list|
+      @media << Media.where(id: list.id)
+    end
     @current_user = current_user
     respond_to do |format|
-      format.json  { render :json => {:lists => @lists, :user => @current_user }}
+      format.json  { render :json => {:lists => @lists, :user => @current_user, :media => @media }}
     end
   end
 

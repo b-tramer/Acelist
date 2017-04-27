@@ -38,7 +38,7 @@ class Navigation extends Component{
           <ul className="vertical menu" data-accordion-menu>
             <li className="list-item"> <Link to='/'>HOME</Link> </li>
             <li className="list-item"> <Link to='/movie'>SEARCH</Link> </li>
-            <li className="list-item"> <Link to='/signup'>PROFILE</Link> </li>
+            <li className="list-item"> <Link to='/users'>PROFILE</Link> </li>
             <li className="list-item"> <Link to='/login'>SIGNUP</Link> </li>
           </ul>
         </div>
@@ -72,7 +72,7 @@ class Navigation extends Component{
             <ul className="vertical menu" data-accordion-menu>
               <li className="list-item"> <Link to='/'>HOME</Link> </li>
               <li className="list-item"> <Link to='/movie'>SEARCH</Link> </li>
-              <li className="list-item"> <Link to='/user'>PROFILE</Link> </li>
+              <li className="list-item"> <Link to='/users'>PROFILE</Link> </li>
               <li className="list-item"> <Link to='/login'>SIGNUP</Link> </li>
             </ul>
           </div>
