@@ -10,6 +10,7 @@ class ProfileContainer extends Component{
       lists: [],
       media: []
     }
+    this.formatListJson = this.formatListJson.bind(this)
   }
 
   componentDidMount() {
@@ -27,6 +28,11 @@ class ProfileContainer extends Component{
           media: responseData.media
         })
     });
+    this.formatListJson()
+  }
+
+  formatListJson() {
+    this.setState({ media: {animate: this.state.media} })
   }
 
   getMediaData() {
