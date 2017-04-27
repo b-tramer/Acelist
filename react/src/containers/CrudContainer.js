@@ -77,11 +77,6 @@ class CrudContainer extends React.Component {
     this.setState({ title: event.target.value })
   }
 
-  // fetchTitle(title) {
-  //   let url = `https://api.themoviedb.org/3/search/multi?api_key=4ce5312dd9fd3f292ee4e7597f92342c&language=en-US&page=1&include_adult=false&query==${title}`
-  //   this.fetchAPI(url)
-  // }
-
   render() {
     return(
       <div className="about">
