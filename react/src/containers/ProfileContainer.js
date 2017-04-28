@@ -28,11 +28,10 @@ class ProfileContainer extends Component{
           media: responseData.media
         })
     });
-    this.formatListJson()
   }
 
   formatListJson() {
-    this.setState({ media: {this.state.lists[0].name: this.state.media} })
+    this.setState({ media: this.state.media })
   }
 
   getMediaData() {
@@ -44,12 +43,6 @@ class ProfileContainer extends Component{
   }
 
   render() {
-    let user_media = this.state.lists.map((list) => {
-      return(
-        <p> {list.name} </p>
-      )
-
-    })
 
     return(
       <div>
