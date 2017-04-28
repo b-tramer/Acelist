@@ -41,7 +41,6 @@ class ProfileContainer extends Component{
         this.setState({ media: responseData })
     });
   }
-
   render() {
 
     return(
