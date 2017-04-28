@@ -46,15 +46,12 @@ class ProfileContainer extends Component{
     return(
       <div>
         <center>
-
           <h2> {this.state.user.name} </h2>
           {user_media}
         </center>
-
         <AllMedia
           media = {this.state.media}
         />
-
       </div>
 
     )
