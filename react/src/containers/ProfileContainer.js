@@ -32,7 +32,7 @@ class ProfileContainer extends Component{
   }
 
   formatListJson() {
-    this.setState({ media: {animate: this.state.media} })
+    this.setState({ media: {this.state.lists[0].name: this.state.media} })
   }
 
   getMediaData() {
