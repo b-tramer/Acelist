@@ -24,3 +24,8 @@ List.create(name: "Inspiring Movies", rank: 3, user: rileytramer, media: lion)
 List.create(name: "Inspiring Movies", rank: 4, user: rileytramer, media: the_intouchables)
 
 List.create(name: "Inspiring Movies", rank: 5, user: rileytramer, media: good_will_hunting)
+
+
+
+
+User.create(first_name: "Bradley", last_name: "Tramer", username: "btramer", provider: "Facebook")

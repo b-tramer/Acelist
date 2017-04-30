@@ -8,7 +8,8 @@ class ProfileContainer extends Component{
     this.state = {
       user: {},
       lists: [],
-      media: []
+      media: [],
+      media_media: []
     }
     this.formatListJson = this.formatListJson.bind(this)
   }
@@ -22,6 +23,8 @@ class ProfileContainer extends Component{
     fetch(`/api/v1/users`, { credentials: 'same-origin' })
       .then(response => response.json())
       .then(responseData => {
+        console.log("array of arrays")
+        console.log(responseData.media)
         this.setState({
           user: responseData.user,
           lists: responseData.lists,
@@ -31,27 +34,44 @@ class ProfileContainer extends Component{
   }
 
   formatListJson() {
-    this.setState({ media: this.state.media })
+    var jsonStr = '{"theTeam":[{"teamId":"1","status":"pending"},{"teamId":"2","status":"member"},{"teamId":"3","status":"member"}]}';
+
+    var obj = JSON.parse(jsonStr);
+    obj['theTeam'].push({"teamId":"4","status":"pending"});
+    jsonStr = JSON.stringify(obj);
+    this.setState({ media: { animate: this.state.media } })
   }
 
   getMediaData() {
     fetch(`/api/v1/media`)
       .then(response => response.json())
       .then(responseData => {
-        this.setState({ media: responseData })
+        console.log("array of objects")
+        console.log(responseData)
+        this.setState({ media_media: responseData })
     });
   }
+
   render() {
+    let user_media = this.state.lists.map((list) => {
+      return(
+        <p> {list.name} </p>
+      )
+
+    })
 
     return(
       <div>
         <center>
+
           <h2> {this.state.user.name} </h2>
           {user_media}
         </center>
+
         <AllMedia
           media = {this.state.media}
         />
+
       </div>
 
     )

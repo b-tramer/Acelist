@@ -7,10 +7,14 @@ class CrudContainer extends React.Component {
     super(props);
     this.state = {
       title: '',
-      media: []
+      media: [],
+      listName: '',
+      current_user: {}
     }
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleListNameChange = this.handleListNameChange.bind(this);
+    this.handleListNameSubmit = this.handleListNameSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -22,10 +26,10 @@ class CrudContainer extends React.Component {
   }
 
   getData() {
-    fetch(`/api/v1/media`)
+    fetch(`/api/v1/media`, { credentials: 'same-origin' })
       .then(response => response.json())
       .then(responseData => {
-        this.setState({ media: responseData })
+        this.setState({ media: responseData.media, current_user: responseData.user })
     });
   }
 
@@ -67,14 +71,48 @@ class CrudContainer extends React.Component {
     console.log(searchPayload)
     fetch("/api/v1/media", {
       method: "POST",
-      credentials: 'include',
+      credentials: 'same-origin',
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(searchPayload)
     })
   }
 
+  // var jsonStr = '{"theTeam":[]}';
+  //
+  // var obj = JSON.parse(jsonStr);
+  // obj['theTeam'].push({"teamId":"4","status":"pending"});
+  // jsonStr = JSON.stringify(obj);
+  //
+  // structureListJson() {
+  //   let json = `{${this.state.listName}:${this.state.media}}`
+  //   console.log(jsonList)
+  // }
+
+  handleListNameSubmit(event) {
+    event.preventDefault()
+    let jsonPayload = {
+      name: this.state.listName,
+      user_id: this.state.current_user.id,
+      media_attributes: this.state.media
+    }
+  this.sendListName({list: jsonPayload})
+  }
+
+  sendListName(jsonPayload) {
+    fetch("/api/v1/lists", {
+      method: "POST",
+      credentials: 'same-origin',
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(jsonPayload)
+    })
+  }
+
   handleTitleChange(event) {
     this.setState({ title: event.target.value })
+  }
+
+  handleListNameChange(event) {
+    this.setState({ listName: event.target.value })
   }
 
   render() {
@@ -85,9 +123,13 @@ class CrudContainer extends React.Component {
         </div>
 
           <SearchBox
-            value = {this.state.title}
-            handlerFunction = {this.handleTitleChange}
-            handleSubmit = {this.handleSubmit}
+            mediaValue = {this.state.title}
+            handleTitleChange = {this.handleTitleChange}
+            handleTitleSubmit = {this.handleSubmit}
+
+            listNameValue = {this.state.listName}
+            handleListNameChange = {this.handleListNameChange}
+            handleListNameSubmit = {this.handleListNameSubmit}
           />
 
           <AllMedia

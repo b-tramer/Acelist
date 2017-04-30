@@ -1,6 +1,10 @@
 class List < ActiveRecord::Base
-  validates :name, presence: true
 
-  belongs_to :user
-  belongs_to :media
+  has_many :media
+  accepts_nested_attributes_for :media
+  def media_attributes=(attributes)
+    self.media << attributes.map {|item| Media.find(item[:id]) }
+    super
+  end
+
 end
