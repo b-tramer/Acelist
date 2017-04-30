@@ -9,20 +9,18 @@ class CrudContainer extends React.Component {
       title: '',
       media: [],
       listName: '',
-      current_user: {}
+      current_user: {},
+      list: {}
     }
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleListNameChange = this.handleListNameChange.bind(this);
     this.handleListNameSubmit = this.handleListNameSubmit.bind(this);
+    this.listPayload = this.listPayload.bind(this);
   }
 
   componentDidMount() {
     this.getData()
-  }
-
-  componentWillReceiveProps() {
-    this.sendSearchPayload()
   }
 
   getData() {
@@ -31,6 +29,35 @@ class CrudContainer extends React.Component {
       .then(responseData => {
         this.setState({ media: responseData.media, current_user: responseData.user })
     });
+  }
+
+  handleListNameSubmit(event) {
+    event.preventDefault()
+    // let jsonPayload = {
+    //   name: this.state.listName,
+    //   user_id: this.state.current_user.id,
+    //   media_attributes: this.state.media
+    // }
+    // this.sendListName({list: jsonPayload})
+  }
+
+  sendListName(jsonPayload) {
+    fetch("/api/v1/lists", {
+      method: "POST",
+      credentials: 'same-origin',
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(jsonPayload)
+    })
+    .then(response => response.json())
+    .then(responseData => {
+      this.setState({ list: responseData })
+    });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    let url = `https://api.themoviedb.org/3/search/multi?api_key=4ce5312dd9fd3f292ee4e7597f92342c&language=en-US&page=1&include_adult=false&query==${this.state.title}`
+    this.fetchAPI(url)
   }
 
   fetchAPI(url) {
@@ -50,10 +77,8 @@ class CrudContainer extends React.Component {
     .catch((err) => console.log('oh no!') )
     }
 
-  handleSubmit(event) {
-    event.preventDefault();
-    let url = `https://api.themoviedb.org/3/search/multi?api_key=4ce5312dd9fd3f292ee4e7597f92342c&language=en-US&page=1&include_adult=false&query==${this.state.title}`
-    this.fetchAPI(url)
+  componentWillReceiveProps() {
+    this.sendSearchPayload()
   }
 
   sendSearchPayload() {
@@ -65,6 +90,12 @@ class CrudContainer extends React.Component {
       release_date: this.state.release_date
     }
     this.sendSearch(searchPayload)
+    let jsonPayload = {
+      name: this.state.listName,
+      user_id: this.state.current_user.id,
+      media_attributes: this.state.media
+    }
+    this.sendListName({list: jsonPayload})
   }
 
   sendSearch(searchPayload) {
@@ -77,33 +108,13 @@ class CrudContainer extends React.Component {
     })
   }
 
-  // var jsonStr = '{"theTeam":[]}';
-  //
-  // var obj = JSON.parse(jsonStr);
-  // obj['theTeam'].push({"teamId":"4","status":"pending"});
-  // jsonStr = JSON.stringify(obj);
-  //
-  // structureListJson() {
-  //   let json = `{${this.state.listName}:${this.state.media}}`
-  //   console.log(jsonList)
-  // }
-
-  handleListNameSubmit(event) {
-    event.preventDefault()
-    let jsonPayload = {
-      name: this.state.listName,
-      user_id: this.state.current_user.id,
-      media_attributes: this.state.media
-    }
-  this.sendListName({list: jsonPayload})
-  }
-
-  sendListName(jsonPayload) {
-    fetch("/api/v1/lists", {
-      method: "POST",
+  sendNewTitle(newPayload) {
+    console.log(newPayload)
+    fetch(`/api/v1/lists/14`, {
+      method: "PATCH",
       credentials: 'same-origin',
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(jsonPayload)
+      body: JSON.stringify(newPayload)
     })
   }
 
