@@ -6,11 +6,19 @@ class List < ActiveRecord::Base
   def media_attributes=(attributes)
     attributes.each do |item|
       if item[:data_id].nil?
-        self.media << attributes.map { |item| Media.where(data_id: item[:id]) }
+        self.media << Media.where(data_id: item[:id])
       else
-        self.media << attributes.map { |item| Media.find(item[:id]) }
+        self.media << Media.find(item[:id])
       end
     end
   end
-  
+
+  # def update_attributes=(attributes)
+  #   attributes.each do |item|
+  #     if Media.find_by(title: item[:title]).nil?
+  #
+  #     end
+  #   end
+  # end
+
 end
