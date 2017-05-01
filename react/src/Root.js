@@ -21,6 +21,7 @@ class App extends Component {
           <Route path='users' component={ProfileContainer} />
           <Route path='media' component={CrudContainer} />
           <Route path='media/:id' component={CrudContainer} />
+          <Route path='media/:id/edit' component={CrudContainer} />
         </Route>
       </Router>
     )

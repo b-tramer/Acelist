@@ -9,14 +9,11 @@ class ProfileContainer extends Component{
       user: {},
       lists: [],
       media: [],
-      media_media: []
     }
-    this.formatListJson = this.formatListJson.bind(this)
   }
 
   componentDidMount() {
     this.getUserData();
-    this.getMediaData();
   }
 
   getUserData() {
@@ -24,31 +21,12 @@ class ProfileContainer extends Component{
       .then(response => response.json())
       .then(responseData => {
         console.log("array of arrays")
-        console.log(responseData.media)
+        console.log(responseData)
         this.setState({
           user: responseData.user,
           lists: responseData.lists,
           media: responseData.media
         })
-    });
-  }
-
-  formatListJson() {
-    var jsonStr = '{"theTeam":[{"teamId":"1","status":"pending"},{"teamId":"2","status":"member"},{"teamId":"3","status":"member"}]}';
-
-    var obj = JSON.parse(jsonStr);
-    obj['theTeam'].push({"teamId":"4","status":"pending"});
-    jsonStr = JSON.stringify(obj);
-    this.setState({ media: { animate: this.state.media } })
-  }
-
-  getMediaData() {
-    fetch(`/api/v1/media`)
-      .then(response => response.json())
-      .then(responseData => {
-        console.log("array of objects")
-        console.log(responseData)
-        this.setState({ media_media: responseData })
     });
   }
 
