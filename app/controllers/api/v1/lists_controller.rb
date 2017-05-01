@@ -13,8 +13,18 @@ class Api::V1::ListsController < ApplicationController
   end
 
   def create
-    binding.pry
-    @list = List.create(list_params)
+    if List.find_by(name: params[:list][:name]).nil?
+      @list = List.create(list_params)
+      render json: @list
+    else
+      update
+    end
+  end
+
+  def update
+    @list = List.find_by(name: params[:list][:name])
+    newList = List.new(list_params)
+    @list.media.replace(newList.media)
     render json: @list
   end
 
