@@ -13,18 +13,8 @@ class Api::V1::ListsController < ApplicationController
   end
 
   def create
+    binding.pry
     @list = List.create(list_params)
-    render json: @list
-  end
-
-  def edit
-    @site = Site.find(params[:id])
-    render :update
-  end
-
-  def update
-    @list = List.find(14)
-    @list.update(update_params)
     render json: @list
   end
 
@@ -33,13 +23,8 @@ class Api::V1::ListsController < ApplicationController
   def list_params
     params.require(:list).permit(
     :name, :user_id,
-    media_attributes: [ :id, :title, :data_id, :overview, :poster_path, :release_date, :created_at, :updated_at ]
+    media_attributes: [ :id, :title, :data_id, :overview, :poster_path, :release_date, :created_at, :updated_at, :list_id ]
     )
   end
 
-  def update_params
-    params.require(:list).permit(
-    media_attributes: [ :id, :title, :data_id, :overview, :poster_path, :release_date, :created_at, :updated_at ]
-    )
-  end
 end

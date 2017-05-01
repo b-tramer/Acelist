@@ -16,7 +16,6 @@ class CrudContainer extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleListNameChange = this.handleListNameChange.bind(this);
     this.handleListNameSubmit = this.handleListNameSubmit.bind(this);
-    this.listPayload = this.listPayload.bind(this);
   }
 
   componentDidMount() {
@@ -33,25 +32,22 @@ class CrudContainer extends React.Component {
 
   handleListNameSubmit(event) {
     event.preventDefault()
-    // let jsonPayload = {
-    //   name: this.state.listName,
-    //   user_id: this.state.current_user.id,
-    //   media_attributes: this.state.media
-    // }
-    // this.sendListName({list: jsonPayload})
+    let jsonPayload = {
+      name: this.state.listName,
+      user_id: this.state.current_user.id,
+      media_attributes: this.state.media
+    }
+    this.sendList({list: jsonPayload})
   }
 
-  sendListName(jsonPayload) {
+  sendList(jsonPayload) {
+    console.log(jsonPayload)
     fetch("/api/v1/lists", {
       method: "POST",
       credentials: 'same-origin',
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(jsonPayload)
     })
-    .then(response => response.json())
-    .then(responseData => {
-      this.setState({ list: responseData })
-    });
   }
 
   handleSubmit(event) {
@@ -90,12 +86,6 @@ class CrudContainer extends React.Component {
       release_date: this.state.release_date
     }
     this.sendSearch(searchPayload)
-    let jsonPayload = {
-      name: this.state.listName,
-      user_id: this.state.current_user.id,
-      media_attributes: this.state.media
-    }
-    this.sendListName({list: jsonPayload})
   }
 
   sendSearch(searchPayload) {
