@@ -13,12 +13,4 @@ class List < ActiveRecord::Base
     end
   end
 
-  # def update_attributes=(attributes)
-  #   attributes.each do |item|
-  #     if Media.find_by(title: item[:title]).nil?
-  #
-  #     end
-  #   end
-  # end
-
 end

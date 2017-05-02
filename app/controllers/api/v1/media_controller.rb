@@ -29,20 +29,3 @@ class Api::V1::MediaController < ApplicationController
     params.permit(:title, :data_id, :overview, :poster_path, :release_date)
   end
 end
-
-
-# def media_attributes=(attributes)
-#   self.media << attributes.map { |item| Media.where(title: item[:title], data_id: item[:id], overview: item[:overview], poster_path: item[:poster_path], release_date: item[:release_date], created_at: item[:created_at], updated_at: item[:updated_at]).first_or_create }
-#   super
-# end
-#
-#
-# def media_attributes=(attributes)
-#   binding.pry
-#   if Media.find(attributes.last['id'])
-#     self.media << attributes.map { |item| Media.find(item[:id]) }
-#   else
-#     self.media << attributes.map { |item| Media.where(title: item[:title], data_id: item[:id], overview: item[:overview], poster_path: item[:poster_path], release_date: item[:release_date], created_at: item[:created_at], updated_at: item[:updated_at]).first_or_create }
-#   end
-#   super
-# end

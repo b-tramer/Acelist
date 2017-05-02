@@ -10,7 +10,7 @@ class SearchBox extends Component {
 
           <label id="search-label">
             <input onChange={this.props.handleListNameChange} type="text" placeholder="Name Your List..." id="media-input-box" value={this.props.listNameValue} />
-            <input type="submit" value="Create" id="media-search-button"/>
+            <input type="submit" value="Create" id="media-search-button" onClick={this.props.listNameSubmit}/>
           </label>
 
           <label id="search-label">
@@ -19,7 +19,7 @@ class SearchBox extends Component {
           </label>
 
           <label id="search-label">
-            <input onClick={this.props.handleListNameSubmit} type="submit" value="Save" id="media-save-button"/>
+            <input onClick={this.props.handleListSubmit} type="submit" value="Save" id="media-save-button"/>
           </label>
 
         </form>
