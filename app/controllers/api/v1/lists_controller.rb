@@ -14,7 +14,9 @@ class Api::V1::ListsController < ApplicationController
 
   def create
     if List.find_by(name: params[:list][:name]).nil?
-      @list = List.create(list_params)
+      @list = List.new(list_params)
+      @list.name = @list.name.titleize
+      @list.save!
       render json: @list
     else
       update

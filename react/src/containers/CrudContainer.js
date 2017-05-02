@@ -10,12 +10,14 @@ class CrudContainer extends React.Component {
       media: [],
       listName: '',
       current_user: {},
-      list: {}
+      list: {},
+      title_save_show: false
     }
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleListNameChange = this.handleListNameChange.bind(this);
-    this.handleListNameSubmit = this.handleListNameSubmit.bind(this);
+    this.handleListSubmit = this.handleListSubmit.bind(this);
+    this.listName = this.listName.bind(this);
   }
 
   componentDidMount() {
@@ -30,7 +32,7 @@ class CrudContainer extends React.Component {
     });
   }
 
-  handleListNameSubmit(event) {
+  handleListSubmit(event) {
     event.preventDefault()
     let jsonPayload = {
       name: this.state.listName,
@@ -116,7 +118,22 @@ class CrudContainer extends React.Component {
     this.setState({ listName: event.target.value })
   }
 
+  listName(event) {
+    event.preventDefault();
+    if (this.state.title_save_show === false) {
+      this.setState({ title_save_show: true })
+    } else {
+      this.setState({ title_save_show: false })
+    }
+  }
+
   render() {
+    let titleSaveClassName;
+    if (this.state.title_save_show === false ) {
+      titleSaveClassName = "hidden"
+    } else {
+      titleSaveClassName = "show"
+    }
     return(
       <div className="about">
         <div className="search-component">
@@ -130,7 +147,10 @@ class CrudContainer extends React.Component {
 
             listNameValue = {this.state.listName}
             handleListNameChange = {this.handleListNameChange}
-            handleListNameSubmit = {this.handleListNameSubmit}
+            handleListSubmit = {this.handleListSubmit}
+            listNameSubmit = {this.listName}
+            titleSaveClassName = {titleSaveClassName}
+            listName = {this.state.listName}
           />
 
           <AllMedia

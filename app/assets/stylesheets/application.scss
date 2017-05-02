@@ -6,6 +6,10 @@
 
 /* NAVIGATION BAR STYLING */
 
+button:focus {
+  outline:0;
+}
+
 .top-bar  {
   overflow: hidden;
   top: 0;
@@ -214,9 +218,10 @@
 /*FOOTER STYLING */
 
 .footer {
+  display: none;
   overflow: hidden;
   width:  100%;
-  position: absolute;
+  position: relative;
   text-align: center;
   background-color: #47677a;
   margin-bottom: 0px;
@@ -616,6 +621,12 @@
   height: 55px;
   text-transform: capitalize;
 }
+
+#media-input-box:second-child {
+  margin-bottom: 100px;
+}
+
+
 #media-search-button {
   border: 1px solid black;
   background-color: white;
@@ -705,4 +716,25 @@
   margin-top: 10px;
   margin-right: 0px;
   margin-left: 0px;
+}
+
+// PROFILE STYLING
+
+#profile-main-div {
+  margin-top: 30px;
+}
+
+// LIST STYLING
+
+#list-button {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  width: 30%;
+  padding: 15px 25px;
+  border: 1px solid black;
+  font-size: 20px;
+}
+
+#list-button:hover {
+  background-color: #e6e6e6;
 }
