@@ -9,15 +9,12 @@ class CrudContainer extends React.Component {
       title: '',
       media: [],
       listName: '',
-      current_user: {},
-      list: {},
-      title_save_show: false
+      current_user: {}
     }
-    this.handleTitleChange = this.handleTitleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleListNameChange = this.handleListNameChange.bind(this);
-    this.handleListSubmit = this.handleListSubmit.bind(this);
-    this.listName = this.listName.bind(this);
+    // this.handleTitleChange = this.handleTitleChange.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleListNameChange = this.handleListNameChange.bind(this);
+    // this.handleListSubmit = this.handleListSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -32,130 +29,73 @@ class CrudContainer extends React.Component {
     });
   }
 
-  handleListSubmit(event) {
-    event.preventDefault()
-    let jsonPayload = {
-      name: this.state.listName,
-      user_id: this.state.current_user.id,
-      media_attributes: this.state.media
-    }
-    this.sendList({list: jsonPayload})
-  }
+  // handleSubmit(event) {
+  //   event.preventDefault();
+  //   let url = `https://api.themoviedb.org/3/search/multi?api_key=4ce5312dd9fd3f292ee4e7597f92342c&language=en-US&page=1&include_adult=false&query==${this.state.title}`
+  //   this.fetchAPI(url)
+  // }
 
-  sendList(jsonPayload) {
-    console.log(jsonPayload)
-    fetch("/api/v1/lists", {
-      method: "POST",
-      credentials: 'same-origin',
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(jsonPayload)
-    })
-  }
-
-  handleSubmit(event) {
-    event.preventDefault();
-    let url = `https://api.themoviedb.org/3/search/multi?api_key=4ce5312dd9fd3f292ee4e7597f92342c&language=en-US&page=1&include_adult=false&query==${this.state.title}`
-    this.fetchAPI(url)
-  }
-
-  fetchAPI(url) {
-    fetch(url)
-    .then(response => response.json())
-    .then(data =>
-      this.setState({
-        media: [...this.state.media, data.results[0]],
-        id: data.results[0].id,
-        send_title: data.results[0].title,
-        overview: data.results[0].overview,
-        poster_path: data.results[0].poster_path,
-        release_date: data.results[0].release_date,
-        media_type: data.results[0].media_type
-       }))
-    .then(responseData => this.componentWillReceiveProps(responseData))
-    .catch((err) => console.log('oh no!') )
-    }
+  // fetchAPI(url) {
+  //   fetch(url)
+  //   .then(response => response.json())
+  //   .then(data =>
+  //     this.setState({
+  //       media: [...this.state.media, data.results[0]],
+  //       id: data.results[0].id,
+  //       send_title: data.results[0].title,
+  //       overview: data.results[0].overview,
+  //       poster_path: data.results[0].poster_path,
+  //       release_date: data.results[0].release_date,
+  //       media_type: data.results[0].media_type
+  //      }))
+  //   .then(responseData => this.componentWillReceiveProps(responseData))
+  //   .catch((err) => console.log('oh no!') )
+  //   }
 
   componentWillReceiveProps() {
     this.sendSearchPayload()
   }
 
-  sendSearchPayload() {
-    let searchPayload = {
-      title: this.state.send_title,
-      data_id: this.state.id,
-      overview: this.state.overview,
-      poster_path: this.state.poster_path,
-      release_date: this.state.release_date
-    }
-    this.sendSearch(searchPayload)
-  }
+  // sendSearchPayload() {
+  //   let searchPayload = {
+  //     title: this.state.send_title,
+  //     data_id: this.state.id,
+  //     overview: this.state.overview,
+  //     poster_path: this.state.poster_path,
+  //     release_date: this.state.release_date
+  //   }
+  //   this.sendSearch(searchPayload)
+  // }
 
-  sendSearch(searchPayload) {
-    console.log(searchPayload)
-    fetch("/api/v1/media", {
-      method: "POST",
-      credentials: 'same-origin',
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(searchPayload)
-    })
-  }
+  // sendSearch(searchPayload) {
+  //   console.log(searchPayload)
+  //   fetch("/api/v1/media", {
+  //     method: "POST",
+  //     credentials: 'same-origin',
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify(searchPayload)
+  //   })
+  // }
 
-  sendNewTitle(newPayload) {
-    console.log(newPayload)
-    fetch(`/api/v1/lists/14`, {
-      method: "PATCH",
-      credentials: 'same-origin',
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newPayload)
-    })
-  }
-
-  handleTitleChange(event) {
-    this.setState({ title: event.target.value })
-  }
-
-  handleListNameChange(event) {
-    this.setState({ listName: event.target.value })
-  }
-
-  listName(event) {
-    event.preventDefault();
-    if (this.state.title_save_show === false) {
-      this.setState({ title_save_show: true })
-    } else {
-      this.setState({ title_save_show: false })
-    }
-  }
+  // handleTitleChange(event) {
+  //   this.setState({ title: event.target.value })
+  // }
 
   render() {
-    let titleSaveClassName;
-    if (this.state.title_save_show === false ) {
-      titleSaveClassName = "hidden"
-    } else {
-      titleSaveClassName = "show"
-    }
     return(
       <div className="about">
         <div className="search-component">
           <center> <h2> Search For A Title </h2> </center>
         </div>
 
-          <SearchBox
-            mediaValue = {this.state.title}
+          <AllMedia
+            // mediaValue = {this.state.title}
             handleTitleChange = {this.handleTitleChange}
             handleTitleSubmit = {this.handleSubmit}
 
-            listNameValue = {this.state.listName}
-            handleListNameChange = {this.handleListNameChange}
-            handleListSubmit = {this.handleListSubmit}
-            listNameSubmit = {this.listName}
-            titleSaveClassName = {titleSaveClassName}
-            listName = {this.state.listName}
-          />
-
-          <AllMedia
             media = {this.state.media}
           />
+
       </div>
     )
   }

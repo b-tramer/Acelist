@@ -20,9 +20,6 @@ class Api::V1::MediaController < ApplicationController
     render json: @media
   end
 
-  def update
-  end
-
   private
 
   def media_params
