@@ -8,6 +8,7 @@ class AllMedia extends React.Component {
     this.state = {}
   }
 
+
   render() {
     let media = this.props.media.map((media) => {
       return (
@@ -19,6 +20,7 @@ class AllMedia extends React.Component {
           poster_path = {media.poster_path}
           release_date = {media.release_date}
           media_type = {media.media_type}
+          handleDeleteMedia = {this.props.handleDeleteMedia}
         />
       )
     })
@@ -36,6 +38,7 @@ class AllMedia extends React.Component {
             handleListSubmit = {this.props.handleListSubmit}
             listName = {this.props.listName}
             showCreateClass = {this.props.showCreateClass}
+            listNameSubmit = {this.props.listNameSubmit}
           />
         </div>
         {media}

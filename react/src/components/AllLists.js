@@ -19,7 +19,7 @@ class AllLists extends Component {
       )
     })
     return(
-      <div className="about">
+      <div>
         {newList}
         <div>
           <h4> <button type="button" id='create-button' onClick={this.props.handleCreate}>+ Create A New List</button> </h4>

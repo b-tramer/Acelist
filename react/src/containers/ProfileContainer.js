@@ -4,6 +4,7 @@ import AllMedia from '../components/AllMedia';
 import AllLists from '../components/AllLists';
 import ListCard from '../components/ListCard';
 import SearchBox from '../components/SearchBox';
+import UserInfo from '../components/UserInfo';
 
 class ProfileContainer extends Component{
   constructor(props){
@@ -19,12 +20,13 @@ class ProfileContainer extends Component{
       showCreate: false
     }
     this.handleClick = this.handleClick.bind(this)
-    this.checkIfHasListId = this.checkIfHasListId.bind(this)
     this.handleTitleChange = this.handleTitleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleListSubmit = this.handleListSubmit.bind(this)
     this.handleListNameChange = this.handleListNameChange.bind(this)
     this.handleCreate = this.handleCreate.bind(this)
+    this.listNameSubmit = this.listNameSubmit.bind(this)
+    this.handleDeleteMedia = this.handleDeleteMedia.bind(this)
   }
 
   // bound to 'search' for media in SearchBox
@@ -129,31 +131,21 @@ class ProfileContainer extends Component{
     .then(response => response.json())
     .then(data =>
       this.setState({
-        lists: [...this.state.lists, data.list]
+        lists: [...this.state.lists, data]
        }))
   }
 
-  // when a list name is clicked, it sets the state of 'selectedId' to the list's id
+  // when a list name is clicked, it sets the state of 'selectedId' to the list's id. Then filters out all matching media and put into new array
   handleClick(id, name) {
     if (id !== this.state.selectedId) {
-      this.setState({ selectedId: id, listName: name })
-    } else {
-      this.setState({ selectedId: 0 })
+      let media = this.state.media
+      let currentMediaArray = media.filter((item) => {
+        return item.list_id === id
+      })
+      this.setState({ selectedId: id, listName: name, currentMedia: currentMediaArray })
+    } else if (id === this.state.selectedId) {
+      this.setState({ selectedId: 0, listName: '', currentMedia: [] })
     }
-  }
-
-  componentWillUpdate() {
-    this.checkIfHasListId()
-  }
-
-  // once clicked, filter out all matching media and put into new array
-  checkIfHasListId() {
-    let media = this.state.media
-    let id = this.state.selectedId
-    let currentMediaArray = media.filter((item) => {
-      return item.list_id === id
-    })
-    this.setState({ currentMedia: currentMediaArray })
   }
 
   // bound to 'create new list' button in AllLists, displays create input on click
@@ -165,6 +157,32 @@ class ProfileContainer extends Component{
     }
   }
 
+  // bound to create button, prevents page reload
+  listNameSubmit(e) {
+    e.preventDefault()
+  }
+
+  // bound to delete button on MediaCard, takes in an argument of media id, sent to media api controller - destroy
+  handleDeleteMedia(id) {
+    let mediaId = id
+    fetch(`/api/v1/media/${mediaId}`, {
+      credentials: "same-origin",
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" }
+    })
+    .then(response => response.json())
+    .then(data => this.removeMediaFromPage(id))
+  }
+
+  // called from handleDeleteMedia, dynamically deletes selected item from page
+  removeMediaFromPage(id) {
+    let currentMedia = this.state.currentMedia
+    let newMediaArray = currentMedia.filter((item) => {
+      return item.id !== id
+    })
+    this.setState({ currentMedia: newMediaArray })
+  }
+
   render() {
     let showCreateClass;
     if (this.state.showCreate === false) {
@@ -173,15 +191,15 @@ class ProfileContainer extends Component{
       showCreateClass = 'show'
     }
     return(
-      <div className="column row" id="profile-main-div">
-        <h3> {this.state.current_user.name}’s Lists </h3>
-
-        <div className="row">
-          <div className="large-1 columns">
-            <AllLists lists = {this.state.lists} handleClick = {this.handleClick} handleCreate = {this.handleCreate} />
+      <div  id="profile-main-div">
+          <UserInfo
+            user = {this.state.current_user}
+          />
+          <div className="row">
+            <div className="large-4 columns">
+              <AllLists lists = {this.state.lists} handleClick = {this.handleClick} handleCreate = {this.handleCreate} />
           </div>
-
-          <div className="large-8 large-offset-3 columns">
+          <div className="large-8 large-offset-3 columns" id="offset-column">
             <AllMedia
               mediaValue = {this.state.mediaValue}
               handleTitleChange = {this.handleTitleChange}
@@ -191,7 +209,9 @@ class ProfileContainer extends Component{
               listName = {this.state.listName}
               handleListSubmit = {this.handleListSubmit}
               handleListNameChange = {this.handleListNameChange}
+              listNameSubmit = {this.listNameSubmit}
 
+              handleDeleteMedia = {this.handleDeleteMedia}
               showCreateClass = {showCreateClass}
               media = {this.state.currentMedia}
             />
