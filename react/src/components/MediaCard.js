@@ -17,20 +17,18 @@ class MediaCard extends Component {
 
     return(
 
-      <div className="column row">
-
-          <div className="row" id="movie-row">
-            <div className="small-12 large-2 columns">
-              <img src={poster} height="150" width="150"/>
-            </div>
-
-            <div className="small-12 large-10 columns" id="movie-info">
-              <h1> {this.props.title} </h1>
-              <h5> Release Date: {this.props.release_date} </h5>
-              <p> {this.props.overview} </p>
-            </div>
+      <div>
+        <div className="row" id="movie-row">
+          <div className="small-12 large-3 columns">
+            <img src={poster} height="150" width="150"/>
           </div>
 
+          <div className="small-12 large-9 columns" id="movie-info">
+            <h2> {this.props.title} </h2>
+            <h5> Release Date: {this.props.release_date} </h5>
+            <p> {this.props.overview} </p>
+          </div>
+        </div>
       </div>
 
 

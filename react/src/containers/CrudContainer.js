@@ -52,9 +52,9 @@ class CrudContainer extends React.Component {
   //   .catch((err) => console.log('oh no!') )
   //   }
 
-  componentWillReceiveProps() {
-    this.sendSearchPayload()
-  }
+  // componentWillReceiveProps() {
+  //   this.sendSearchPayload()
+  // }
 
   // sendSearchPayload() {
   //   let searchPayload = {

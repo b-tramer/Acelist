@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 class SearchBox extends Component {
   render() {
     return (
-      <div className="column row">
+      <div className="search">
 
         <form className="searchbox">
 
@@ -15,7 +15,7 @@ class SearchBox extends Component {
 
           <label id="search-label">
             <input onChange={this.props.handleTitleChange} type="text" placeholder="Search Movies & Shows..." id="media-input-box" value={this.props.mediaValue} />
-            <input onClick={this.props.handleTitleSubmit} type="submit" value="Search" id="media-search-button"/>
+            <input onClick={this.props.handleTitleSubmit} type="submit" value="Add" id="media-search-button"/>
           </label>
 
           <label id="search-label">

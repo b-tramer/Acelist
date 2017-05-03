@@ -25,16 +25,18 @@ class AllMedia extends React.Component {
 
     return(
       <div className="about">
-        <SearchBox
-          mediaValue = {this.props.mediaValue}
-          handleTitleChange = {this.props.handleTitleChange}
-          handleTitleSubmit = {this.props.handleTitleSubmit}
+        <div id="search-box-all">
+          <SearchBox
+            mediaValue = {this.props.mediaValue}
+            handleTitleChange = {this.props.handleTitleChange}
+            handleTitleSubmit = {this.props.handleTitleSubmit}
 
-          listNameValue = {this.props.listNameValue}
-          handleListNameChange = {this.props.handleListNameChange}
-          handleListSubmit = {this.props.handleListSubmit}
-          listName = {this.props.listName}
-        />
+            listNameValue = {this.props.listNameValue}
+            handleListNameChange = {this.props.handleListNameChange}
+            handleListSubmit = {this.props.handleListSubmit}
+            listName = {this.props.listName}
+          />
+        </div>
         {media}
       </div>
     )

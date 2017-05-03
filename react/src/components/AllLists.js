@@ -21,6 +21,9 @@ class AllLists extends Component {
     return(
       <div className="about">
         {newList}
+        <div>
+          <h4> <button type="button" id='create-button'>+ Create A New List</button> </h4>
+        </div>
       </div>
     )
   }
