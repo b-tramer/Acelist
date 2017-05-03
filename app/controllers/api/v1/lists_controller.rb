@@ -14,7 +14,6 @@ class Api::V1::ListsController < ApplicationController
 
   def create
     if List.find_by(name: params[:list][:name].titleize).nil?
-      binding.pry
       @list = List.new(list_params)
       @list.name = @list.name.titleize
       @list.save
