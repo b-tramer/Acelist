@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 class UserInfo extends Component {
 
   render() {
+    // <h3> {this.props.user.name} </h3>
 
     return(
       <div className="profile-container">
@@ -15,7 +16,6 @@ class UserInfo extends Component {
           </div>
 
           <div className="large-8 large-offset-3 columns" id="user-name">
-          <h3> {this.props.user.name} </h3>
           </div>
         </div>
 

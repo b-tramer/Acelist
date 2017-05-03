@@ -19,7 +19,7 @@ class MediaCard extends Component {
 
     return(
       <div>
-      <span> <button id='delete-media-button' type="button" onClick={() => this.props.handleDeleteMedia(id)}><img src="./delete-media-button-grey2.svg" height="20" width="20"/></button> </span>
+      <span> <button id='delete-media-button' type="button" onClick={() => this.props.handleDeleteMedia(id)}><img src="./delete-media-x.svg" height="20" width="20"/></button> </span>
         <div className="row" id="movie-row">
           <div className="small-12 large-3 columns">
             <img src={poster} height="150" width="150"/>
