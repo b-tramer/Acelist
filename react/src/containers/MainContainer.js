@@ -93,6 +93,7 @@ class MainContainer extends Component{
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(searchPayload)
     })
+    .then(this.setState({ title: '' }))
   }
 
   // start of list functions

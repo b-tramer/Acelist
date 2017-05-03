@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import ProfileContainer from './ProfileContainer'
+import MainContainer from './MainContainer'
 
 class HeroContainer extends Component{
   constructor(props){
@@ -20,7 +20,7 @@ class HeroContainer extends Component{
           </div>
         </div>
 
-        <ProfileContainer />
+        <MainContainer />
 
 
 
