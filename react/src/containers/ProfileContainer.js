@@ -162,6 +162,7 @@ class ProfileContainer extends Component{
         <div className="row">
           <div className="large-1 columns">
             <AllLists lists = {this.state.lists} handleClick = {this.handleClick} />
+
           </div>
 
           <div className="large-8 large-offset-3 columns">
