@@ -4,7 +4,12 @@ import ReactDOM from 'react-dom';
 class UserInfo extends Component {
 
   render() {
-    let profilePicture = this.props.user.image + "/picture?type=large"
+    let profilePicture;
+    if (this.props.user.image) {
+      profilePicture = this.props.user.image + "/picture?type=large"
+    } else {
+      profilePicture = 'http://gurucul.com/wp-content/uploads/2015/01/default-user-icon-profile.png'
+    }
     return(
       <div className="profile-container">
 
