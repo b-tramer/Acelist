@@ -9,14 +9,27 @@ class AllLists extends Component {
 
   render() {
     let newList = this.props.lists.map((list) => {
-      return (
-        <ListCard
-          key = {list.id}
-          id = {list.id}
-          name = {list.name}
-          handleClick = {this.props.handleClick}
-        />
-      )
+      if (this.props.selectedId === list.id) {
+        return (
+          <ListCard
+            key = {list.id}
+            id = {list.id}
+            name = {list.name}
+            handleClick = {this.props.handleClick}
+            selectedBackgroundId = 'list-button-active'
+          />
+        )
+      } else {
+        return (
+          <ListCard
+            key = {list.id}
+            id = {list.id}
+            name = {list.name}
+            handleClick = {this.props.handleClick}
+            selectedBackgroundId = 'list-button'
+          />
+        )
+      }
     })
     return(
       <div>
