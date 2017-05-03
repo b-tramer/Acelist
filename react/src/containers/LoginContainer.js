@@ -13,7 +13,7 @@ class LoginContainer extends Component{
 
     return(
       <div className="facebook-react-page">
-        <center> <h1> Login With Facebook </h1> </center>
+
       </div>
 
     )

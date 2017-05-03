@@ -324,6 +324,7 @@ button:focus {
 
 /*FORM STYLING */
 
+
 .information {
   background: linear-gradient(45deg, #002f4b 0%, transparent 100%), url("./geo-hero.png") no-repeat center;
   opacity: 0.8;
@@ -687,21 +688,36 @@ button:focus {
 
 // FACEBOOK LOGIN PAGE STYLING
 
+.facebook-login {
+  background: linear-gradient(45deg, #002f4b 0%, transparent 100%), url("./geo-hero.png") no-repeat center;
+  opacity: 0.8;
+  background-size: cover;
+  width: 100%;
+  position: relative;
+  z-index: 0;
+  height: 400px;
+  height: 100%;
+}
+
 .facebook-react-page h1 {
   font-family: 'Ubuntu', sans-serif;
 }
 
-.facebook-react-page {
-  text-align: center;
-  margin-top: 50px;
-  margin-bottom: -20px;
-}
-
 #user-widget {
   font-family: 'Ubuntu', sans-serif;
-  margin-top: 50px;
+  margin-top: 200px;
   text-transform: uppercase;
   letter-spacing: 1px;
+  color: white;
+  font-size: 200%;
+}
+
+#user-widget a{
+  margin-top: 30px;
+  padding: 4px 10px;
+  border: 3px solid white;
+  color: white;
+  font-size: 100%;
 }
 
 .hidden {
