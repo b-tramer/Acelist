@@ -28,7 +28,7 @@ class Navigation extends Component{
           </div>
 
           <div className="small-3 large-1 columns profile" id='menu-profile-div'>
-            <span id='nav-profile-icon'> <Link to='/login'> <img src="./profile-icon.svg" height="36" width="35"/> </Link> </span>
+            <span id='nav-profile-icon'> <Link to='/users'> <img src="./profile-icon.svg" height="36" width="35"/> </Link> </span>
           </div>
         </div>
       </div>
@@ -39,7 +39,7 @@ class Navigation extends Component{
             <li className="list-item"> <Link to='/'>HOME</Link> </li>
             <li className="list-item"> <Link to='/movie'>SEARCH</Link> </li>
             <li className="list-item"> <Link to='/users'>PROFILE</Link> </li>
-            <li className="list-item"> <Link to='/login'>SIGNUP</Link> </li>
+            <li className="list-item"> <a href="/login">LOGIN/SIGNUP</a> </li>
           </ul>
         </div>
       </div>
@@ -62,7 +62,7 @@ class Navigation extends Component{
             </div>
 
             <div className="small-3 large-1 columns profile" id='menu-profile-div'>
-              <span id='nav-profile-icon'> <a href="/login"> <img src="./profile-icon.svg" height="36" width="35"/> </a> </span>
+              <span id='nav-profile-icon'> <Link to='/users'> <img src="./profile-icon.svg" height="36" width="35"/> </Link> </span>
             </div>
           </div>
         </div>
@@ -73,7 +73,7 @@ class Navigation extends Component{
               <li className="list-item"> <Link to='/'>HOME</Link> </li>
               <li className="list-item"> <Link to='/movie'>SEARCH</Link> </li>
               <li className="list-item"> <Link to='/users'>PROFILE</Link> </li>
-              <li className="list-item"> <Link to='/login'>SIGNUP</Link> </li>
+              <li className="list-item"> <a href="/login">LOGIN/SIGNUP</a> </li>
             </ul>
           </div>
         </div>

@@ -17,7 +17,8 @@ class ProfileContainer extends Component{
       selectedId: 0,
       currentMedia: [],
       listName: '',
-      showCreate: false
+      showCreate: false,
+      selectedBackgroundId: 'list-button'
     }
     this.handleClick = this.handleClick.bind(this)
     this.handleTitleChange = this.handleTitleChange.bind(this)
@@ -48,7 +49,9 @@ class ProfileContainer extends Component{
         overview: data.results[0].overview,
         poster_path: data.results[0].poster_path,
         release_date: data.results[0].release_date,
-        media_type: data.results[0].media_type
+        media_type: data.results[0].media_type,
+        original_name: data.results[0].original_name,
+        first_air_date: data.results[0].first_air_date
        }))
     .then(responseData => this.componentWillReceiveProps(responseData))
     .catch((err) => console.log('oh no!') )
@@ -61,14 +64,25 @@ class ProfileContainer extends Component{
 
   // prepares media payload to be sent to media api controller
   sendSearchPayload() {
-    let searchPayload = {
-      title: this.state.send_title,
-      data_id: this.state.id,
-      overview: this.state.overview,
-      poster_path: this.state.poster_path,
-      release_date: this.state.release_date
+    if (this.state.media_type === "movie") {
+      let searchPayload = {
+        title: this.state.send_title,
+        data_id: this.state.id,
+        overview: this.state.overview,
+        poster_path: this.state.poster_path,
+        release_date: this.state.release_date
+      }
+      this.sendSearch(searchPayload)
+    } else {
+      let searchPayload = {
+        title: this.state.original_name,
+        data_id: this.state.id,
+        overview: this.state.overview,
+        poster_path: this.state.poster_path,
+        release_date: this.state.first_air_date
+      }
+      this.sendSearch(searchPayload)
     }
-    this.sendSearch(searchPayload)
   }
 
   // send media search payload to media api controller - create
@@ -197,7 +211,7 @@ class ProfileContainer extends Component{
           />
           <div className="row">
             <div className="large-4 columns">
-              <AllLists lists = {this.state.lists} handleClick = {this.handleClick} handleCreate = {this.handleCreate} />
+              <AllLists lists = {this.state.lists} handleClick = {this.handleClick} handleCreate = {this.handleCreate} selectedBackgroundId = {this.state.selectedBackgroundId} selectedId = {this.state.selectedId}/>
           </div>
           <div className="large-8 large-offset-3 columns" id="offset-column">
             <AllMedia
