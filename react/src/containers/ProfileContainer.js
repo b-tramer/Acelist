@@ -118,22 +118,29 @@ class ProfileContainer extends Component{
 
   // send the list name, user id, and media attributes to the list api controller
   sendList(jsonPayload) {
-    console.log(jsonPayload)
     fetch("/api/v1/lists", {
       method: "POST",
       credentials: 'same-origin',
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(jsonPayload)
     })
+    .then(response => response.json())
+    .then(data =>
+      this.setState({
+        lists: [...this.state.lists, data.list]
+       }))
   }
 
   // when a list name is clicked, it sets the state of 'selectedId' to the list's id
-  handleClick(id) {
-    if (id != this.state.selectedId ) {
-      this.setState({ selectedId: id })
+  handleClick(id, name) {
+    if ( id !== this.state.selectedId ) {
+      this.setState({ selectedId: id, listName: name })
     } else {
       this.setState({ selectedId: 0 })
     }
+  }
+
+  componentWillUpdate() {
     this.checkIfHasListId()
   }
 
@@ -151,20 +158,28 @@ class ProfileContainer extends Component{
     return(
       <div className="column row" id="profile-main-div">
         <h3> {this.state.current_user.name}’s Lists </h3>
-        <AllLists lists = {this.state.lists} handleClick = {this.handleClick} />
 
-        <AllMedia
-          mediaValue = {this.state.mediaValue}
-          handleTitleChange = {this.handleTitleChange}
-          handleTitleSubmit = {this.handleSubmit}
+        <div className="row">
+          <div className="large-1 columns">
+            <AllLists lists = {this.state.lists} handleClick = {this.handleClick} />
+          </div>
 
-          listNameValue = {this.state.listName}
-          listName = {this.state.listName}
-          handleListSubmit = {this.handleListSubmit}
-          handleListNameChange = {this.handleListNameChange}
+          <div className="large-8 large-offset-3 columns">
+            <AllMedia
+              mediaValue = {this.state.mediaValue}
+              handleTitleChange = {this.handleTitleChange}
+              handleTitleSubmit = {this.handleSubmit}
 
-          media = {this.state.currentMedia}
-        />
+              listNameValue = {this.state.listName}
+              listName = {this.state.listName}
+              handleListSubmit = {this.handleListSubmit}
+              handleListNameChange = {this.handleListNameChange}
+
+              media = {this.state.currentMedia}
+            />
+          </div>
+        </div>
+
 
       </div>
     )

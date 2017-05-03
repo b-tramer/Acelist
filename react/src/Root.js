@@ -19,9 +19,9 @@ class App extends Component {
           <IndexRoute component={HeroContainer} />
           <Route path='login' component={() => (<LoginContainer user={this.props.user} />)}/>
           <Route path='users' component={ProfileContainer} />
-          <Route path='media' component={CrudContainer} />
-          <Route path='media/:id' component={CrudContainer} />
-          <Route path='media/:id/edit' component={CrudContainer} />
+          <Route path='media' component={ProfileContainer} />
+          <Route path='media/:id' component={ProfileContainer} />
+          <Route path='media/:id/edit' component={ProfileContainer} />
         </Route>
       </Router>
     )

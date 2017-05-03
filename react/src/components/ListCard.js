@@ -5,9 +5,10 @@ class ListCard extends Component {
 
   render() {
     let id = this.props.id
+    let name = this.props.name
     return(
-      <div className="column row">
-        <h4> <button type="button" id='list-button'onClick={() => this.props.handleClick(id)}>{this.props.name}</button> </h4>
+      <div>
+        <h4> <button type="button" id='list-button' onClick={() => this.props.handleClick(id, name)}>{this.props.name}</button> </h4>
       </div>
     )
   }
