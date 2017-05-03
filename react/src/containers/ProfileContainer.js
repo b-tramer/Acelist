@@ -15,7 +15,8 @@ class ProfileContainer extends Component{
       media: [],
       selectedId: 0,
       currentMedia: [],
-      listName: ''
+      listName: '',
+      showCreate: false
     }
     this.handleClick = this.handleClick.bind(this)
     this.checkIfHasListId = this.checkIfHasListId.bind(this)
@@ -23,6 +24,7 @@ class ProfileContainer extends Component{
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleListSubmit = this.handleListSubmit.bind(this)
     this.handleListNameChange = this.handleListNameChange.bind(this)
+    this.handleCreate = this.handleCreate.bind(this)
   }
 
   // bound to 'search' for media in SearchBox
@@ -133,7 +135,7 @@ class ProfileContainer extends Component{
 
   // when a list name is clicked, it sets the state of 'selectedId' to the list's id
   handleClick(id, name) {
-    if ( id !== this.state.selectedId ) {
+    if (id !== this.state.selectedId) {
       this.setState({ selectedId: id, listName: name })
     } else {
       this.setState({ selectedId: 0 })
@@ -154,15 +156,29 @@ class ProfileContainer extends Component{
     this.setState({ currentMedia: currentMediaArray })
   }
 
+  // bound to 'create new list' button in AllLists, displays create input on click
+  handleCreate() {
+    if (this.state.showCreate === false) {
+      this.setState({ showCreate: true })
+    } else {
+      this.setState({ showCreate: false })
+    }
+  }
+
   render() {
+    let showCreateClass;
+    if (this.state.showCreate === false) {
+      showCreateClass = 'hidden'
+    } else {
+      showCreateClass = 'show'
+    }
     return(
       <div className="column row" id="profile-main-div">
         <h3> {this.state.current_user.name}’s Lists </h3>
 
         <div className="row">
           <div className="large-1 columns">
-            <AllLists lists = {this.state.lists} handleClick = {this.handleClick} />
-
+            <AllLists lists = {this.state.lists} handleClick = {this.handleClick} handleCreate = {this.handleCreate} />
           </div>
 
           <div className="large-8 large-offset-3 columns">
@@ -176,6 +192,7 @@ class ProfileContainer extends Component{
               handleListSubmit = {this.handleListSubmit}
               handleListNameChange = {this.handleListNameChange}
 
+              showCreateClass = {showCreateClass}
               media = {this.state.currentMedia}
             />
           </div>

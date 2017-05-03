@@ -35,6 +35,7 @@ class AllMedia extends React.Component {
             handleListNameChange = {this.props.handleListNameChange}
             handleListSubmit = {this.props.handleListSubmit}
             listName = {this.props.listName}
+            showCreateClass = {this.props.showCreateClass}
           />
         </div>
         {media}
