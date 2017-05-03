@@ -22,7 +22,7 @@ class AllLists extends Component {
       <div className="about">
         {newList}
         <div>
-          <h4> <button type="button" id='create-button'>+ Create A New List</button> </h4>
+          <h4> <button type="button" id='create-button' onClick={this.props.handleCreate}>+ Create A New List</button> </h4>
         </div>
       </div>
     )

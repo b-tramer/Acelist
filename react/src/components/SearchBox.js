@@ -8,7 +8,7 @@ class SearchBox extends Component {
 
         <form className="searchbox">
 
-          <label id="search-label">
+          <label id="search-label" className={this.props.showCreateClass}>
             <input onChange={this.props.handleListNameChange} type="text" placeholder="Name Your List..." id="media-input-box" value={this.props.listNameValue} />
             <input type="submit" value="Create" id="media-search-button" onClick={this.props.listNameSubmit}/>
           </label>
