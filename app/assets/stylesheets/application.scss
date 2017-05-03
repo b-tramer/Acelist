@@ -817,6 +817,9 @@ button:focus {
   max-width: 1200px;
   border: 2px solid white;
   box-shadow: 0px 0px 6px #888888;
+  object-fit: cover;
+  width:210px;
+  height:210px;
 }
 
 #profile-picture h3 {
@@ -824,8 +827,14 @@ button:focus {
 }
 
 #user-name {
-  margin-top: 208px;
+  margin-top: 174px;
   margin-bottom: 0px;
+  text-align: left;
+}
+
+#user-name p {
+  font-size: 120%;
+  margin-top: -9px;
 }
 // LIST STYLING
 
