@@ -5,7 +5,6 @@ Rails.application.routes.draw do
 
   root 'media#index'
   resources :media
-
   resources :login
 
   resources :users do

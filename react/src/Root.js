@@ -5,6 +5,7 @@ import NavContainer from './containers/NavContainer';
 import MainContainer from './containers/MainContainer';
 import CrudContainer from './containers/CrudContainer';
 import LoginContainer from './containers/LoginContainer';
+import AllUsersContainer from './containers/AllUsersContainer';
 
 class App extends Component {
   constructor(props){
@@ -18,10 +19,9 @@ class App extends Component {
         <Route path="/" component={NavContainer}>
           <IndexRoute component={HeroContainer} />
           <Route path='login' component={() => (<LoginContainer user={this.props.user} />)}/>
-          <Route path='users' component={MainContainer} />
+          <Route path='users' component={AllUsersContainer} />
+          <Route path='users/:id' component={MainContainer} />
           <Route path='media' component={MainContainer} />
-          <Route path='media/:id' component={MainContainer} />
-          <Route path='media/:id/edit' component={MainContainer} />
         </Route>
       </Router>
     )

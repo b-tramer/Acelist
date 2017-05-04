@@ -3,13 +3,17 @@ class Api::V1::ListsController < ApplicationController
   protect_from_forgery unless: -> { request.format.json? }
 
   def index
-    @list = List.all
-    render json: @list
-  end
-
-  def show
-    @list = List.find(params[:id])
-    render json: @list
+    @lists = List.where(user_id: current_user.id)
+    @media = []
+    @lists.each do |list|
+      list.media.each do |item|
+        @media << item
+      end
+    end
+    @user = current_user
+    respond_to do |format|
+      format.json  { render :json => {:lists => @lists, :user => @user, :media => @media }}
+    end
   end
 
   def create

@@ -43,7 +43,7 @@ class UserInfo extends Component {
         </div>
 
         <a href="#top" id="go-to-top">
-        <img src="./to-top-button2.svg" width="40"/>
+        <img src={assetHelper["to-top-button2.svg"]} width="40"/>
         </a>
 
       </div>

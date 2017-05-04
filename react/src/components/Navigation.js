@@ -19,16 +19,16 @@ class Navigation extends Component{
         <div className='row'>
           <div onClick={this.props.handleClick}>
             <div className="small-3 large-1 columns" id='menu-icon-div'>
-              <span id='nav-menu-icon'> <img src={this.props.menuButton}/></span>
+              <span id='nav-menu-icon'> <img src={assetHelper["mobile-menu-icon.svg"]}/></span>
             </div>
           </div>
 
           <div className="small-6 large-10 columns" id="logo-center">
-            <span id='nav-logo-mobile'> <Link to='/'> <img src="./ace-logo-three.png" height="150" width="162"/> </Link> </span>
+            <span id='nav-logo-mobile'> <Link to='/'> <img src={assetHelper["ace-logo.png"]} height="150" width="162"/> </Link> </span>
           </div>
 
           <div className="small-3 large-1 columns profile" id='menu-profile-div'>
-            <span id='nav-profile-icon'> <Link to='/users'> <img src="./profile-icon.svg" height="36" width="35"/> </Link> </span>
+            <span id='nav-profile-icon'> <Link to='/users'> <img src={assetHelper["profile-icon.svg"]} height="36" width="35"/> </Link> </span>
           </div>
         </div>
       </div>
@@ -53,19 +53,20 @@ class Navigation extends Component{
           <div className='row'>
             <div onClick={this.props.handleClick}>
               <div className="small-3 large-1 columns" id='menu-icon-div'>
-                <span id='nav-menu-icon'> <img src={this.props.menuButton}/></span>
+                <span id='nav-menu-icon'> <img src={assetHelper["mobile-menu-icon.svg"]}/></span>
               </div>
             </div>
 
             <div className="small-6 large-10 columns" id="logo-center">
-              <span id='nav-logo'> <Link to='/'> <img src="./ace-logo-three.png" height="150" width="220"/> </Link> </span>
+              <span id='nav-logo'> <Link to='/'> <img src={assetHelper["ace-logo.png"]} height="150" width="220"/> </Link> </span>
             </div>
 
             <div className="small-3 large-1 columns profile" id='menu-profile-div'>
-              <span id='nav-profile-icon'> <Link to='/users'> <img src="./profile-icon.svg" height="36" width="35"/> </Link> </span>
+              <span id='nav-profile-icon'> <Link to='/users'> <img src={assetHelper["profile-icon.svg"]} height="36" width="35"/> </Link> </span>
             </div>
           </div>
         </div>
+
 
         <div id="dropdown-menu"onClick={this.props.handleClick} className={this.props.className}>
           <div className="mobile-menu dropdown" id="example-menu">
