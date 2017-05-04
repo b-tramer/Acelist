@@ -597,7 +597,7 @@
 
 .searchbox {
   margin-top: 70px;
-  margin-bottom: -150px;
+  margin-bottom: -211px;
 }
 
 #poster img {
@@ -650,8 +650,6 @@
 
 #media-save-button:hover {
   background-color: #e6e6e6;
-  -webkit-transition-delay: 2s; /* Safari */
-  transition-delay: 2s;
 }
 
 #media-search-button:hover {
@@ -833,6 +831,14 @@
 #user-name p {
   font-size: 120%;
   margin-top: -9px;
+}
+
+#go-to-top {
+  position: fixed;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  bottom: 0;
+  right: 0;
 }
 // LIST STYLING
 

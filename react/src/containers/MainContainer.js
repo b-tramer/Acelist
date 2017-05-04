@@ -23,7 +23,6 @@ class MainContainer extends Component{
     this.handleClick = this.handleClick.bind(this)
     this.handleTitleChange = this.handleTitleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleListSubmit = this.handleListSubmit.bind(this)
     this.handleListNameChange = this.handleListNameChange.bind(this)
     this.handleCreate = this.handleCreate.bind(this)
     this.listNameSubmit = this.listNameSubmit.bind(this)
@@ -93,7 +92,7 @@ class MainContainer extends Component{
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(searchPayload)
     })
-    .then(this.setState({ title: '' }))
+    .then(this.handleListSubmit())
   }
 
   // start of list functions
@@ -124,9 +123,9 @@ class MainContainer extends Component{
     this.setState({ title: event.target.value })
   }
 
-  // bound to 'save' button as onSubmit in SearchBox
-  handleListSubmit(event) {
-    event.preventDefault()
+  // called from 'sendSearch' - each time a user searches for media, this way we do not need a 'save' button
+  handleListSubmit() {
+    debugger;
     let jsonPayload = {
       name: this.state.listName,
       user_id: this.state.current_user.id,
@@ -234,7 +233,6 @@ class MainContainer extends Component{
 
               listNameValue = {this.state.listName}
               listName = {this.state.listName}
-              handleListSubmit = {this.handleListSubmit}
               handleListNameChange = {this.handleListNameChange}
               listNameSubmit = {this.listNameSubmit}
 

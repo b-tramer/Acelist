@@ -12,7 +12,7 @@ class UserInfo extends Component {
       profilePicture = 'http://gurucul.com/wp-content/uploads/2015/01/default-user-icon-profile.png'
     }
     return(
-      <div className="profile-container">
+      <div className="profile-container" id="top">
 
         <div className="row">
           <div className="large-1 columns" id="profile-picture">
@@ -24,6 +24,8 @@ class UserInfo extends Component {
           <p> {this.props.user.city} {this.props.user.state} </p>
           </div>
         </div>
+
+        <a href="#top" id="go-to-top">Go To Top</a>
 
       </div>
     )
