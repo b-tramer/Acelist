@@ -100,27 +100,19 @@ class MainContainer extends Component{
 
   // start of list functions
   componentDidMount() {
-    this.getCurrentUser();
-  }
-
-  getCurrentUser() {
-    fetch(`/api/v1/users`, { credentials: 'same-origin' })
-      .then(response => response.json())
-      .then(responseData => {
-        this.setState({ current_user: responseData.current_user }),
-        this.getUserData()
-    });
+    this.getUserData()
   }
 
   // fetch data from lists api controller - index
   getUserData() {
-    let userId = this.state.current_user.id
+    let userId = this.props.params.id
     fetch(`/api/v1/users/${userId}`, { credentials: 'same-origin' })
       .then(response => response.json())
       .then(responseData => {
         this.setState({
           lists: responseData.lists,
-          media: responseData.media
+          media: responseData.media,
+          current_user: responseData.user[0]
         })
     });
   }

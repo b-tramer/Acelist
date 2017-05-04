@@ -1,31 +1,8 @@
 
-btramer = User.create(first_name: "Bradley", last_name: "Tramer", username: "btramer", email: "tramerbrad@gmail.com", city: "Boston", state: "Massachusetts")
 
-rileytramer = User.create(first_name: "Riley", last_name: "Tramer", username: "rtramer", email: "rileytramer@gmail.com", city: "Cleveland", state: "Ohio")
+User.create(city: "Boston", state: "Massachusetts", name: "Johnny Rocket", image: "https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAApyAAAAJGExNzQ2OWU0LWU2YzUtNDJjYi04YjAyLTU4YTYzZjcyMTQ1Yg.jpg")
 
-List.create(name: "Animated Movies", rank: 1, user: btramer, media: toy_story)
-
-List.create(name: "Animated Movies", rank: 2, user: btramer, media: toy_story_two)
-
-List.create(name: "Animated Movies", rank: 3, user: btramer, media: toy_story_three)
-
-List.create(name: "Animated Movies", rank: 4, user: btramer, media: finding_nemo)
-
-List.create(name: "Animated Movies", rank: 5, user: btramer, media: monsters_inc)
-
---------------------
-
-List.create(name: "Inspiring Movies", rank: 1, user: rileytramer, media: social_network)
-
-List.create(name: "Inspiring Movies", rank: 2, user: rileytramer, media: steve_jobs)
-
-List.create(name: "Inspiring Movies", rank: 3, user: rileytramer, media: lion)
-
-List.create(name: "Inspiring Movies", rank: 4, user: rileytramer, media: the_intouchables)
-
-List.create(name: "Inspiring Movies", rank: 5, user: rileytramer, media: good_will_hunting)
+"https://scontent.fbed1-2.fna.fbcdn.net/v/t1.0-9/11169930_10204061771647974_1436693985352843177_n.jpg?oh=86cc6c26536cdce3c0f7ee644e871c92&oe=5989E1BC"
 
 
-
-
-User.create(first_name: "Bradley", last_name: "Tramer", username: "btramer", provider: "Facebook")
+User.create(city: "New York City", state: "New York", name: "Ronald James", image: "https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAApyAAAAJGExNzQ2OWU0LWU2YzUtNDJjYi04YjAyLTU4YTYzZjcyMTQ1Yg.jpg")

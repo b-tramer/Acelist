@@ -18,9 +18,9 @@ class Api::V1::UsersController < ApplicationController
         @media << item
       end
     end
-    @current_user = User.where(id: params[:id])
+    @user = User.where(id: params[:id])
     respond_to do |format|
-      format.json  { render :json => {:lists => @lists, :user => @current_user, :media => @media }}
+      format.json  { render :json => {:lists => @lists, :user => @user, :media => @media }}
     end
   end
 
