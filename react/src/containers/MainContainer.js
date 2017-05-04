@@ -42,7 +42,7 @@ class MainContainer extends Component{
     .then(response => response.json())
     .then(data =>
       this.setState({
-        currentMedia: [...this.state.currentMedia, data.results[0]],
+        currentMedia: [data.results[0], ...this.state.currentMedia],
         id: data.results[0].id,
         send_title: data.results[0].title,
         overview: data.results[0].overview,
@@ -72,6 +72,7 @@ class MainContainer extends Component{
         release_date: this.state.release_date
       }
       this.sendSearch(searchPayload)
+      this.setState({ title: '' })
     } else {
       let searchPayload = {
         title: this.state.original_name,
@@ -81,6 +82,7 @@ class MainContainer extends Component{
         release_date: this.state.first_air_date
       }
       this.sendSearch(searchPayload)
+      this.setState({ title: '' })
     }
   }
 
@@ -125,7 +127,6 @@ class MainContainer extends Component{
 
   // called from 'sendSearch' - each time a user searches for media, this way we do not need a 'save' button
   handleListSubmit() {
-    debugger;
     let jsonPayload = {
       name: this.state.listName,
       user_id: this.state.current_user.id,
@@ -157,9 +158,9 @@ class MainContainer extends Component{
       let currentMediaArray = media.filter((item) => {
         return item.list_id === id
       })
-      this.setState({ selectedId: id, listName: name, currentMedia: currentMediaArray })
+      this.setState({ selectedId: id, listName: name, currentMedia: currentMediaArray, showCreate: false })
     } else if (id === this.state.selectedId) {
-      this.setState({ selectedId: 0, listName: '', currentMedia: []})
+      this.setState({ selectedId: 0, listName: '', currentMedia: [], showCreate: false})
     }
   }
 
@@ -176,16 +177,13 @@ class MainContainer extends Component{
 
   // bound to 'create new list' button in AllLists, displays create input on click
   handleCreate() {
-    if (this.state.showCreate === false) {
-      this.setState({ showCreate: true })
-    } else {
-      this.setState({ showCreate: false })
-    }
+    this.setState({ showCreate: true, selectedId: 0, listName: '', currentMedia: [] })
   }
 
-  // bound to create button, prevents page reload
+  // bound to create button in searchBox.js
   listNameSubmit(e) {
     e.preventDefault()
+    this.handleListSubmit()
   }
 
   // bound to delete button on MediaCard, takes in an argument of media id, sent to media api controller - destroy
