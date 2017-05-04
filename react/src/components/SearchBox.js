@@ -18,10 +18,6 @@ class SearchBox extends Component {
             <input onClick={this.props.handleTitleSubmit} type="submit" value="Add" id="media-search-button"/>
           </label>
 
-          <label id="search-label">
-            <input onClick={this.props.handleListSubmit} type="submit" value="Save" id="media-save-button"/>
-          </label>
-
         </form>
 
       </div>
