@@ -72,6 +72,7 @@ class MainContainer extends Component{
         release_date: this.state.release_date
       }
       this.sendSearch(searchPayload)
+      this.setState({ title: '' })
     } else {
       let searchPayload = {
         title: this.state.original_name,
@@ -81,6 +82,7 @@ class MainContainer extends Component{
         release_date: this.state.first_air_date
       }
       this.sendSearch(searchPayload)
+      this.setState({ title: '' })
     }
   }
 
@@ -125,7 +127,6 @@ class MainContainer extends Component{
 
   // called from 'sendSearch' - each time a user searches for media, this way we do not need a 'save' button
   handleListSubmit() {
-    debugger;
     let jsonPayload = {
       name: this.state.listName,
       user_id: this.state.current_user.id,
@@ -179,9 +180,10 @@ class MainContainer extends Component{
     this.setState({ showCreate: true, selectedId: 0, listName: '', currentMedia: [] })
   }
 
-  // bound to create button, prevents page reload
+  // bound to create button in searchBox.js
   listNameSubmit(e) {
     e.preventDefault()
+    this.handleListSubmit()
   }
 
   // bound to delete button on MediaCard, takes in an argument of media id, sent to media api controller - destroy
