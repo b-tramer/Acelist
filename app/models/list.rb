@@ -1,5 +1,6 @@
 class List < ActiveRecord::Base
 
+  validates :name, presence: true
   has_many :media
   accepts_nested_attributes_for :media
 

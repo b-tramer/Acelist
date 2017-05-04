@@ -162,6 +162,16 @@ class ProfileContainer extends Component{
     }
   }
 
+  getLatestMedia() {
+    fetch(`/api/v1/users`, { credentials: 'same-origin' })
+      .then(response => response.json())
+      .then(responseData => {
+        this.setState({
+          media: responseData.media
+        })
+    });
+  }
+
   // bound to 'create new list' button in AllLists, displays create input on click
   handleCreate() {
     if (this.state.showCreate === false) {

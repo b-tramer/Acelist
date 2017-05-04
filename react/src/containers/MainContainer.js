@@ -152,6 +152,7 @@ class MainContainer extends Component{
 
   // when a list name is clicked, it sets the state of 'selectedId' to the list's id. Then filters out all matching media and put into new array
   handleClick(id, name) {
+    this.getLatestMedia()
     if (id !== this.state.selectedId) {
       let media = this.state.media
       let currentMediaArray = media.filter((item) => {
@@ -161,6 +162,17 @@ class MainContainer extends Component{
     } else if (id === this.state.selectedId) {
       this.setState({ selectedId: 0, listName: '', currentMedia: []})
     }
+  }
+
+  // called from 'handleClick' - this function is needed so that when a new list item is added or deleted, it will remain that way even if user navigates to another list (otherwise list is only dependent on state and a page reload will be required)
+  getLatestMedia() {
+    fetch(`/api/v1/users`, { credentials: 'same-origin' })
+      .then(response => response.json())
+      .then(responseData => {
+        this.setState({
+          media: responseData.media
+        })
+    });
   }
 
   // bound to 'create new list' button in AllLists, displays create input on click
