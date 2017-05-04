@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 class UserInfo extends Component {
 
   render() {
+    // if the user is signed in, show their facebook photo, otherwise show default graphic
     let profilePicture;
     if (this.props.user.image) {
       profilePicture = this.props.user.image + "/picture?type=large"
