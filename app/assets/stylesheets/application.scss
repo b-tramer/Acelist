@@ -6,10 +6,6 @@
 
 /* NAVIGATION BAR STYLING */
 
-button:focus {
-  outline:0;
-}
-
 .top-bar  {
   overflow: hidden;
   top: 0;
@@ -654,6 +650,8 @@ button:focus {
 
 #media-save-button:hover {
   background-color: #e6e6e6;
+  -webkit-transition-delay: 2s; /* Safari */
+  transition-delay: 2s;
 }
 
 #media-search-button:hover {
