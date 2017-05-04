@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import MainContainer from './MainContainer'
+import InfoArea from '../components/InfoArea'
 
 class HeroContainer extends Component{
   constructor(props){
@@ -20,7 +20,7 @@ class HeroContainer extends Component{
           </div>
         </div>
 
-        <MainContainer />
+        <InfoArea />
 
 
 

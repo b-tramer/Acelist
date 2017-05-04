@@ -17,6 +17,8 @@ class AllLists extends Component {
             name = {list.name}
             handleClick = {this.props.handleClick}
             selectedBackgroundId = 'list-button-active'
+            listDeleteButtonClass = 'show'
+            handleDeleteList = {this.props.handleDeleteList}
           />
         )
       } else {
@@ -27,6 +29,7 @@ class AllLists extends Component {
             name = {list.name}
             handleClick = {this.props.handleClick}
             selectedBackgroundId = 'list-button'
+            listDeleteButtonClass = 'hidden'
           />
         )
       }

@@ -24,17 +24,13 @@ class MediaCard extends Component {
           <div className="small-12 large-3 columns">
             <img src={poster} height="150" width="150"/>
           </div>
-
           <div className="small-12 large-9 columns" id="movie-info">
-
             <h2> {name} </h2>
             <h5> Release Date: {release} </h5>
             <p> {this.props.overview} </p>
           </div>
         </div>
       </div>
-
-
     )
   }
 }

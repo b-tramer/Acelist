@@ -27,6 +27,7 @@ class MainContainer extends Component{
     this.handleCreate = this.handleCreate.bind(this)
     this.listNameSubmit = this.listNameSubmit.bind(this)
     this.handleDeleteMedia = this.handleDeleteMedia.bind(this)
+    this.handleDeleteList = this.handleDeleteList.bind(this)
   }
 
   // bound to 'search' for media in SearchBox
@@ -186,7 +187,7 @@ class MainContainer extends Component{
     this.handleListSubmit()
   }
 
-  // bound to delete button on MediaCard, takes in an argument of media id, sent to media api controller - destroy
+  // bound to media delete button on MediaCard, takes in an argument of media id, sent to media api controller - destroy
   handleDeleteMedia(id) {
     let mediaId = id
     fetch(`/api/v1/media/${mediaId}`, {
@@ -207,6 +208,27 @@ class MainContainer extends Component{
     this.setState({ currentMedia: newMediaArray })
   }
 
+  // bound to list delete button on ListCard, takes in an argument of list id, sent to list api controller - destroy
+  handleDeleteList(id) {
+    let listId = id
+    fetch(`/api/v1/lists/${listId}`, {
+      credentials: "same-origin",
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" }
+    })
+    .then(response => response.json())
+    .then(data => this.removeListFromPage(id))
+  }
+
+  // called from handleDeleteList, dynamically deletes selected list from page
+  removeListFromPage(id) {
+    let currentLists = this.state.lists
+    let newListArray = currentLists.filter((list) => {
+      return list.id !== id
+    })
+    this.setState({ lists: newListArray })
+  }
+
   render() {
     let showCreateClass;
     if (this.state.showCreate === false) {
@@ -221,7 +243,14 @@ class MainContainer extends Component{
           />
           <div className="row">
             <div className="large-4 columns">
-              <AllLists lists = {this.state.lists} handleClick = {this.handleClick} handleCreate = {this.handleCreate} selectedBackgroundId = {this.state.selectedBackgroundId} selectedId = {this.state.selectedId}/>
+              <AllLists
+              lists = {this.state.lists}
+              handleClick = {this.handleClick}
+              handleCreate = {this.handleCreate}
+              selectedBackgroundId = {this.state.selectedBackgroundId}
+              selectedId = {this.state.selectedId}
+              handleDeleteList = {this.handleDeleteList}
+              />
           </div>
           <div className="large-8 large-offset-3 columns" id="offset-column">
             <AllMedia

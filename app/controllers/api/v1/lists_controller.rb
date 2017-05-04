@@ -30,6 +30,11 @@ class Api::V1::ListsController < ApplicationController
     render json: @list
   end
 
+  def destroy
+    @list =List.destroy(params[:id])
+    render json: @list
+  end
+
   private
 
   def list_params
