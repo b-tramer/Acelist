@@ -25,7 +25,9 @@ class UserInfo extends Component {
           </div>
         </div>
 
-        <a href="#top" id="go-to-top">Go To Top</a>
+        <a href="#top" id="go-to-top">
+        <img src="./to-top-button2.svg" width="40"/>
+        </a>
 
       </div>
     )
