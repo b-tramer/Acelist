@@ -701,10 +701,8 @@
 
 #user-widget {
   font-family: 'Ubuntu', sans-serif;
+  text-align: center;
   margin-top: 200px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: white;
   font-size: 200%;
 }
 
@@ -712,7 +710,6 @@
   margin-top: 30px;
   padding: 4px 10px;
   border: 3px solid white;
-  color: white;
   font-size: 100%;
 }
 
@@ -856,6 +853,7 @@
   position: relative;
   clear: both;
   text-align: right;
+  outline: none;
 }
 
 #offset-column {
@@ -959,6 +957,7 @@
   border: 2px solid #333333;
   font-weight: bold;
   letter-spacing: 2px;
+  outline: none;
 }
 
 #get-started-button-info:hover {
@@ -978,4 +977,34 @@
 
 #hidden {
   display: none;
+}
+
+// ALL USERS DISPLAY
+
+#profile-picture-all-users {
+  text-align: center;
+  background-color: #dddddd;
+  margin-top: 50px;
+  letter-spacing: 1px;
+  border-right: 10px solid white;
+}
+
+#profile-picture-all-users h4 {
+  text-transform: uppercase;
+  font-size: 140%;
+  margin-top: 5px;
+}
+
+#profile-picture-all-users p {
+  margin-top: -10px;
+}
+
+#profile-picture-all-users img {
+  max-width: 300%;
+  margin-top: 50px;
+  width: 210px;
+  border: 2px solid white;
+  object-fit: cover;
+  width:210px;
+  height:210px;
 }

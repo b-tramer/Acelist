@@ -54,7 +54,7 @@ class MainContainer extends Component{
         first_air_date: data.results[0].first_air_date
        }))
     .then(responseData => this.componentWillReceiveProps(responseData))
-    .catch((err) => console.log('oh no!') )
+    .catch((err) => console.log('Error') )
   }
 
   // triggered from fetchAPI
@@ -73,7 +73,6 @@ class MainContainer extends Component{
         release_date: this.state.release_date
       }
       this.sendSearch(searchPayload)
-      this.setState({ title: '' })
     } else {
       let searchPayload = {
         title: this.state.original_name,
@@ -83,8 +82,8 @@ class MainContainer extends Component{
         release_date: this.state.first_air_date
       }
       this.sendSearch(searchPayload)
-      this.setState({ title: '' })
     }
+    this.setState({ title: '' })
   }
 
   // send media search payload to media api controller - create
@@ -100,18 +99,19 @@ class MainContainer extends Component{
 
   // start of list functions
   componentDidMount() {
-    this.getUserData();
+    this.getUserData()
   }
 
-  // fetch data from users api controller - index
+  // fetch data from lists api controller - index
   getUserData() {
-    fetch(`/api/v1/users`, { credentials: 'same-origin' })
+    let userId = this.props.params.id
+    fetch(`/api/v1/users/${userId}`, { credentials: 'same-origin' })
       .then(response => response.json())
       .then(responseData => {
         this.setState({
-          current_user: responseData.user,
           lists: responseData.lists,
-          media: responseData.media
+          media: responseData.media,
+          current_user: responseData.user[0]
         })
     });
   }
@@ -167,7 +167,7 @@ class MainContainer extends Component{
 
   // called from 'handleClick' - this function is needed so that when a new list item is added or deleted, it will remain that way even if user navigates to another list (otherwise list is only dependent on state and a page reload will be required)
   getLatestMedia() {
-    fetch(`/api/v1/users`, { credentials: 'same-origin' })
+    fetch(`/api/v1/lists`, { credentials: 'same-origin' })
       .then(response => response.json())
       .then(responseData => {
         this.setState({

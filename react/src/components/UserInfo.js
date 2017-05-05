@@ -9,10 +9,14 @@ class UserInfo extends Component {
     let userNotSignedIn;
     let userSignedIn;
     let profilePicture;
-    if (this.props.user.image) {
+    if (this.props.user.image && this.props.user.name !== "Johnny Rocket" && this.props.user.name !== "Ronald James") {
       userNotSignedIn = 'hidden'
       userSignedIn = 'show'
       profilePicture = this.props.user.image + "/picture?type=large"
+    } else if (this.props.user.name === "Johnny Rocket" || this.props.user.name === "Ronald James"){
+      profilePicture = this.props.user.image
+      userNotSignedIn = 'hidden'
+      userSignedIn = 'show'
     } else {
       userNotSignedIn = 'show'
       userSignedIn = 'hidden'
@@ -43,7 +47,7 @@ class UserInfo extends Component {
         </div>
 
         <a href="#top" id="go-to-top">
-        <img src="./to-top-button2.svg" width="40"/>
+        <img src={assetHelper["to-top-button2.svg"]} width="40"/>
         </a>
 
       </div>

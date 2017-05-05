@@ -9,7 +9,7 @@ class NavContainer extends Component{
     super(props);
     this.state = {
       menuSelected: false,
-      menuButton: './mobile-menu-icon.svg'
+      menuButton: 'mobile-menu-icon.svg'
     }
     this.handleMenuClick = this.handleMenuClick.bind(this)
   }
@@ -18,12 +18,12 @@ class NavContainer extends Component{
     if (this.state.menuSelected == false) {
       this.setState({
         menuSelected: true,
-        menuButton: './mobile-menu-icon-close.svg'
+        menuButton: 'mobile-menu-icon-close.svg'
       })
     } else {
       this.setState({
         menuSelected: false,
-        menuButton: './mobile-menu-icon.svg'
+        menuButton: 'mobile-menu-icon.svg'
       })
     }
   }
@@ -38,17 +38,13 @@ class NavContainer extends Component{
 
     return(
       <div>
-
         <Navigation
-        handleClick={this.handleMenuClick}
-        className={className}
-        menuButton={this.state.menuButton}
+          handleClick={this.handleMenuClick}
+          className={className}
+          menuButton={this.state.menuButton}
         />
-
         {this.props.children}
-
         <FooterContainer />
-
       </div>
     )
   }
