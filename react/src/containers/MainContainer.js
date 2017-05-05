@@ -16,6 +16,7 @@ class MainContainer extends Component{
       media: [],
       selectedId: 0,
       currentMedia: [],
+      mediaListAll: [],
       listName: '',
       showCreate: false,
       selectedBackgroundId: 'list-button'
@@ -110,7 +111,6 @@ class MainContainer extends Component{
       .then(responseData => {
         this.setState({
           lists: responseData.lists,
-          media: responseData.media,
           current_user: responseData.user[0]
         })
     });
@@ -151,27 +151,23 @@ class MainContainer extends Component{
        }))
   }
 
-  // when a list name is clicked, it sets the state of 'selectedId' to the list's id. Then filters out all matching media and put into new array
+  // when a list name is clicked, it sets the state of 'selectedId' to the list's id
   handleClick(id, name) {
-    this.getLatestMedia()
     if (id !== this.state.selectedId) {
-      let media = this.state.media
-      let currentMediaArray = media.filter((item) => {
-        return item.list_id === id
-      })
-      this.setState({ selectedId: id, listName: name, currentMedia: currentMediaArray, showCreate: false })
+      this.setState({ selectedId: id, listName: name, showCreate: false })
+      this.getListData(id)
     } else if (id === this.state.selectedId) {
       this.setState({ selectedId: 0, listName: '', currentMedia: [], showCreate: false})
     }
   }
 
-  // called from 'handleClick' - this function is needed so that when a new list item is added or deleted, it will remain that way even if user navigates to another list (otherwise list is only dependent on state and a page reload will be required)
-  getLatestMedia() {
-    fetch(`/api/v1/lists`, { credentials: 'same-origin' })
+  // called from handleClick, gets the selected lists media from lists controller - show
+  getListData(id) {
+    fetch(`/api/v1/lists/${id}`, { credentials: 'same-origin' })
       .then(response => response.json())
       .then(responseData => {
         this.setState({
-          media: responseData.media
+          currentMedia: responseData.media
         })
     });
   }
