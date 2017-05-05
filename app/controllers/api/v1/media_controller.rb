@@ -4,10 +4,7 @@ class Api::V1::MediaController < ApplicationController
 
   def index
     @media = Media.all
-    @user = current_user
-    respond_to do |format|
-      format.json  { render :json => {:media => @media, :user => @user }}
-    end
+    render json: @media
   end
 
   def create

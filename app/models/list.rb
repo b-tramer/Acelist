@@ -1,8 +1,8 @@
 class List < ActiveRecord::Base
-
+  belongs_to :user
   validates :name, presence: true
-  has_many :media
-  accepts_nested_attributes_for :media
+  has_many :media_lists
+  has_many :media, through: :media_lists
 
   def media_attributes=(attributes)
     attributes.each do |item|

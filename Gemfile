@@ -13,6 +13,7 @@ gem "sdoc", "~> 0.4.0", group: :doc
 gem "uglifier", ">= 1.3.0"
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'active_model_serializers', '~> 0.10.0'
 group :development, :test do
   gem "dotenv-rails"
   gem "pry-rails"

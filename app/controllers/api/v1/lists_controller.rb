@@ -2,17 +2,11 @@ class Api::V1::ListsController < ApplicationController
   skip_before_action :verify_authenticity_token
   protect_from_forgery unless: -> { request.format.json? }
 
-  def index
-    @lists = List.where(user_id: current_user.id)
-    @media = []
-    @lists.each do |list|
-      list.media.each do |item|
-        @media << item
-      end
-    end
-    @user = current_user
+  def show
+    @list = List.find(params[:id])
+    @media = @list.media
     respond_to do |format|
-      format.json  { render :json => {:lists => @lists, :user => @user, :media => @media }}
+      format.json  { render :json => {:list => @list, :media => @media }}
     end
   end
 
@@ -35,7 +29,7 @@ class Api::V1::ListsController < ApplicationController
   end
 
   def destroy
-    @list =List.destroy(params[:id])
+    @list = List.destroy(params[:id])
     render json: @list
   end
 
@@ -44,7 +38,7 @@ class Api::V1::ListsController < ApplicationController
   def list_params
     params.require(:list).permit(
     :name, :user_id,
-    media_attributes: [ :id, :title, :data_id, :overview, :poster_path, :release_date, :created_at, :updated_at, :list_id ]
+    media_attributes: [ :id, :title, :data_id, :overview, :poster_path, :release_date, :created_at, :updated_at ]
     )
   end
 

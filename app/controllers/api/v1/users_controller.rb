@@ -19,8 +19,9 @@ class Api::V1::UsersController < ApplicationController
       end
     end
     @user = User.where(id: params[:id])
+    @mediaList = MediaList.all
     respond_to do |format|
-      format.json  { render :json => {:lists => @lists, :user => @user, :media => @media }}
+      format.json  { render :json => {:lists => @lists, :user => @user }}
     end
   end
 
