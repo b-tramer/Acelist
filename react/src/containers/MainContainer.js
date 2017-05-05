@@ -54,7 +54,7 @@ class MainContainer extends Component{
         first_air_date: data.results[0].first_air_date
        }))
     .then(responseData => this.componentWillReceiveProps(responseData))
-    .catch((err) => console.log('oh no!') )
+    .catch((err) => console.log('Error') )
   }
 
   // triggered from fetchAPI

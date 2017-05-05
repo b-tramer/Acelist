@@ -33,7 +33,7 @@ class Navigation extends Component{
         <div className='row'>
           <div onClick={this.props.handleClick}>
             <div className="small-3 large-1 columns" id='menu-icon-div'>
-              <span id='nav-menu-icon'> <img src={assetHelper["mobile-menu-icon.svg"]}/></span>
+              <span id='nav-menu-icon'> <img src={assetHelper[this.props.menuButton]}/>/></span>
             </div>
           </div>
 
@@ -60,14 +60,13 @@ class Navigation extends Component{
 
     </div>
 
-
       <div className="show-for-medium">
         <div className="nav-bar-div">
 
           <div className='row'>
             <div onClick={this.props.handleClick}>
               <div className="small-3 large-1 columns" id='menu-icon-div'>
-                <span id='nav-menu-icon'> <img src={assetHelper["mobile-menu-icon.svg"]}/></span>
+                <span id='nav-menu-icon'> <img src={assetHelper[this.props.menuButton]}/></span>
               </div>
             </div>
 
@@ -80,7 +79,6 @@ class Navigation extends Component{
             </div>
           </div>
         </div>
-
 
         <div id="dropdown-menu"onClick={this.props.handleClick} className={this.props.className}>
           <div className="mobile-menu dropdown" id="example-menu">

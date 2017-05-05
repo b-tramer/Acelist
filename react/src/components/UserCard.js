@@ -12,13 +12,13 @@ class UserCard extends Component {
       profilePicture = this.props.image
     }
     return(
-        <div className="small-12 medium-4 large-4 columns" id="profile-picture-all-users">
-          <Link to={`/users/${this.props.id}`}>
-            <img src={profilePicture} height="150" width="150"/>
-            <h4> {this.props.name} </h4>
-            <p> {this.props.city} {this.props.state} </p>
-          </Link>
-        </div>
+      <div className="small-12 medium-4 large-4 columns" id="profile-picture-all-users">
+        <Link to={`/users/${this.props.id}`}>
+          <img src={profilePicture} height="150" width="150"/>
+          <h4> {this.props.name} </h4>
+          <p> {this.props.city} {this.props.state} </p>
+        </Link>
+      </div>
     )
   }
 }

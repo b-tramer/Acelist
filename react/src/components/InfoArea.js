@@ -25,7 +25,7 @@ class InfoArea extends Component {
         </div>
 
         <div id="started-area">
-        <Link to='/users'> <h6> <button type="button" className="button" id="get-started-button-info">GET STARTED</button> </h6> </Link>
+        <Link to='/users/undefined'> <h6> <button type="button" className="button" id="get-started-button-info">GET STARTED</button> </h6> </Link>
         </div>
       </div>
     )
