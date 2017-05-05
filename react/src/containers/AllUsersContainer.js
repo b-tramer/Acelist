@@ -14,6 +14,7 @@ class AllUsersContainer extends Component{
     this.getUserData()
   }
 
+  // get all users from user api controller - index
   getUserData() {
     fetch(`/api/v1/users`, { credentials: 'same-origin' })
       .then(response => response.json())

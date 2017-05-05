@@ -5,16 +5,14 @@ import { Link } from 'react-router';
 class Navigation extends Component{
   constructor(props){
     super(props);
-    this.state = {
-
-    }
-
+    this.state = {}
   }
 
   componentDidMount() {
     this.getUserData()
   }
 
+  // get current users id so that when top right profile is clicked, it will be directed to their profile
   getUserData() {
     fetch(`/api/v1/users`, { credentials: 'same-origin' })
       .then(response => response.json())
@@ -24,7 +22,7 @@ class Navigation extends Component{
   }
 
   render() {
-    let user = this.state.user
+    let userId = this.state.user
     return(
     <div>
 
@@ -42,7 +40,7 @@ class Navigation extends Component{
           </div>
 
           <div className="small-3 large-1 columns profile" id='menu-profile-div'>
-            <span id='nav-profile-icon'> <Link to={`/users/${user}`}> <img src={assetHelper["profile-icon.svg"]} height="36" width="35"/> </Link> </span>
+            <span id='nav-profile-icon'> <Link to={`/users/${userId}`}> <img src={assetHelper["profile-icon.svg"]} height="36" width="35"/> </Link> </span>
           </div>
         </div>
       </div>
@@ -52,7 +50,7 @@ class Navigation extends Component{
           <ul className="vertical menu" data-accordion-menu>
             <li className="list-item"> <Link to='/'>HOME</Link> </li>
             <li className="list-item"> <Link to='/users'>SEARCH USERS</Link> </li>
-            <li className="list-item"> <Link to='/users'>PROFILE</Link> </li>
+            <li className="list-item"> <Link to={`/users/${userId}`}>PROFILE</Link> </li>
             <li className="list-item"> <a href="/login">LOGIN/SIGNUP</a> </li>
           </ul>
         </div>
@@ -75,7 +73,7 @@ class Navigation extends Component{
             </div>
 
             <div className="small-3 large-1 columns profile" id='menu-profile-div'>
-              <span id='nav-profile-icon'> <Link to={`/users/${user}`}> <img src={assetHelper["profile-icon.svg"]} height="36" width="35"/> </Link> </span>
+              <span id='nav-profile-icon'> <Link to={`/users/${userId}`}> <img src={assetHelper["profile-icon.svg"]} height="36" width="35"/> </Link> </span>
             </div>
           </div>
         </div>
@@ -85,7 +83,7 @@ class Navigation extends Component{
             <ul className="vertical menu" data-accordion-menu>
               <li className="list-item"> <Link to='/'>HOME</Link> </li>
               <li className="list-item"> <Link to='/users'>SEARCH USERS</Link> </li>
-              <li className="list-item"> <Link to='/users'>PROFILE</Link> </li>
+              <li className="list-item"> <Link to={`/users/${userId}`}>PROFILE</Link> </li>
               <li className="list-item"> <a href="/login">LOGIN/SIGNUP</a> </li>
             </ul>
           </div>

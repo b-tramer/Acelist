@@ -3,7 +3,6 @@ import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router';
 import HeroContainer from './containers/HeroContainer';
 import NavContainer from './containers/NavContainer';
 import MainContainer from './containers/MainContainer';
-import CrudContainer from './containers/CrudContainer';
 import LoginContainer from './containers/LoginContainer';
 import AllUsersContainer from './containers/AllUsersContainer';
 

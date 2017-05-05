@@ -73,7 +73,6 @@ class MainContainer extends Component{
         release_date: this.state.release_date
       }
       this.sendSearch(searchPayload)
-      this.setState({ title: '' })
     } else {
       let searchPayload = {
         title: this.state.original_name,
@@ -83,8 +82,8 @@ class MainContainer extends Component{
         release_date: this.state.first_air_date
       }
       this.sendSearch(searchPayload)
-      this.setState({ title: '' })
     }
+    this.setState({ title: '' })
   }
 
   // send media search payload to media api controller - create

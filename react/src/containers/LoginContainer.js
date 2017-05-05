@@ -10,12 +10,13 @@ class LoginContainer extends Component{
 
 
   render() {
-
     return(
-      <div className="facebook-react-page">
-
+      <div className="column row">
+        <div className="facebook-react-page" id="user-widget">
+          <h3> <a id="sign_in" href="/auth/facebook">Sign in with Facebook</a> </h3>
+          <h3> <a id="sign_out" href="/signout">Sign out</a> </h3>
+        </div>
       </div>
-
     )
   }
 }
