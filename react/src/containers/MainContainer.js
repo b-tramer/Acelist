@@ -139,8 +139,8 @@ class MainContainer extends Component{
   // send the list name, user id, and media attributes to the list api controller
   sendList(jsonPayload) {
     fetch("/api/v1/lists", {
-      method: "POST",
       credentials: 'same-origin',
+      method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(jsonPayload)
     })

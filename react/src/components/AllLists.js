@@ -7,9 +7,22 @@ class AllLists extends Component {
     this.state = {}
   }
 
+  componentDidMount() {
+    this.getUserData()
+  }
+
+  // get current users id so that if a list is made by someone else, the current user cannot delete their list
+  getUserData() {
+    fetch(`/api/v1/users`, { credentials: 'same-origin' })
+      .then(response => response.json())
+      .then(responseData => {
+        this.setState({ userId: responseData.current_user.id  })
+    });
+  }
+
   render() {
     let newList = this.props.lists.map((list) => {
-      if (this.props.selectedId === list.id) {
+      if (this.props.selectedId === list.id && this.state.userId === list.user_id) {
         return (
           <ListCard
             key = {list.id}

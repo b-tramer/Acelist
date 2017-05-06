@@ -19,11 +19,7 @@ class HeroContainer extends Component{
               </div>
           </div>
         </div>
-
         <InfoArea />
-
-
-
       </div>
 
     )

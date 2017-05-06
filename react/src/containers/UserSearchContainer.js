@@ -4,41 +4,27 @@ import UserCard from '../components/UserCard'
 import UserSearch from '../components/UserSearch'
 import AllUsers from '../components/AllUsers'
 
-class AllUsersContainer extends Component{
+class UserSearchContainer extends Component{
   constructor(props){
     super(props);
     this.state = {
-      allUsers: [],
       query: '',
       filtered_data: []
     }
     this.handleSearchChange = this.handleSearchChange.bind(this)
   }
 
-  componentDidMount() {
-    this.getUserData()
-  }
-
-  // get all users from user api controller - index
-  getUserData() {
-    fetch(`/api/v1/users`, { credentials: 'same-origin' })
-      .then(response => response.json())
-      .then(responseData => {
-        this.setState({ allUsers: responseData.users })
-    });
-  }
-
   getSearchResults() {
     let query = this.state.query
-    fetch("/api/v1/users", {
+    fetch(`/api/v1/users`, {
       method: 'POST',
-      credentials: 'include',
+      credentials: 'same-origin',
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(query)
     })
     .then(response => response.json())
     .then(responseData => {
-      this.setState({ allUsers: responseData.user })
+      this.setState({ filtered_data: responseData })
     });
   }
 
@@ -56,7 +42,7 @@ class AllUsersContainer extends Component{
         />
 
         <AllUsers
-          users = {this.state.allUsers}
+          users = {this.state.filtered_data}
         />
       </div>
 
@@ -64,4 +50,4 @@ class AllUsersContainer extends Component{
   }
 }
 
-export default AllUsersContainer
+export default UserSearchContainer

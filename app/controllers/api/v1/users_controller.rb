@@ -1,6 +1,6 @@
 class Api::V1::UsersController < ApplicationController
   skip_before_action :verify_authenticity_token
-  protect_from_forgery unless: -> { request.format.json? }
+
 
   def index
     @users = User.all
@@ -23,6 +23,20 @@ class Api::V1::UsersController < ApplicationController
     respond_to do |format|
       format.json  { render :json => {:lists => @lists, :user => @user }}
     end
+  end
+
+  def create
+    if params[:_json].length == 0
+      @users = User.all
+      render json: @users
+    elsif params[:_json]
+      query = params[:_json]
+      @users = User.where("name ilike ?", "%#{query}%")
+      respond_to do |format|
+        format.json  { render :json => {:user => @users }}
+      end
+    end
+
   end
 
 end
