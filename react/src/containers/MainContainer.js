@@ -19,7 +19,8 @@ class MainContainer extends Component{
       mediaListAll: [],
       listName: '',
       showCreate: false,
-      selectedBackgroundId: 'list-button'
+      selectedBackgroundId: 'list-button',
+      current: {}
     }
     this.handleClick = this.handleClick.bind(this)
     this.handleTitleChange = this.handleTitleChange.bind(this)
@@ -109,9 +110,11 @@ class MainContainer extends Component{
     fetch(`/api/v1/users/${userId}`, { credentials: 'same-origin' })
       .then(response => response.json())
       .then(responseData => {
+        console.log(responseData.current)
         this.setState({
           lists: responseData.lists,
-          current_user: responseData.user[0]
+          current_user: responseData.user[0],
+          current: responseData.current
         })
     });
   }
@@ -226,6 +229,17 @@ class MainContainer extends Component{
   }
 
   render() {
+    let showSearchBarClass;
+    let mediaDeleteClass;
+    let id = +(this.props.params.id)
+    if (id === this.state.current.id) {
+      showSearchBarClass = 'show'
+      mediaDeleteClass = 'delete-media-button'
+    } else {
+      showSearchBarClass = 'hidden'
+      mediaDeleteClass = 'delete-media-button-hidden'
+    }
+
     let showCreateClass;
     if (this.state.showCreate === false) {
       showCreateClass = 'hidden'
@@ -246,6 +260,7 @@ class MainContainer extends Component{
               selectedBackgroundId = {this.state.selectedBackgroundId}
               selectedId = {this.state.selectedId}
               handleDeleteList = {this.handleDeleteList}
+              showSearchBarClass = {showSearchBarClass}
               />
           </div>
           <div className="large-8 large-offset-3 columns" id="offset-column">
@@ -262,6 +277,8 @@ class MainContainer extends Component{
               handleDeleteMedia = {this.handleDeleteMedia}
               showCreateClass = {showCreateClass}
               media = {this.state.currentMedia}
+              showSearchBarClass = {showSearchBarClass}
+              mediaDeleteClass = {mediaDeleteClass}
             />
           </div>
         </div>

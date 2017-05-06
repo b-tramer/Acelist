@@ -8,8 +8,14 @@ class AllMedia extends React.Component {
     this.state = {}
   }
 
-
   render() {
+    let searchBoxClass;
+    if (this.props.showSearchBarClass === 'hidden') {
+      searchBoxClass = 'searchbox-hidden'
+    } else {
+      searchBoxClass = 'searchbox'
+    }
+
     let media = this.props.media.map((media) => {
       return (
         <MediaCard
@@ -23,6 +29,7 @@ class AllMedia extends React.Component {
           original_name = {media.original_name}
           first_air_date = {media.first_air_date}
           handleDeleteMedia = {this.props.handleDeleteMedia}
+          mediaDeleteClass = {this.props.mediaDeleteClass}
         />
       )
     })
@@ -40,9 +47,13 @@ class AllMedia extends React.Component {
             listName = {this.props.listName}
             showCreateClass = {this.props.showCreateClass}
             listNameSubmit = {this.props.listNameSubmit}
+
+            showSearchBarClass = {this.props.showSearchBarClass}
           />
         </div>
-        {media}
+        <div className={searchBoxClass}>
+          {media}
+        </div>
       </div>
     )
   }
