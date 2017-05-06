@@ -1114,10 +1114,17 @@
 
 #user-search-bar input {
   margin-top: 30px;
-  border: 1px solid black;
+  border: 0px;
+  border-bottom: 1px solid #cacaca;
   box-shadow: none;
   height: 52px;
   text-transform: capitalize;
+}
+
+#user-search-bar input::placeholder {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 140%;
+  color: #cacaca;
 }
 
 #profile-picture-all-users {
