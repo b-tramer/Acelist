@@ -11,7 +11,8 @@ class Api::V1::ListsController < ApplicationController
   end
 
   def create
-    if List.find_by(name: params[:list][:name].titleize).nil?
+    binding.pry
+    if List.find_by(name: params[:list][:name].titleize, user_id: current_user.id).nil?
       @list = List.new(list_params)
       @list.name = @list.name.titleize
       @list.save
@@ -22,7 +23,7 @@ class Api::V1::ListsController < ApplicationController
   end
 
   def update
-    @list = List.find_by(name: params[:list][:name].titleize)
+    @list = List.find_by(name: params[:list][:name].titleize, user_id: current_user.id)
     newList = List.new(list_params)
     @list.media.replace(newList.media)
     render json: @list

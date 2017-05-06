@@ -6,3 +6,6 @@ User.create(city: "Boston", state: "Massachusetts", name: "Johnny Rocket", image
 
 
 User.create(city: "New York City", state: "New York", name: "Ronald James", image: "https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAApyAAAAJGExNzQ2OWU0LWU2YzUtNDJjYi04YjAyLTU4YTYzZjcyMTQ1Yg.jpg")
+
+
+User.create(city: "New York City", state: "New York", name: "Ronald James", image: "https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAApyAAAAJGExNzQ2OWU0LWU2YzUtNDJjYi04YjAyLTU4YTYzZjcyMTQ1Yg.jpg")

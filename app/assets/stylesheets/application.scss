@@ -768,17 +768,6 @@
 
 // FACEBOOK LOGIN PAGE STYLING
 
-.facebook-login {
-  background: linear-gradient(45deg, #002f4b 0%, transparent 100%), url("./geo-hero.png") no-repeat center;
-  opacity: 0.8;
-  background-size: cover;
-  width: 100%;
-  position: relative;
-  z-index: 0;
-  height: 400px;
-  height: 100%;
-}
-
 .facebook-react-page h1 {
   font-family: 'Ubuntu', sans-serif;
 }
@@ -786,19 +775,49 @@
 #user-widget {
   font-family: 'Ubuntu', sans-serif;
   text-align: center;
-  margin-top: 200px;
+  margin: 200px;
   font-size: 200%;
+  color: #333333;
 }
 
-#user-widget a{
-  margin-top: 30px;
+#user-widget a {
   padding: 4px 10px;
   border: 3px solid white;
   font-size: 100%;
+  color: #333333;
+  padding: 10px 18px;
+  border: 2px solid #333333;
+  margin-top: 50px;
+}
+
+#user-widget a:hover {
+  background-color: #333333;
+  color: white;
 }
 
 .hidden {
   display: none;
+}
+
+.login-display h3 {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 20px;
+  color: #333333;
+}
+
+.login-display img {
+  object-fit: cover;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+}
+
+#fb-login {
+  background: linear-gradient(180deg, #b4bcc1 0%, transparent 100%);
+  background-size: cover;
+  width: 100%;
+  overflow: hidden;
 }
 
 // MOVIE TILE STYLING
@@ -1057,7 +1076,7 @@
   width: 100%;
   margin-top: 40px;
   text-align: center;
-  background-color: #e6e6e6;
+  background: linear-gradient(180deg, #eaeaea 0%, #fff 100%)
 }
 
 #hidden {
@@ -1068,10 +1087,10 @@
 
 #profile-picture-all-users {
   text-align: center;
-  background-color: #dddddd;
+  background-color: #f4f4f4;
   margin-top: 50px;
   letter-spacing: 1px;
-  border-right: 10px solid white;
+  border: 5px solid white;
 }
 
 #profile-picture-all-users h4 {

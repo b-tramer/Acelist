@@ -28,7 +28,7 @@ import ReactDOM from 'react-dom';
           <div className="row" id="info-area">
             <div className="small-12 large-4 columns">
               <img src="./search.svg" height="90" width="90"/>
-            <h5> Search Movies & Shows </h5>
+            <h5> Search For Media </h5>
           </div>
 
           <div className="small-12 large-4 columns">
@@ -38,7 +38,7 @@ import ReactDOM from 'react-dom';
 
           <div className="small-12 large-4 columns">
             <img src="./share.svg" height="90" width="90"/>
-            <h5> Save & Share With Friends </h5>
+            <h5> Share With Friends </h5>
           </div>
           </div>
 
