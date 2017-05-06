@@ -56,7 +56,7 @@ class Navigation extends Component{
           <ul className="vertical menu" data-accordion-menu>
             <li className="list-item"> <Link to='/'>HOME</Link> </li>
             <li className="list-item"> <Link to='/users'>SEARCH USERS</Link> </li>
-            <li className="list-item"> <Link to={`/users/${userId}`}>PROFILE</Link> </li>
+            <li className="list-item"> <Link to={`/users/${userId}`}>MY PROFILE</Link> </li>
             <li className="list-item"> <a href="/login">LOGIN/SIGNUP</a> </li>
           </ul>
         </div>
@@ -89,7 +89,7 @@ class Navigation extends Component{
             <ul className="vertical menu" data-accordion-menu>
               <li className="list-item"> <Link to='/'>HOME</Link> </li>
               <li className="list-item"> <Link to='/users'>SEARCH USERS</Link> </li>
-              <li className="list-item"> <Link to={`/users/${userId}`}>PROFILE</Link> </li>
+              <li className="list-item"> <Link to={`/users/${userId}`}>MY PROFILE</Link> </li>
               <li className="list-item"> <a href="/login">LOGIN/SIGNUP</a> </li>
             </ul>
           </div>
