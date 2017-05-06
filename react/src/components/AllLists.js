@@ -21,6 +21,13 @@ class AllLists extends Component {
   }
 
   render() {
+    let searchBoxClass;
+    if (this.props.showSearchBarClass === 'hidden') {
+      searchBoxClass = 'create-hidden'
+    } else {
+      searchBoxClass = 'show'
+    }
+
     let newList = this.props.lists.map((list) => {
       if (this.props.selectedId === list.id && this.state.userId === list.user_id) {
         return (
@@ -51,7 +58,7 @@ class AllLists extends Component {
       <div>
         {newList}
         <div>
-          <h4> <button type="button" id='create-button' onClick={this.props.handleCreate}>+ Create A New List</button> </h4>
+          <h4> <button className={searchBoxClass} type="button" id='create-button' onClick={this.props.handleCreate}>+ Create A New List</button> </h4>
         </div>
       </div>
     )

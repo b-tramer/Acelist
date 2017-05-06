@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
 class SearchBox extends Component {
+  constructor(props){
+    super(props);
+    this.state = {}
+  }
+
   render() {
     return (
-      <div>
-
-
-        <div >
+      <div className={this.props.showSearchBarClass}>
+        <div>
           <div className="search">
             <form className="searchbox">
               <label id="search-label" className={this.props.showCreateClass}>
@@ -22,7 +25,6 @@ class SearchBox extends Component {
             </form>
           </div>
         </div>
-
       </div>
     )
   }

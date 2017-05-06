@@ -50,14 +50,8 @@ class AllUsersContainer extends Component{
   render() {
     return(
       <div className="row">
-        <UserSearch
-          query = {this.state.query}
-          onChange = {this.handleSearchChange}
-        />
-
-        <AllUsers
-          users = {this.state.allUsers}
-        />
+        <UserSearch query = {this.state.query} onChange = {this.handleSearchChange} />
+        <AllUsers users = {this.state.allUsers}/>
       </div>
 
     )

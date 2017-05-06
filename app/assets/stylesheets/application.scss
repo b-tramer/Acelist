@@ -601,6 +601,14 @@
   margin-bottom: -211px;
 }
 
+.searchbox-hidden {
+  margin-top: -203px;
+}
+
+.create-hidden {
+  display: none;
+}
+
 #poster img {
   float: left;
   display: inline;
@@ -820,6 +828,14 @@
   overflow: hidden;
 }
 
+#login-button-fb a {
+  border: 0px;
+}
+
+#login-button-fb a:hover {
+  background-color: transparent;
+}
+
 // MOVIE TILE STYLING
 #search-box-all {
   margin-bottom: 211px;
@@ -942,9 +958,6 @@
   right: 0;
 }
 
-#sign-in-up {
-
-}
 // LIST STYLING
 
 #delete-media-button {
@@ -1081,6 +1094,10 @@
 
 #hidden {
   display: none;
+}
+
+#sign-in {
+  border: 0px;
 }
 
 // ALL USERS DISPLAY

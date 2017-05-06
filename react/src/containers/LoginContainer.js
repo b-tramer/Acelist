@@ -28,7 +28,7 @@ class LoginContainer extends Component{
       <h3> You are signed in as {this.state.userName} </h3>
       <h3> <a id="sign_out" href="/signout">Sign out</a> </h3> </div>
     } else {
-      loginDisplay = <h3> <a id="sign_in" href="/auth/facebook"><img src='./facebook.png' width="300px"/></a> </h3>
+      loginDisplay = <h3 id="login-button-fb"> <a id="sign_in" href="/auth/facebook"><img src='./facebook.png' width="300px"/></a> </h3>
     }
     return(
       <div id="fb-login">
