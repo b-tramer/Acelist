@@ -17,12 +17,18 @@ class Navigation extends Component{
     fetch(`/api/v1/users`, { credentials: 'same-origin' })
       .then(response => response.json())
       .then(responseData => {
-        this.setState({ user: responseData.current_user.id })
+        this.setState({ userId: responseData.current_user.id, userImage:responseData.current_user.image  })
     });
   }
 
   render() {
-    let userId = this.state.user
+    let userId = this.state.userId
+    let profileImage;
+    if (this.state.userImage) {
+      profileImage = this.state.userImage
+    } else {
+      profileImage = assetHelper["profile-icon.svg"]
+    }
     return(
     <div>
 
@@ -31,7 +37,7 @@ class Navigation extends Component{
         <div className='row'>
           <div onClick={this.props.handleClick}>
             <div className="small-3 large-1 columns" id='menu-icon-div'>
-              <span id='nav-menu-icon'> <img src={assetHelper[this.props.menuButton]}/>/></span>
+              <span id='nav-menu-icon'> <img src={assetHelper[this.props.menuButton]}/></span>
             </div>
           </div>
 
@@ -40,7 +46,7 @@ class Navigation extends Component{
           </div>
 
           <div className="small-3 large-1 columns profile" id='menu-profile-div'>
-            <span id='nav-profile-icon'> <Link to={`/users/${userId}`}> <img src={assetHelper["profile-icon.svg"]} height="36" width="35"/> </Link> </span>
+            <span id='nav-profile-icon'> <Link to={`/users/${userId}`}> <img src={profileImage} height="36" width="35"/> </Link> </span>
           </div>
         </div>
       </div>
@@ -73,7 +79,7 @@ class Navigation extends Component{
             </div>
 
             <div className="small-3 large-1 columns profile" id='menu-profile-div'>
-              <span id='nav-profile-icon'> <Link to={`/users/${userId}`}> <img src={assetHelper["profile-icon.svg"]} height="36" width="35"/> </Link> </span>
+              <span id='nav-profile-icon'> <Link to={`/users/${userId}`}> <img src={profileImage} height="36" width="35"/> </Link> </span>
             </div>
           </div>
         </div>
