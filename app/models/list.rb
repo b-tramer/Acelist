@@ -7,7 +7,7 @@ class List < ActiveRecord::Base
   def media_attributes=(attributes)
     attributes.each do |item|
       if item[:data_id].nil?
-        self.media << Media.where(data_id: item[:id])
+        self.media << Media.last
       else
         self.media << Media.find(item[:id])
       end
