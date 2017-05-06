@@ -16,10 +16,9 @@ class MediaCard extends Component {
       name = this.props.original_name
       release = this.props.first_air_date
     };
-
     return(
       <div>
-      <span> <button id='delete-media-button' type="button" onClick={() => this.props.handleDeleteMedia(id)}><img src={assetHelper["delete-media-x.svg"]} height="20" width="20"/></button> </span>
+      <div className={this.props.mediaDeleteClass}> <button id='delete-media-button' type="button" onClick={() => this.props.handleDeleteMedia(id)}><img src={assetHelper["delete-media-x.svg"]} height="20" width="20"/></button> </div>
         <div className="row" id="movie-row">
           <div className="small-12 large-3 columns">
             <img src={poster} height="150" width="150"/>

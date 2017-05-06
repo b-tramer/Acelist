@@ -230,11 +230,14 @@ class MainContainer extends Component{
 
   render() {
     let showSearchBarClass;
+    let mediaDeleteClass;
     let id = +(this.props.params.id)
     if (id === this.state.current.id) {
       showSearchBarClass = 'show'
+      mediaDeleteClass = 'delete-media-button'
     } else {
       showSearchBarClass = 'hidden'
+      mediaDeleteClass = 'delete-media-button-hidden'
     }
 
     let showCreateClass;
@@ -275,6 +278,7 @@ class MainContainer extends Component{
               showCreateClass = {showCreateClass}
               media = {this.state.currentMedia}
               showSearchBarClass = {showSearchBarClass}
+              mediaDeleteClass = {mediaDeleteClass}
             />
           </div>
         </div>
