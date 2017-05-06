@@ -42,8 +42,7 @@ class AllLists extends Component {
             name = {list.name}
             handleClick = {this.props.handleClick}
             selectedBackgroundId = 'list-button'
-            listDeleteButtonClass = 'show'
-            handleDeleteList = {this.props.handleDeleteList}
+            listDeleteButtonClass = 'hidden'
           />
         )
       }

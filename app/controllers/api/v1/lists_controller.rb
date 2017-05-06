@@ -1,6 +1,5 @@
 class Api::V1::ListsController < ApplicationController
   skip_before_action :verify_authenticity_token
-  protect_from_forgery unless: -> { request.format.json? }
 
   def show
     @list = List.find(params[:id])
@@ -11,7 +10,6 @@ class Api::V1::ListsController < ApplicationController
   end
 
   def create
-    binding.pry
     if List.find_by(name: params[:list][:name].titleize, user_id: current_user.id).nil?
       @list = List.new(list_params)
       @list.name = @list.name.titleize
