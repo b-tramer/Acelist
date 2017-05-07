@@ -86,7 +86,6 @@ class MainContainer extends Component{
       }
       this.sendSearch(searchPayload)
     }
-    this.setState({ title: '' })
   }
 
   // send media search payload to media api controller - create
@@ -150,7 +149,8 @@ class MainContainer extends Component{
     .then(response => response.json())
     .then(data =>
       this.setState({
-        lists: [...this.state.lists, data]
+        lists: [...this.state.lists, data],
+        title: ''
        }))
   }
 
