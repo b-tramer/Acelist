@@ -272,7 +272,7 @@ class MainContainer extends Component{
           </div>
           <div className="large-8 large-offset-3 columns" id="offset-column">
             <AllMedia
-              mediaValue = {this.state.mediaValue}
+              mediaValue = {this.state.title}
               handleTitleChange = {this.handleTitleChange}
               handleTitleSubmit = {this.handleSubmit}
 
