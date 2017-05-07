@@ -27,12 +27,11 @@ class UserInfo extends Component {
         <div className="profile-container" id="top">
           <div className="row">
             <div className="large-1 columns" id="profile-picture">
-            <img src={profilePicture}/>
+           <img src={profilePicture}/>
             </div>
             <div id={userSignedIn}>
               <div className="large-8 large-offset-3 columns" id="user-name">
                 <h3> {this.props.user.name} </h3>
-                <p> {this.props.user.city} {this.props.user.state} </p>
               </div>
             </div>
             <div id={userNotSignedIn}>

@@ -16,7 +16,6 @@ class UserCard extends Component {
         <Link to={`/users/${this.props.id}`}>
           <img src={profilePicture} height="150" width="150"/>
           <h4> {this.props.name} </h4>
-          <p> {this.props.city} {this.props.state} </p>
         </Link>
       </div>
     )
