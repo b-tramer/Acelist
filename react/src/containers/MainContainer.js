@@ -20,7 +20,8 @@ class MainContainer extends Component{
       listName: '',
       showCreate: false,
       selectedBackgroundId: 'list-button',
-      current: {}
+      current: {},
+      showSearch: false
     }
     this.handleClick = this.handleClick.bind(this)
     this.handleTitleChange = this.handleTitleChange.bind(this)
@@ -156,10 +157,10 @@ class MainContainer extends Component{
   // when a list name is clicked, it sets the state of 'selectedId' to the list's id
   handleClick(id, name) {
     if (id !== this.state.selectedId) {
-      this.setState({ selectedId: id, listName: name, showCreate: false })
+      this.setState({ selectedId: id, listName: name, showCreate: false, showSearch: true })
       this.getListData(id)
     } else if (id === this.state.selectedId) {
-      this.setState({ selectedId: 0, listName: '', currentMedia: [], showCreate: false})
+      this.setState({ selectedId: 0, listName: '', currentMedia: [], showCreate: false, showSearch: false })
     }
   }
 
@@ -245,6 +246,13 @@ class MainContainer extends Component{
     } else {
       showCreateClass = 'show'
     }
+
+    let showSearch;
+    if (this.state.showSearch === false) {
+      showSearch = 'hidden'
+    } else {
+      showSearch = 'show'
+    }
     return(
       <div  id="profile-main-div">
           <UserInfo
@@ -277,7 +285,9 @@ class MainContainer extends Component{
               showCreateClass = {showCreateClass}
               media = {this.state.currentMedia}
               showSearchBarClass = {showSearchBarClass}
+
               mediaDeleteClass = {mediaDeleteClass}
+              showSearch = {showSearch}
             />
           </div>
         </div>
