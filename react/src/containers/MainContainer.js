@@ -110,7 +110,6 @@ class MainContainer extends Component{
     fetch(`/api/v1/users/${userId}`, { credentials: 'same-origin' })
       .then(response => response.json())
       .then(responseData => {
-        console.log(responseData.current)
         this.setState({
           lists: responseData.lists,
           current_user: responseData.user[0],
