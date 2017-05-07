@@ -49,6 +49,7 @@ class AllMedia extends React.Component {
             listNameSubmit = {this.props.listNameSubmit}
 
             showSearchBarClass = {this.props.showSearchBarClass}
+            showSearch = {this.props.showSearch}
           />
         </div>
         <div className={searchBoxClass}>
