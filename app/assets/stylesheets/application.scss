@@ -629,89 +629,6 @@
   margin-bottom: 8px;
 }
 
-// SMALL SCREEN ONLY
-@media screen and (max-width: 39.9375em) {
-  #media-input-box {
-    display: inline;
-    width: 55%;
-    border: 1px solid black;
-    box-shadow: none;
-    height: 52px;
-    text-transform: capitalize;
-    margin-bottom: 8px;
-    margin-left: 18px;
-  }
-
-  #media-search-button {
-    border: 1px solid black;
-    background-color: white;
-    height: 52px;
-    width: 20px;
-    font-family: 'Ubuntu', sans-serif;
-    text-transform: uppercase;
-    display: inline;
-    letter-spacing: 1px;
-    font-size: 18px;
-    outline: none;
-  }
-}
-
-// BETWEEN SMALL AND MEDIUM SIZE
-@media screen and (min-width: 39.9375em) and (max-width: 49.9375em){
-  #media-input-box {
-    display: inline;
-    width: 70%;
-    border: 1px solid black;
-    box-shadow: none;
-    height: 52px;
-    text-transform: capitalize;
-    margin-bottom: 8px;
-    margin-left: 45px;
-  }
-
-  #media-search-button {
-    border: 1px solid black;
-    background-color: white;
-    height: 52px;
-    width: 20px;
-    font-family: 'Ubuntu', sans-serif;
-    text-transform: uppercase;
-    display: inline;
-    letter-spacing: 1px;
-    font-size: 18px;
-    outline: none;
-  }
-}
-
-// MEDIUM SCREEN ONLY
-@media screen and (min-width: 50em) and (max-width: 75em) {
-  #media-input-box {
-    display: inline;
-    width: 78%;
-    border: 1px solid black;
-    box-shadow: none;
-    height: 52px;
-    text-transform: capitalize;
-    margin-bottom: 8px;
-    margin-left: 18px;
-    float: center;
-  }
-
-  #media-search-button {
-    border: 1px solid black;
-    background-color: white;
-    height: 52px;
-    width: 20px;
-    font-family: 'Ubuntu', sans-serif;
-    text-transform: uppercase;
-    display: inline;
-    letter-spacing: 1px;
-    font-size: 18px;
-    outline: none;
-    float: center;
-  }
-}
-
 #media-search-button {
   border: 1px solid black;
   background-color: white;
@@ -738,6 +655,114 @@
   letter-spacing: 1px;
   font-size: 18px;
   outline: none;
+}
+
+// SMALL SCREEN ONLY
+@media screen and (max-width: 39.9375em) {
+  #media-input-box {
+    display: inline;
+    border: 1px solid black;
+    box-shadow: none;
+    height: 52px;
+    text-transform: capitalize;
+    margin-bottom: 8px;
+    width: 95%;
+    padding-left: 10px;
+  }
+
+  #list-button {
+    margin-left: 0px;
+  }
+
+  #search-label {
+    text-align: right;
+  }
+
+  #media-search-button {
+    border: 1px solid black;
+    background-color: white;
+    height: 52px;
+    width: 95%;
+    font-family: 'Ubuntu', sans-serif;
+    text-transform: uppercase;
+    display: inline;
+    letter-spacing: 1px;
+    font-size: 18px;
+    outline: none;
+    margin-bottom: 8px;
+  }
+}
+
+// BETWEEN SMALL AND MEDIUM SIZE
+@media screen and (min-width: 39.9375em) and (max-width: 63.9375em){
+  #media-input-box {
+    display: inline;
+    width: 95%;
+    border: 1px solid black;
+    box-shadow: none;
+    height: 52px;
+    text-transform: capitalize;
+    margin-bottom: 8px;
+  }
+
+  #list-button {
+    margin-left: 0px;
+  }
+
+  #search-label {
+    text-align: right;
+  }
+
+  #media-search-button {
+    border: 1px solid black;
+    background-color: white;
+    height: 52px;
+    width: 95%;
+    font-family: 'Ubuntu', sans-serif;
+    text-transform: uppercase;
+    display: inline;
+    letter-spacing: 1px;
+    font-size: 18px;
+    outline: none;
+    margin-bottom: 8px;
+  }
+}
+
+// MEDIUM SCREEN ONLY
+@media screen and (min-width: 64em) and (max-width: 75em) {
+  #media-input-box {
+    display: inline;
+    width: 100%;
+    border: 1px solid black;
+    box-shadow: none;
+    height: 52px;
+    text-transform: capitalize;
+    margin-bottom: 8px;
+    float: center;
+  }
+
+  #list-button {
+    margin-left: 0px;
+  }
+
+  #search-label {
+    text-align: right;
+  }
+
+  #media-search-button {
+    border: 1px solid black;
+    background-color: white;
+    height: 52px;
+    width: 100%;
+    font-family: 'Ubuntu', sans-serif;
+    text-transform: uppercase;
+    display: inline;
+    letter-spacing: 1px;
+    font-size: 18px;
+    outline: none;
+    float: center;
+    margin-bottom: 8px;
+  }
 }
 
 #media-save-button:hover {
@@ -993,6 +1018,35 @@
     margin-left: 0px;
   }
 
+}
+
+@media screen and (min-width: 40em) and (max-width: 63.95em) {
+  #user-name {
+    margin-top: -13px;
+    margin-bottom: 7px;
+    text-align: center;
+    font-size: 115%;
+  }
+
+  #user-name h3 {
+    font-size: 31px;
+  }
+
+  #profile-picture {
+    text-align: center;
+  }
+
+  #profile-picture img {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    top: 300px;
+    border: 2px solid white;
+    box-shadow: 0px 0px 6px #888888;
+    object-fit: cover;
+    width:210px;
+    height:210px;
+    margin-left: 0px;
+  }
 }
 
 #user-name p {
