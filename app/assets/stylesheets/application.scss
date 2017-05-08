@@ -325,9 +325,23 @@
 
 /*FORM STYLING */
 
+.toggle-hero h3 {
+  color: white;
+  letter-spacing: 2px;
+}
 
 .information {
   background: linear-gradient(45deg, #002f4b 0%, transparent 100%), url(image-path('geo-hero.png')) no-repeat center;
+  opacity: 0.8;
+  background-size: cover;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  margin-top: 68px;
+}
+
+.information-two {
+  background: linear-gradient(45deg, #002f4b 0%, transparent 100%), url(image-path('poster2.png')) no-repeat center;
   opacity: 0.8;
   background-size: cover;
   width: 100%;
@@ -461,6 +475,8 @@
 }
 
 /*HERO CONTAINER */
+
+
 
 .hero-text {
   font-family: 'Ubuntu', sans-serif;

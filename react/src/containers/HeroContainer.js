@@ -5,7 +5,11 @@ import InfoArea from '../components/InfoArea'
 class HeroContainer extends Component{
   constructor(props){
     super(props);
-    this.state = {}
+    this.state = {
+      heroOne: 'show',
+      heroTwo: 'hidden'
+    }
+    this.heroSwitch = this.heroSwitch.bind(this)
   }
 
   componentDidMount() {
@@ -21,21 +25,57 @@ class HeroContainer extends Component{
     });
   }
 
+  heroSwitch() {
+    if (this.state.heroOne === 'show') {
+      this.setState({ heroOne: 'hidden', heroTwo: 'show' })
+    } else {
+      this.setState({ heroOne: 'show', heroTwo: 'hidden' })
+    }
+  }
+
   render() {
     let userId = this.state.user
     return(
       <div>
-        <div className='information'>
-          <div className='row'>
-              <div className='hero-text'>
-                <h1> Life’s Better Listed </h1>
-                <h4> Save & share your favorite movies & shows </h4>
-                <Link to={`/users/${userId}`}>
-               <button type="button" className="button" id="get-started-button">GET STARTED</button>
-               </Link>
+
+        <div className={this.state.heroOne}>
+          <div className='information'>
+            <div className='row'>
+                <div className='hero-text'>
+                  <h1> Life’s Better <em>Listed</em> </h1>
+                  <h4> Save & share your favorite movies & tv shows </h4>
+                  <Link to={`/users/${userId}`}>
+                 <button type="button" className="button" id="get-started-button">GET STARTED</button>
+                 </Link>
+                </div>
+            </div>
+            <center>
+              <div className='toggle-hero'>
+                <h3 onClick={this.heroSwitch}>⟵  ⟶</h3>
               </div>
+            </center>
           </div>
         </div>
+
+        <div className={this.state.heroTwo}>
+          <div className='information-two'>
+            <div className='row'>
+                <div className='hero-text'>
+                  <h1> Life’s Better <em>Organized</em> </h1>
+                  <h4> Keep Track Of Your Favorite TV Shows & Movies </h4>
+                  <Link to={`/users/${userId}`}>
+                 <button type="button" className="button" id="get-started-button">GET STARTED</button>
+                 </Link>
+                </div>
+            </div>
+            <center>
+              <div className='toggle-hero'>
+                <h3 onClick={this.heroSwitch}>⟵  ⟶</h3>
+              </div>
+            </center>
+          </div>
+        </div>
+
         <InfoArea />
       </div>
 
