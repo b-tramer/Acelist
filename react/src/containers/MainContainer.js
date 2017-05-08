@@ -21,7 +21,8 @@ class MainContainer extends Component{
       showCreate: false,
       selectedBackgroundId: 'list-button',
       current: {},
-      showSearch: false
+      showSearch: false,
+      errors: {}
     }
     this.handleClick = this.handleClick.bind(this)
     this.handleTitleChange = this.handleTitleChange.bind(this)
@@ -120,7 +121,26 @@ class MainContainer extends Component{
 
   // set the state of listName onChage in SearchBox
   handleListNameChange(event) {
+    this.validateListNameChange(event.target.value);
     this.setState({ listName: event.target.value })
+  }
+
+  // make it so a user cannot submit an empty list or a list with a title greater than 20 characters
+  validateListNameChange(name) {
+    if (name === '' || name === ' ' ) {
+      let newError = { name: 'List must be given a name' };
+      this.setState({ errors: Object.assign(this.state.errors, newError) });
+      return false;
+    } else if (name.length > 21) {
+      let newError = { name: 'List name cannot be greater than 20 characters' };
+      this.setState({ errors: Object.assign(this.state.errors, newError) });
+      return false;
+    } else {
+      let errorState = this.state.errors;
+      delete errorState.name;
+      this.setState({ errors: errorState });
+      return true;
+    }
   }
 
   // set the state of title onChange in SearchBox
@@ -130,12 +150,14 @@ class MainContainer extends Component{
 
   // called from 'sendSearch' - each time a user searches for media, this way we do not need a 'save' button
   handleListSubmit() {
-    let jsonPayload = {
-      name: this.state.listName,
-      user_id: this.state.current_user.id,
-      media_attributes: this.state.currentMedia
+    if (this.validateListNameChange(this.state.listName)) {
+      let jsonPayload = {
+        name: this.state.listName,
+        user_id: this.state.current_user.id,
+        media_attributes: this.state.currentMedia
+      }
+      this.sendList({list: jsonPayload})
     }
-    this.sendList({list: jsonPayload})
   }
 
   // send the list name, user id, and media attributes to the list api controller
@@ -254,6 +276,15 @@ class MainContainer extends Component{
     } else {
       showSearch = 'show'
     }
+
+    let errorDiv;
+    let errorItems;
+    if (Object.keys(this.state.errors).length > 0) {
+      errorItems = Object.values(this.state.errors).map(error => {
+        return(<li key={error}>{error}</li>)
+      });
+      errorDiv = <div className="callout-alert">{errorItems}</div>
+    }
     return(
       <div  id="profile-main-div">
           <UserInfo
@@ -272,6 +303,7 @@ class MainContainer extends Component{
               />
           </div>
           <div className="large-8 large-offset-3 columns" id="offset-column">
+          {errorDiv}
             <AllMedia
               mediaValue = {this.state.title}
               handleTitleChange = {this.handleTitleChange}
