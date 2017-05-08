@@ -8,7 +8,7 @@ class SearchBox extends Component {
   }
 
   render() {
-      let placeholder = `Search & Add Movies & Shows To ${this.props.listNameValue}...`
+      let placeholder = `Search & Add Media To ${this.props.listNameValue}...`
     return (
       <div className={this.props.showSearchBarClass}>
         <div>

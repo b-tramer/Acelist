@@ -708,6 +708,10 @@
     outline: none;
     margin-bottom: 8px;
   }
+
+  #see-all-users {
+    display: none;
+  }
 }
 
 // BETWEEN SMALL AND MEDIUM SIZE
@@ -742,6 +746,14 @@
     font-size: 18px;
     outline: none;
     margin-bottom: 8px;
+  }
+
+  #see-all-users {
+    top: 230px;
+  }
+
+  #see-all-users a {
+    top: 230px;
   }
 }
 
@@ -1078,6 +1090,27 @@
   margin-bottom: 3px;
   bottom: 0;
   right: 0;
+}
+
+#see-all-users {
+  right: 1%;
+  top: 292px;
+  position: absolute;
+  color: black;
+}
+
+#see-all-users a {
+  color: #333333;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+// BETWEEN SMALL AND MEDIUM SIZE
+@media screen and (min-width: 39.9375em) and (max-width: 63.9375em){
+  #see-all-users {
+    top: 340px;
+  }
+
 }
 
 // LIST STYLING
