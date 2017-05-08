@@ -328,6 +328,7 @@
 .toggle-hero h3 {
   color: white;
   letter-spacing: 2px;
+  margin-top: -38px;
 }
 
 .information {
@@ -765,11 +766,11 @@
   }
 
   #see-all-users {
-    top: 230px;
+    top: 228px;
   }
 
   #see-all-users a {
-    top: 230px;
+    top: 228px;
   }
 }
 
@@ -1110,7 +1111,7 @@
 
 #see-all-users {
   right: 1%;
-  top: 292px;
+  top: 290px;
   position: absolute;
   color: black;
 }
@@ -1124,9 +1125,13 @@
 // BETWEEN SMALL AND MEDIUM SIZE
 @media screen and (min-width: 39.9375em) and (max-width: 63.9375em){
   #see-all-users {
-    top: 340px;
+    top: 338px;
   }
 
+}
+
+#see-all-users {
+  font-size: 110%;
 }
 
 // LIST STYLING

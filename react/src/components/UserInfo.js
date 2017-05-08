@@ -41,7 +41,7 @@ class UserInfo extends Component {
               </div>
             </div>
           </div>
-          <p id='see-all-users'> <Link to='/users'> Search Users <img src={assetHelper["search.svg"]} height="25" width="25"/></Link> </p>
+          <p id='see-all-users'> <Link to='/users'> Search Users <img src={assetHelper["search.svg"]} height="30" width="30"/></Link> </p>
 
           <a href="#top" id="go-to-top">
           <img src={assetHelper["to-top-button2.svg"]} width="40"/>
