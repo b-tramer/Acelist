@@ -8,6 +8,7 @@ class SearchBox extends Component {
   }
 
   render() {
+      let placeholder = `Search & Add Movies & Shows To ${this.props.listNameValue}...`
     return (
       <div className={this.props.showSearchBarClass}>
         <div>
@@ -21,8 +22,8 @@ class SearchBox extends Component {
               </form>
               <form >
                 <label className={this.props.showSearch} id="search-label" >
-                  <input onChange={this.props.handleTitleChange} type="text" placeholder="Search Movies & Shows..." id="media-input-box" value={this.props.mediaValue} />
-                  <input onClick={this.props.handleTitleSubmit} value="add" type="submit" id="media-search-button"/>
+                  <input onChange={this.props.handleTitleChange} type="text" placeholder={placeholder} id="media-input-box" value={this.props.mediaValue} />
+                  <input onClick={this.props.handleTitleSubmit} value="＋" type="submit" id="media-search-button"/>
                 </label>
               </form>
             </div>
