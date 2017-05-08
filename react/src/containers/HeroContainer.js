@@ -43,7 +43,7 @@ class HeroContainer extends Component{
             <div className='row'>
                 <div className='hero-text'>
                   <h1> Life’s Better <em>Listed</em> </h1>
-                  <h4> Save & share your favorite movies & tv shows </h4>
+                  <h4> Save & Share Your Favorite Movies & TV Shows </h4>
                   <Link to={`/users/${userId}`}>
                  <button type="button" className="button" id="get-started-button">GET STARTED</button>
                  </Link>
@@ -62,7 +62,7 @@ class HeroContainer extends Component{
             <div className='row'>
                 <div className='hero-text'>
                   <h1> Life’s Better <em>Organized</em> </h1>
-                  <h4> Keep Track Of Your Favorite TV Shows & Movies </h4>
+                  <h4> Keep Track Of Your Favorite Movies & TV Shows </h4>
                   <Link to={`/users/${userId}`}>
                  <button type="button" className="button" id="get-started-button">GET STARTED</button>
                  </Link>
