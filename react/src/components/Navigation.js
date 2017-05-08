@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-// import styles from '../styles/Navigation';
 
 class Navigation extends Component{
   constructor(props){
     super(props);
-    this.state = {}
+    this.state = {
+      userId: 0
+    }
   }
 
   componentDidMount() {
@@ -46,7 +47,7 @@ class Navigation extends Component{
           </div>
 
           <div className="small-3 large-1 columns profile" id='menu-profile-div'>
-            <span id='nav-profile-icon'> <Link to={`/users/${userId}`}> <img src={profileImage} height="36" width="35"/> </Link> </span>
+            <span id='nav-profile-icon'> <a href={`/users/${userId}`}> <img src={profileImage} height="36" width="35"/> </a> </span>
           </div>
         </div>
       </div>
@@ -56,7 +57,7 @@ class Navigation extends Component{
           <ul className="vertical menu" data-accordion-menu>
             <li className="list-item"> <Link to='/'>HOME</Link> </li>
             <li className="list-item"> <Link to='/users'>SEARCH USERS</Link> </li>
-            <li className="list-item"> <Link to={`/users/${userId}`}>MY PROFILE</Link> </li>
+            <li className="list-item"> <a href={`/users/${userId}`}>MY PROFILE</a> </li>
             <li className="list-item"> <a href="/login">LOGIN/SIGNUP</a> </li>
           </ul>
         </div>
@@ -79,7 +80,7 @@ class Navigation extends Component{
             </div>
 
             <div className="small-3 large-1 columns profile" id='menu-profile-div'>
-              <span id='nav-profile-icon'> <Link to={`/users/${userId}`}> <img src={profileImage} height="36" width="35"/> </Link> </span>
+              <span id='nav-profile-icon'> <a href={`/users/${userId}`}> <img src={profileImage} height="36" width="35"/> </a> </span>
             </div>
           </div>
         </div>
@@ -89,7 +90,7 @@ class Navigation extends Component{
             <ul className="vertical menu" data-accordion-menu>
               <li className="list-item"> <Link to='/'>HOME</Link> </li>
               <li className="list-item"> <Link to='/users'>SEARCH USERS</Link> </li>
-              <li className="list-item"> <Link to={`/users/${userId}`}>MY PROFILE</Link> </li>
+              <li className="list-item"> <a href={`/users/${userId}`}>MY PROFILE</a> </li>
               <li className="list-item"> <a href="/login">LOGIN/SIGNUP</a> </li>
             </ul>
           </div>
