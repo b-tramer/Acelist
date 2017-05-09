@@ -12,6 +12,9 @@ class Api::V1::UsersController < ApplicationController
 
   def show
     user_page = User.find(params[:id])
+    if user_page.followers == []
+      @follow_boolean = false
+    end
     user_page.followers.each do |follower|
       if follower.user_id == current_user.id
         @follow_boolean = true

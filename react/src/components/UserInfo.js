@@ -78,7 +78,7 @@ class UserInfo extends Component {
 
     let follow;
     if (this.props.follow_boolean === false) {
-      follow = <button type="button" className={showFollow} id='follow-button' onClick={() => this.props.unfollowOnClick(userId)}> FOLLOW </button>
+      follow = <button type="button" className={showFollow} id='follow-button' onClick={() => this.props.followOnClick(userId)}> FOLLOW </button>
     } else {
       follow = <button type="button" className={showFollow} id='follow-button' onClick={() => this.props.unfollowOnClick(userId)}> ✓ FOLLOWING </button>
     }
