@@ -16,7 +16,7 @@ class Api::V1::FollowersController < ApplicationController
 
     @following = []
     @user.followings.each do |user|
-      @followers << User.find(user.following_id)
+      @following << User.find(user.following_id)
     end
 
     respond_to do |format|

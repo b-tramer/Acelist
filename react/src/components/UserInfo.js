@@ -7,7 +7,8 @@ class UserInfo extends Component {
   constructor(props){
     super(props);
     this.state = {
-      users: []
+      users: [],
+      showFollow: 'hidden'
     }
     this.clickViewFollowing = this.clickViewFollowing.bind(this)
     this.clickViewFollowers = this.clickViewFollowers.bind(this)
@@ -15,7 +16,12 @@ class UserInfo extends Component {
 
   // bound to 'following' button in return of this container
   clickViewFollowing() {
-    this.getCurrentUserFollowingData()
+    if (this.state.showFollow === 'hidden') {
+      this.setState({ showFollow: 'show-popup', users: [] })
+      this.getCurrentUserFollowingData()
+    } else {
+      this.setState({ showFollow: 'hidden', users: [] })
+    }
   }
 
   // returns users following data from followers api controller - show
@@ -31,8 +37,12 @@ class UserInfo extends Component {
 
   // bound to 'followers' button in return of this container
   clickViewFollowers() {
-    this.getCurrentUserFollowersData()
-  }
+    if (this.state.showFollow === 'hidden') {
+      this.setState({ showFollow: 'show-popup', users: [] })
+      this.getCurrentUserFollowersData()
+    } else {
+      this.setState({ showFollow: 'hidden', users: [] })
+    }  }
 
   // returns users followers data from followers api controller - show
   getCurrentUserFollowersData() {
@@ -43,10 +53,6 @@ class UserInfo extends Component {
         console.log(responseData)
         this.setState({ users: responseData.followers  })
     });
-  }
-
-  toggleFollowShow() {
-
   }
 
   render() {
@@ -95,13 +101,13 @@ class UserInfo extends Component {
             <Link to='/users'> Search Users <img src={assetHelper["search.svg"]} height="30" width="30"/></Link>
           </p>
 
-          <div className='following'>
-            <FollowUserTile users = {this.state.users} />
-          </div>
-
           <a href="#top" id="go-to-top">
           <img src={assetHelper["to-top-button2.svg"]} width="40"/>
           </a>
+        </div>
+
+        <div className="row">
+          <FollowUserTile users = {this.state.users} showFollow = {this.state.showFollow} />
         </div>
       </div>
 

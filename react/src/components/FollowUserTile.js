@@ -8,13 +8,13 @@ class FollowUserTile extends Component {
     let users = this.props.users.map((user) => {
       let profilePicture = user.image + "/picture?type=large"
       return (
-        <Link to={`/users/${user.id}`}>
-          <h4> <img src={profilePicture} height="50" width="50"/> {user.name} </h4>
-        </Link>
+        <a href={`/users/${user.id}`}>
+          <h4 className="follower-info"> <img src={profilePicture} height="50" width="50"/> {user.name} </h4>
+        </a>
       )
     })
     return(
-      <div>
+      <div className="small-6 small-centered large-6 large-centered columns" id={this.props.showFollow}>
         {users}
       </div>
     )
