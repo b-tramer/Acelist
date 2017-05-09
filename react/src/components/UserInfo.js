@@ -12,6 +12,7 @@ class UserInfo extends Component {
     }
     this.clickViewFollowing = this.clickViewFollowing.bind(this)
     this.clickViewFollowers = this.clickViewFollowers.bind(this)
+    this.handleFollowChange = this.handleFollowChange.bind(this)
   }
 
   // bound to 'following' button in return of this container
@@ -55,12 +56,18 @@ class UserInfo extends Component {
     });
   }
 
-  handleFollowStatus() {
-    this.setState({ follow_boolean: true })
+  componentWillReceiveProps(nextProps) {
+    this.setState({ follow_boolean: nextProps.follow_boolean })
   }
 
-  handleUnfollowStatus() {
-    this.setState({ follow_boolean: true })
+  handleFollowChange(userId) {
+    if (this.state.follow_boolean === false) {
+      this.setState({ follow_boolean: true })
+      this.props.followOnClick(userId)
+    } else {
+      this.setState({ follow_boolean: false })
+      this.props.unfollowOnClick(userId)
+    }
   }
 
   render() {
@@ -77,10 +84,10 @@ class UserInfo extends Component {
     }
 
     let follow;
-    if (this.props.follow_boolean === false) {
-      follow = <button type="button" className={showFollow} id='follow-button' onClick={() => this.props.followOnClick(userId)}> FOLLOW </button>
+    if (this.state.follow_boolean === false) {
+      follow = <button type='button' className={showFollow} id='follow-button' onClick={() => this.handleFollowChange(userId)}> FOLLOW </button>
     } else {
-      follow = <button type="button" className={showFollow} id='follow-button' onClick={() => this.props.unfollowOnClick(userId)}> ✓ FOLLOWING </button>
+      follow = <button type='button' className={showFollow} id='follow-button' onClick={() => this.handleFollowChange(userId)}> ✓ FOLLOWING </button>
     }
 
     // if the user is signed in, show their facebook photo, otherwise show default graphic
