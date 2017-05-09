@@ -292,7 +292,7 @@ class MainContainer extends Component{
             user = {this.state.current_user}
           />
           <div className="row">
-            <div className="large-4 columns">
+            <div className="large-4 columns" id="list-div">
               <AllLists
               lists = {this.state.lists}
               handleClick = {this.handleClick}

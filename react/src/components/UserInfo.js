@@ -60,10 +60,12 @@ class UserInfo extends Component {
     let userNotSignedIn;
     let userSignedIn;
     let profilePicture;
+    let nameDisplay;
     if (this.props.user.image) {
       userNotSignedIn = 'hidden'
       userSignedIn = 'show'
       profilePicture = this.props.user.image + "/picture?type=large"
+      nameDisplay = this.props.user.name
     } else if (this.props.user.name){
       profilePicture = this.props.user.image
       userNotSignedIn = 'hidden'
@@ -72,6 +74,7 @@ class UserInfo extends Component {
       userNotSignedIn = 'show'
       userSignedIn = 'hidden'
       profilePicture = 'http://gurucul.com/wp-content/uploads/2015/01/default-user-icon-profile.png'
+      nameDisplay = <a href="/login"> Not Signed In? → Login/Signup </a>
     }
     let userId = this.props.user.id
     return(
@@ -94,12 +97,13 @@ class UserInfo extends Component {
             </div>
           </div>
 
-          <p id='see-all-users'>
-            <button type="button" id='follow-button' onClick={this.clickViewFollowing}> FOLLOWING </button>
-            <button type="button" id='follow-button' onClick={this.clickViewFollowers}> FOLLOWERS </button>
+          <h3 id='see-all-users'>
+            <button type="button" id='name-button' onClick={() => this.props.followOnClick(userId)}> {nameDisplay} </button>
             <button type="button" id='follow-button' onClick={() => this.props.followOnClick(userId)}> FOLLOW </button>
+            <button type="button" id='followers-button' onClick={this.clickViewFollowers}> FOLLOWERS </button>
+            <button type="button" id='followers-button' onClick={this.clickViewFollowing}> FOLLOWING </button>
             <Link to='/users'> Search Users <img src={assetHelper["search.svg"]} height="30" width="30"/></Link>
-          </p>
+          </h3>
 
           <a href="#top" id="go-to-top">
           <img src={assetHelper["to-top-button2.svg"]} width="40"/>
