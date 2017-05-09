@@ -23,9 +23,6 @@ import ReactDOM from 'react-dom';
 
     render() {
       let userId = this.state.user
-      // <div id="started-area">
-      //   <Link to={`/users/${userId}`}> <h6> <button type="button" className="button" id="get-started-button-info">GET STARTED</button> </h6> </Link>
-      // </div>
       return(
         <div>
           <div className="row" id="info-area">
