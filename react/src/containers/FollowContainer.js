@@ -7,20 +7,8 @@ class FollowContainer extends Component {
     super(props);
     this.state = {}
     this.followOnClick = this.followOnClick.bind(this)
+    this.unfollowOnClick = this.unfollowOnClick.bind(this)
   }
-
-  // componentDidMount() {
-  //   this.getUserData()
-  // }
-
-  // // get current users id so that when a user follows someone, it will provide the correct associations
-  // getUserData() {
-  //   fetch(`/api/v1/users`, { credentials: 'same-origin' })
-  //     .then(response => response.json())
-  //     .then(responseData => {
-  //       this.setState({ currentUserId: responseData.current_user.id })
-  //   });
-  // }
 
   // send the current users ID and the ID of the person they are following
   followOnClick(personID) {
@@ -30,6 +18,7 @@ class FollowContainer extends Component {
     this.sendFollow(followPayload)
   }
 
+  // called from above function, sends followPayload to lists api controller - create
   sendFollow(followPayload) {
     fetch("/api/v1/followers", {
       method: "POST",
@@ -37,13 +26,38 @@ class FollowContainer extends Component {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(followPayload)
     })
-    .then(this.handleListSubmit())
   }
+
+  // called from above function, sends unfollowPayload to lists api controller - destroy
+  unfollowOnClick(personID) {
+    fetch(`/api/v1/followers/${personID}`, {
+      method: "DELETE",
+      credentials: 'same-origin',
+      headers: { "Content-Type": "application/json" }
+    })
+  }
+
+  // handleDeleteMedia(id) {
+  //   let listId = this.state.selectedId
+  //   fetch(`/api/v1/media/${id}?listId=${listId}`, {
+  //     credentials: "same-origin",
+  //     method: "DELETE",
+  //     headers: { "Content-Type": "application/json" }
+  //   })
+  //   .then(response => response.json())
+  //   .then(data => this.removeMediaFromPage(id))
+  // }
 
   render() {
     return(
       <div>
-        <UserInfo user = {this.props.user} followOnClick = {this.followOnClick} />
+        <UserInfo
+          user = {this.props.user}
+          followOnClick = {this.followOnClick}
+          unfollowOnClick = {this.unfollowOnClick}
+          current_user = {this.props.current}
+          follow_boolean = {this.props.follow_boolean}
+        />
       </div>
     )
   }

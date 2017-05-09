@@ -1398,6 +1398,17 @@
   outline: none;
 }
 
+#follow-button-not-signed {
+  letter-spacing: 1px;
+  height: 50px;
+  border-right: 1px solid #cacaca;
+  padding-right: 10px;
+  padding-left: 10px;
+  outline: none;
+  font-weight: bold;
+  outline: none;
+}
+
 #follow-button:hover {
   background-color: #e6e6e6;
 }
@@ -1421,6 +1432,16 @@
   padding-right: 10px;
   padding-left: 10px;
   font-weight: bold;
+}
+
+#name-button-hidden {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding-right: 10px;
+  padding-left: 10px;
+  font-weight: bold;
+  border-right: 1px solid #cacaca;
+  height: 50px;
 }
 
 @media screen and (max-width: 39.9375em) {

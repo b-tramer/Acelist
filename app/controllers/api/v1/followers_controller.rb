@@ -2,8 +2,10 @@ class Api::V1::FollowersController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    @users = User.all
-    render json: @users
+    @current_user = current_user
+    respond_to do |format|
+      format.json  { render :json => {:current_user => @current_user}}
+    end
   end
 
   def show
@@ -26,6 +28,12 @@ class Api::V1::FollowersController < ApplicationController
 
   def create
     @follow = Follower.create(user_id: current_user.id, following_id: params[:following_id])
+    render json: @follow
+  end
+
+  def destroy
+    @follow = Follower.find_by(user_id: current_user.id, following_id: params[:id])
+    @follow.destroy
     render json: @follow
   end
 

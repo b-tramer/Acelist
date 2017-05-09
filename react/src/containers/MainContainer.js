@@ -115,7 +115,8 @@ class MainContainer extends Component{
         this.setState({
           lists: responseData.lists,
           current_user: responseData.user[0],
-          current: responseData.current
+          current: responseData.current,
+          follow_boolean: responseData.follow_boolean
         })
     });
   }
@@ -290,6 +291,8 @@ class MainContainer extends Component{
       <div  id="profile-main-div">
           <FollowContainer
             user = {this.state.current_user}
+            current = {this.state.current}
+            follow_boolean = {this.state.follow_boolean}
           />
           <div className="row">
             <div className="large-4 columns" id="list-div">

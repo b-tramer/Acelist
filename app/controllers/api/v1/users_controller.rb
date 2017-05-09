@@ -1,6 +1,7 @@
 class Api::V1::UsersController < ApplicationController
   skip_before_action :verify_authenticity_token
 
+
   def index
     @users = User.all
     @current_user = current_user
@@ -10,6 +11,14 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def show
+    user_page = User.find(params[:id])
+    user_page.followers.each do |follower|
+      if follower.user_id == current_user.id
+        @follow_boolean = true
+      else
+        @follow_boolean = false
+      end
+    end
     @lists = List.where(user_id: params[:id])
     @media = []
     @lists.each do |list|
@@ -21,7 +30,7 @@ class Api::V1::UsersController < ApplicationController
     @current = current_user
     @mediaList = MediaList.all
     respond_to do |format|
-      format.json  { render :json => {:lists => @lists, :user => @user, :current => @current }}
+      format.json  { render :json => {:lists => @lists, :user => @user, :current => @current, :follow_boolean => @follow_boolean }}
     end
   end
 

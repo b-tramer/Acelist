@@ -55,7 +55,34 @@ class UserInfo extends Component {
     });
   }
 
+  handleFollowStatus() {
+    this.setState({ follow_boolean: true })
+  }
+
+  handleUnfollowStatus() {
+    this.setState({ follow_boolean: true })
+  }
+
   render() {
+    let userId = this.props.user.id
+
+    let showFollow;
+    let nameId;
+    if (this.props.current_user.id == this.props.user.id) {
+      showFollow = 'hidden'
+      nameId = 'name-button-hidden'
+    } else {
+      showFollow = 'follow-button-class'
+      nameId = 'name-button'
+    }
+
+    let follow;
+    if (this.props.follow_boolean === false) {
+      follow = <button type="button" className={showFollow} id='follow-button' onClick={() => this.props.unfollowOnClick(userId)}> FOLLOW </button>
+    } else {
+      follow = <button type="button" className={showFollow} id='follow-button' onClick={() => this.props.unfollowOnClick(userId)}> ✓ FOLLOWING </button>
+    }
+
     // if the user is signed in, show their facebook photo, otherwise show default graphic
     let userNotSignedIn;
     let userSignedIn;
@@ -65,7 +92,13 @@ class UserInfo extends Component {
       userNotSignedIn = 'hidden'
       userSignedIn = 'show'
       profilePicture = this.props.user.image + "/picture?type=large"
-      nameDisplay = this.props.user.name
+      nameDisplay = <h3 id='see-all-users'>
+        <button type="button" id={nameId}> {this.props.user.name} </button>
+        {follow}
+        <button type="button" id='followers-button' onClick={this.clickViewFollowers}> FOLLOWERS </button>
+        <button type="button" id='followers-button' onClick={this.clickViewFollowing}> FOLLOWING </button>
+        <Link to='/users'> Search Users <img src={assetHelper["search.svg"]} height="30" width="30"/></Link>
+      </h3>
     } else if (this.props.user.name){
       profilePicture = this.props.user.image
       userNotSignedIn = 'hidden'
@@ -74,9 +107,11 @@ class UserInfo extends Component {
       userNotSignedIn = 'show'
       userSignedIn = 'hidden'
       profilePicture = 'http://gurucul.com/wp-content/uploads/2015/01/default-user-icon-profile.png'
-      nameDisplay = <a href="/login"> Not Signed In? → Login/Signup </a>
+      nameDisplay = <h3 id='see-all-users'>
+        <button type="button" id='follow-button-not-signed'> <a href="/login"> Not Signed In? → Login/Signup </a> </button>
+        <Link to='/users'> Search Users <img src={assetHelper["search.svg"]} height="30" width="30"/></Link>
+      </h3>
     }
-    let userId = this.props.user.id
     return(
       <div>
         <div className="profile-container" id="top">
@@ -86,24 +121,15 @@ class UserInfo extends Component {
             </div>
             <div id={userSignedIn}>
               <div className="large-8 large-offset-3 columns" id="user-name">
-                <h3> {this.props.user.name} </h3>
               </div>
             </div>
             <div id={userNotSignedIn}>
               <div className="large-8 large-offset-3 columns" id="user-name">
-                <h3> Not Signed In? </h3>
-                <a href="/login"> <p id="sign-in-up"> Login or Signup → </p> </a>
               </div>
             </div>
           </div>
 
-          <h3 id='see-all-users'>
-            <button type="button" id='name-button' onClick={() => this.props.followOnClick(userId)}> {nameDisplay} </button>
-            <button type="button" id='follow-button' onClick={() => this.props.followOnClick(userId)}> FOLLOW </button>
-            <button type="button" id='followers-button' onClick={this.clickViewFollowers}> FOLLOWERS </button>
-            <button type="button" id='followers-button' onClick={this.clickViewFollowing}> FOLLOWING </button>
-            <Link to='/users'> Search Users <img src={assetHelper["search.svg"]} height="30" width="30"/></Link>
-          </h3>
+          {nameDisplay}
 
           <a href="#top" id="go-to-top">
           <img src={assetHelper["to-top-button2.svg"]} width="40"/>
