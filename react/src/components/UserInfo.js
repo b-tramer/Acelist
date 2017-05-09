@@ -1,11 +1,52 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Link } from 'react-router';
+import FollowUserTile from '../components/FollowUserTile';
 
 class UserInfo extends Component {
   constructor(props){
     super(props);
-    this.state = {}
+    this.state = {
+      users: []
+    }
+    this.clickViewFollowing = this.clickViewFollowing.bind(this)
+    this.clickViewFollowers = this.clickViewFollowers.bind(this)
+  }
+
+  // bound to 'following' button in return of this container
+  clickViewFollowing() {
+    this.getCurrentUserFollowingData()
+  }
+
+  // returns users following data from followers api controller - show
+  getCurrentUserFollowingData() {
+    let id = this.props.user.id
+    fetch(`/api/v1/followers/${id}`, { credentials: 'same-origin' })
+      .then(response => response.json())
+      .then(responseData => {
+        console.log(responseData)
+        this.setState({ users: responseData.following  })
+    });
+  }
+
+  // bound to 'followers' button in return of this container
+  clickViewFollowers() {
+    this.getCurrentUserFollowersData()
+  }
+
+  // returns users followers data from followers api controller - show
+  getCurrentUserFollowersData() {
+    let id = this.props.user.id
+    fetch(`/api/v1/followers/${id}`, { credentials: 'same-origin' })
+      .then(response => response.json())
+      .then(responseData => {
+        console.log(responseData)
+        this.setState({ users: responseData.followers  })
+    });
+  }
+
+  toggleFollowShow() {
+
   }
 
   render() {
@@ -26,6 +67,7 @@ class UserInfo extends Component {
       userSignedIn = 'hidden'
       profilePicture = 'http://gurucul.com/wp-content/uploads/2015/01/default-user-icon-profile.png'
     }
+    let userId = this.props.user.id
     return(
       <div>
         <div className="profile-container" id="top">
@@ -45,7 +87,17 @@ class UserInfo extends Component {
               </div>
             </div>
           </div>
-          <p id='see-all-users'> <Link to='/users'> Search Users <img src={assetHelper["search.svg"]} height="30" width="30"/></Link> </p>
+
+          <p id='see-all-users'>
+            <button type="button" id='follow-button' onClick={this.clickViewFollowing}> FOLLOWING </button>
+            <button type="button" id='follow-button' onClick={this.clickViewFollowers}> FOLLOWERS </button>
+            <button type="button" id='follow-button' onClick={() => this.props.followOnClick(userId)}> FOLLOW </button>
+            <Link to='/users'> Search Users <img src={assetHelper["search.svg"]} height="30" width="30"/></Link>
+          </p>
+
+          <div className='following'>
+            <FollowUserTile users = {this.state.users} />
+          </div>
 
           <a href="#top" id="go-to-top">
           <img src={assetHelper["to-top-button2.svg"]} width="40"/>

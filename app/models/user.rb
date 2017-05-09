@@ -3,7 +3,8 @@ class User < ActiveRecord::Base
   has_many :lists
   accepts_nested_attributes_for :lists
 
-  has_many :followers
+  has_many :followers, foreign_key: :following_id, class_name: 'Follower'
+  has_many :followings, foreign_key: :user_id, class_name: 'Follower'
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

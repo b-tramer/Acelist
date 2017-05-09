@@ -5,6 +5,7 @@ import AllLists from '../components/AllLists';
 import ListCard from '../components/ListCard';
 import SearchBox from '../components/SearchBox';
 import UserInfo from '../components/UserInfo';
+import FollowContainer from '../containers/FollowContainer';
 
 class MainContainer extends Component{
   constructor(props){
@@ -287,7 +288,7 @@ class MainContainer extends Component{
     }
     return(
       <div  id="profile-main-div">
-          <UserInfo
+          <FollowContainer
             user = {this.state.current_user}
           />
           <div className="row">

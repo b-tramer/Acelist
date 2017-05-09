@@ -1,8 +1,8 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :name, :email, :city, :state, :image, :following_count, :followers_count
-  has_many :followers
+  attributes :name, :email, :city, :state, :image, :following_count, :followers_count, :followers, :followings
 
-  def followers
-    object.followers
+  def following
+    object.followings
   end
+
 end
