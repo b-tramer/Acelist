@@ -3,6 +3,10 @@ import ReactDOM from 'react-dom';
 import { Link } from 'react-router';
 
 class UserInfo extends Component {
+  constructor(props){
+    super(props);
+    this.state = {}
+  }
 
   render() {
     // if the user is signed in, show their facebook photo, otherwise show default graphic

@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170505164921) do
+ActiveRecord::Schema.define(version: 20170509154301) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "followers", force: :cascade do |t|
+    t.integer  "user_id",     null: false
+    t.integer  "follower_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "lists", force: :cascade do |t|
     t.string   "name",       null: false
@@ -58,6 +65,8 @@ ActiveRecord::Schema.define(version: 20170505164921) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image"
+    t.integer  "followers_count",  default: 0
+    t.integer  "following_count",  default: 0
   end
 
 end
