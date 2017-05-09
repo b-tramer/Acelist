@@ -31,16 +31,13 @@ import ReactDOM from 'react-dom';
           <div className="row" id="info-area">
 
           <div className="small-12 large-6 columns">
-            <img src={assetHelper["acelist-gif2.gif"]} height="600" width="600" id='home-gif'/>
+            <img src={assetHelper["acelist-gif3.gif"]} height="600" width="600" id='home-gif'/>
           </div>
 
           <div className="small-12 large-6 columns">
-            <img src="./search.svg" height="90" width="90"/>
-            <h5> Search For Media </h5>
-            <img src="./list.svg" height="90" width="90"/>
-            <h5> Create Custom Lists </h5>
-            <img src="./share.svg" height="90" width="90"/>
-            <h5> Share With Friends </h5>
+            <h4> <img src="./list.svg" height="70" width="70"/>  Name Your List </h4>
+            <h4>   <img src="./search.svg" height="70" width="70"/>  Search For Media </h4>
+            <h4><img src="./share.svg" height="70" width="70"/>  Share With Friends </h4>
           </div>
 
 
