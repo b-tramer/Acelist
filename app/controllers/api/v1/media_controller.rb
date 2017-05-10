@@ -20,7 +20,6 @@ class Api::V1::MediaController < ApplicationController
       @mediaList.destroy
       render json: @mediaList
     else
-      binding.pry
       @mediaList = MediaList.find_by(list_id: params[:listId], media_id: params[:id])
       @mediaList.destroy
       render json: @mediaList
