@@ -18,7 +18,7 @@ class UserInfo extends Component {
   // bound to 'following' button in return of this container
   clickViewFollowing() {
     if (this.state.showFollow === 'hidden') {
-      this.setState({ showFollow: 'show-popup', users: [] })
+      this.setState({ showFollow: 'show-popup', users: [], selectedFollowType: 'following' })
       this.getCurrentUserFollowingData()
     } else {
       this.setState({ showFollow: 'hidden', users: [] })
@@ -39,7 +39,7 @@ class UserInfo extends Component {
   // bound to 'followers' button in return of this container
   clickViewFollowers() {
     if (this.state.showFollow === 'hidden') {
-      this.setState({ showFollow: 'show-popup', users: [] })
+      this.setState({ showFollow: 'show-popup', users: [], selectedFollowType: 'followers' })
       this.getCurrentUserFollowersData()
     } else {
       this.setState({ showFollow: 'hidden', users: [] })
@@ -140,7 +140,14 @@ class UserInfo extends Component {
         </div>
 
         <div className="row">
-          <FollowUserTile users = {this.state.users} showFollow = {this.state.showFollow} />
+          <FollowUserTile
+            users = {this.state.users}
+            showFollow = {this.state.showFollow}
+            selectedFollowType = {this.state.selectedFollowType}
+            user_name = {this.props.user.name}
+            closeFollowing = {this.clickViewFollowing}
+            closeFollowers = {this.clickViewFollowers}
+          />
         </div>
       </div>
 

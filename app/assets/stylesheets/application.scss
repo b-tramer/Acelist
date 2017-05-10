@@ -1366,11 +1366,14 @@
   right: 25%;
   padding: 20px;
   z-index: 30;
+  padding-top: 10px;
 }
 
 .follower-info {
-  border: 1px solid black;
+  background-color: #f4f4f4;
   padding: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .follower-info img {
@@ -1446,6 +1449,20 @@
 
 #offset-column {
   margin-top: 26px;
+}
+
+#follow-popup-title {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline;
+}
+
+#popup-x {
+  display: inline;
+  text-align: right;
+  right: 10px;
+  top: 10px;
+  position: absolute;
 }
 
 // SMALL SCREEN ONLY
