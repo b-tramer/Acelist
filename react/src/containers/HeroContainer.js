@@ -44,9 +44,7 @@ class HeroContainer extends Component{
                 <div className='hero-text'>
                   <h1> Life’s Better <em>Listed</em> </h1>
                   <h4> Save & Share Your Favorite Movies & TV Shows </h4>
-                  <Link to={`/users/${userId}`}>
-                 <button type="button" className="button" id="get-started-button">GET STARTED</button>
-                 </Link>
+                  <h3 id="login-button-fb"> <a id="sign_in" href="/auth/facebook"><img src={assetHelper["fb-login.svg"]} width="300px"/></a> </h3>
                 </div>
             </div>
             <center>
@@ -64,7 +62,7 @@ class HeroContainer extends Component{
                   <h1> Life’s Better <em>Organized</em> </h1>
                   <h4> Keep Track Of Your Favorite Movies & TV Shows </h4>
                   <Link to={`/users/${userId}`}>
-                 <button type="button" className="button" id="get-started-button">GET STARTED</button>
+                  <h3 id="login-button-fb"> <a id="sign_in" href="/auth/facebook"><img src={assetHelper["fb-login.svg"]} width="300px"/></a> </h3>
                  </Link>
                 </div>
             </div>
