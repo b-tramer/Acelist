@@ -214,6 +214,7 @@ class MainContainer extends Component{
   // bound to media delete button on MediaCard, takes in an argument of media id, sent to media api controller - destroy
   // only deletes the media from the particular instance of the list, so that if users have the same media, it wont delete all occurances of that media
   handleDeleteMedia(id) {
+    debugger;
     let listId = this.state.selectedId
     fetch(`/api/v1/media/${id}?listId=${listId}`, {
       credentials: "same-origin",
