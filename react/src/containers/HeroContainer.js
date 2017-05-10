@@ -21,7 +21,7 @@ class HeroContainer extends Component{
     fetch(`/api/v1/users`, { credentials: 'same-origin' })
       .then(response => response.json())
       .then(responseData => {
-        this.setState({ user: responseData.current_user.id })
+        this.setState({ user: responseData.current_user.id, userImage: responseData.current_user.image })
     });
   }
 
@@ -35,6 +35,13 @@ class HeroContainer extends Component{
 
   render() {
     let userId = this.state.user
+    let profilePicture = this.state.userImage + "/picture?type=large"
+    let showLogin;
+    if (this.state.userImage) {
+      showLogin = <Link to={`/users/${userId}`}> <p> <button type="button" id='get-started-button'> <img src={profilePicture} height="40px" width="40px"/>  My Profile → </button> </p> </Link>
+    } else {
+      showLogin = <h3 id="login-button-fb"> <a id="sign_in" href="/auth/facebook"><img src={assetHelper["fb-login.svg"]} width="300px"/></a> </h3>
+    }
     return(
       <div>
 
@@ -42,9 +49,9 @@ class HeroContainer extends Component{
           <div className='information'>
             <div className='row'>
                 <div className='hero-text'>
-                  <h1> Life’s Better <em>Listed</em> </h1>
+                  <h1> Life’s Better Listed </h1>
                   <h4> Save & Share Your Favorite Movies & TV Shows </h4>
-                  <h3 id="login-button-fb"> <a id="sign_in" href="/auth/facebook"><img src={assetHelper["fb-login.svg"]} width="300px"/></a> </h3>
+                  {showLogin}
                 </div>
             </div>
             <center>
@@ -59,10 +66,10 @@ class HeroContainer extends Component{
           <div className='information-two'>
             <div className='row'>
                 <div className='hero-text'>
-                  <h1> Life’s Better <em>Organized</em> </h1>
+                  <h1> Life’s Better Organized </h1>
                   <h4> Keep Track Of Your Favorite Movies & TV Shows </h4>
                   <Link to={`/users/${userId}`}>
-                  <h3 id="login-button-fb"> <a id="sign_in" href="/auth/facebook"><img src={assetHelper["fb-login.svg"]} width="300px"/></a> </h3>
+                  {showLogin}
                  </Link>
                 </div>
             </div>
