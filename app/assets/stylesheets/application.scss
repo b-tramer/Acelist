@@ -728,9 +728,6 @@
     margin-bottom: 8px;
   }
 
-  #see-all-users {
-    display: none;
-  }
 }
 
 // BETWEEN SMALL AND MEDIUM SIZE
@@ -1445,9 +1442,86 @@
 }
 
 @media screen and (max-width: 39.9375em) {
-  #show-popup {
+  #see-all-users {
+    top: 338px;
+    right: 0;
+    left: auto;
+    margin-left: auto;
+    position: absolute;
+  }
+
+  #name-button-hidden {
+    display: none;
+  }
+
+  #followers-button {
+    border-left: 1px solid #cacaca;
+    border-right: 0px solid #cacaca;
+  }
+
+  #search-icon {
+    display: none;
+  }
+
+  .profile-container {
+    height: 318px;
+  }
+
+  #profile-picture img {
+    text-align: center;
+    float: center;
+    max-width: 300%;
+    width: 210px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 0px;
+    top: 300px;
+    max-width: 1200px;
+    border: 2px solid white;
+    box-shadow: 0px 0px 6px #888888;
+    object-fit: cover;
+    width: 210px;
+    height: 210px;
+    top: 1px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
+}
+
+// BETWEEN SMALL AND MEDIUM SIZE
+@media screen and (min-width: 39.9375em) and (max-width: 63.9375em){
+  .profile-container {
+    overflow: hidden;
+    top: 0;
     width: 100%;
-    left: 0;
+    background: linear-gradient(45deg, #e0e0e0 0%, transparent 100%), url(image-path('geo-hero.png')) no-repeat center;
+    background-size: cover;
+    margin-bottom: 20px;
+    border-bottom: 50px solid white;
+    box-shadow: 0px 1px 0px #cacaca;
+    height: 318px;
+  }
+
+  #profile-picture img {
+    text-align: center;
+    float: center;
+    max-width: 300%;
+    width: 210px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 0px;
+    top: 300px;
+    max-width: 1200px;
+    border: 2px solid white;
+    box-shadow: 0px 0px 6px #888888;
+    object-fit: cover;
+    width: 210px;
+    height: 210px;
+    position: absolute;
+    left: 35%;
+    right: 35%;
+    top: 70px;
   }
 }
 
@@ -1457,4 +1531,8 @@
 
 #offset-column {
   margin-top: 30px;
+}
+
+#following-check {
+  margin-bottom: 2px;
 }

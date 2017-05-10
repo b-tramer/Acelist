@@ -85,9 +85,9 @@ class UserInfo extends Component {
 
     let follow;
     if (this.state.follow_boolean === false) {
-      follow = <button type='button' className={showFollow} id='follow-button' onClick={() => this.handleFollowChange(userId)}> FOLLOW </button>
+      follow = <button type='button' className={showFollow} id='follow-button' onClick={() => this.handleFollowChange(userId)}> ＋FOLLOW </button>
     } else {
-      follow = <button type='button' className={showFollow} id='follow-button' onClick={() => this.handleFollowChange(userId)}> ✓ FOLLOWING </button>
+      follow = <button type='button' className={showFollow} id='follow-button' onClick={() => this.handleFollowChange(userId)}> <img src={assetHelper["following.svg"]} id="following-check" width="16px"/> FOLLOWING </button>
     }
 
     // if the user is signed in, show their facebook photo, otherwise show default graphic
@@ -104,7 +104,7 @@ class UserInfo extends Component {
         {follow}
         <button type="button" id='followers-button' onClick={this.clickViewFollowers}> FOLLOWERS </button>
         <button type="button" id='followers-button' onClick={this.clickViewFollowing}> FOLLOWING </button>
-        <Link to='/users'> Search Users <img src={assetHelper["search.svg"]} height="30" width="30"/></Link>
+        <Link to='/users' id='search-icon'> Search Users <img src={assetHelper["search.svg"]}  height="30" width="30"/></Link>
       </h3>
     } else if (this.props.user.name){
       profilePicture = this.props.user.image
