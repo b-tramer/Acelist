@@ -5,6 +5,7 @@ import AllLists from '../components/AllLists';
 import ListCard from '../components/ListCard';
 import SearchBox from '../components/SearchBox';
 import UserInfo from '../components/UserInfo';
+import FollowContainer from '../containers/FollowContainer';
 
 class MainContainer extends Component{
   constructor(props){
@@ -111,10 +112,12 @@ class MainContainer extends Component{
     fetch(`/api/v1/users/${userId}`, { credentials: 'same-origin' })
       .then(response => response.json())
       .then(responseData => {
+        console.log(responseData)
         this.setState({
           lists: responseData.lists,
           current_user: responseData.user[0],
-          current: responseData.current
+          current: responseData.current,
+          follow_boolean: responseData.follow_boolean
         })
     });
   }
@@ -287,11 +290,13 @@ class MainContainer extends Component{
     }
     return(
       <div  id="profile-main-div">
-          <UserInfo
+          <FollowContainer
             user = {this.state.current_user}
+            current = {this.state.current}
+            follow_boolean = {this.state.follow_boolean}
           />
           <div className="row">
-            <div className="large-4 columns">
+            <div className="large-4 columns" id="list-div">
               <AllLists
               lists = {this.state.lists}
               handleClick = {this.handleClick}

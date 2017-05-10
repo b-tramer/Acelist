@@ -666,9 +666,7 @@
 #media-search-button {
   border: 1px solid black;
   background-color: white;
-  height: 52.1px;
-  margin-top: 1px;
-  margin-bottom: -2px;
+  height: 52px;
   width: 117px;
   border-left: 0px;
   font-family: 'Ubuntu', sans-serif;
@@ -728,9 +726,6 @@
     margin-bottom: 8px;
   }
 
-  #see-all-users {
-    display: none;
-  }
 }
 
 // BETWEEN SMALL AND MEDIUM SIZE
@@ -1005,7 +1000,9 @@
   background: linear-gradient(45deg, #e0e0e0 0%, transparent 100%), url(image-path('geo-hero.png')) no-repeat center;
   background-size: cover;
   margin-bottom: 20px;
-  box-shadow: 0px 1px 3px #888888;
+  border-bottom: 50px solid white;
+  box-shadow: 0px 1px 0px #cacaca;
+  height: 215px;
 }
 
 #profile-picture {
@@ -1019,7 +1016,7 @@
   width: 210px;
   margin-top: 30px;
   margin-bottom: 30px;
-  margin-left: 90px;
+  margin-left: 57px;
   top: 300px;
   max-width: 1200px;
   border: 2px solid white;
@@ -1027,6 +1024,8 @@
   object-fit: cover;
   width:210px;
   height:210px;
+  position: absolute;
+  top: 70px;
 }
 
 #profile-picture h3 {
@@ -1113,7 +1112,7 @@
 
 #see-all-users {
   right: 1%;
-  top: 290px;
+  top: 235px;
   position: absolute;
   color: black;
 }
@@ -1122,6 +1121,7 @@
   color: #333333;
   text-transform: uppercase;
   letter-spacing: 1px;
+  padding-left: 10px;
 }
 
 // BETWEEN SMALL AND MEDIUM SIZE
@@ -1343,12 +1343,235 @@
   // background-color: #f9cecd;
  }
 
- .callout-alert li {
-   margin-top: 12px;
-   list-style-type: none;
-   margin-left: 12px;
-   text-transform: uppercase;
-   font-family: 'Ubuntu', sans-serif;
-   letter-spacing: 2px;
-   color: #99141b;
+.callout-alert li {
+ margin-top: 12px;
+ list-style-type: none;
+ margin-left: 12px;
+ text-transform: uppercase;
+ font-family: 'Ubuntu', sans-serif;
+ letter-spacing: 2px;
+ color: #99141b;
+}
+
+#hidden {
+  display: none;
+}
+
+#show-popup {
+  background-color: white;
+  box-shadow: 0px 0px 8px #888888;
+  position: absolute;;
+  top: 14.5%;
+  left: 25%;
+  right: 25%;
+  padding: 20px;
+  z-index: 30;
+}
+
+.follower-info {
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.follower-info img {
+  object-fit: cover;
+  width: 50px;
+  height: 50px;
+}
+
+.follower-info:hover {
+  background-color: #e6e6e6;
+}
+
+#follow-button {
+  letter-spacing: 1px;
+  height: 50px;
+  border-right: 1px solid #cacaca;
+  border-left: 1px solid #cacaca;
+  padding-right: 10px;
+  padding-left: 10px;
+  outline: none;
+}
+
+#follow-button-not-signed {
+  letter-spacing: 1px;
+  height: 50px;
+  border-right: 1px solid #cacaca;
+  padding-right: 10px;
+  padding-left: 10px;
+  outline: none;
+  font-weight: bold;
+  outline: none;
+}
+
+#follow-button:hover {
+  background-color: #e6e6e6;
+}
+
+#followers-button {
+  letter-spacing: 1px;
+  height: 50px;
+  border-right: 1px solid #cacaca;
+  padding-right: 10px;
+  padding-left: 10px;
+  outline: none;
+}
+
+#followers-button:hover {
+  background-color: #e6e6e6;
+}
+
+#name-button {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding-right: 10px;
+  padding-left: 10px;
+  font-weight: bold;
+}
+
+#name-button-hidden {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding-right: 10px;
+  padding-left: 10px;
+  font-weight: bold;
+  border-right: 1px solid #cacaca;
+  height: 50px;
+}
+
+
+#list-div {
+  margin-top: 26px;
+}
+
+#offset-column {
+  margin-top: 26px;
+}
+
+// SMALL SCREEN ONLY
+@media screen and (max-width: 39.9375em) {
+
+  #follow-button {
+    border-right: 0px;
   }
+
+  #followers-button {
+    display: none;
+  }
+
+  #search-icon {
+    display: none;
+  }
+
+  #see-all-users {
+    top: 338px;
+    right: 0;
+    left: auto;
+    margin-left: auto;
+    position: absolute;
+  }
+
+  .profile-container {
+    height: 318px;
+  }
+
+  #profile-picture img {
+    text-align: center;
+    float: center;
+    max-width: 300%;
+    width: 210px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 0px;
+    top: 300px;
+    max-width: 1200px;
+    border: 2px solid white;
+    box-shadow: 0px 0px 6px #888888;
+    object-fit: cover;
+    width: 210px;
+    height: 210px;
+    top: 1px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
+
+
+  #list-div {
+    margin-top: 0px;
+  }
+
+  #offset-column {
+    margin-top: 0px;
+  }
+}
+
+// BETWEEN SMALL AND MEDIUM SIZE
+@media screen and (min-width: 39.9375em) and (max-width: 63.9375em){
+  .profile-container {
+    overflow: hidden;
+    top: 0;
+    width: 100%;
+    background: linear-gradient(45deg, #e0e0e0 0%, transparent 100%), url(image-path('geo-hero.png')) no-repeat center;
+    background-size: cover;
+    margin-bottom: 20px;
+    border-bottom: 50px solid white;
+    box-shadow: 0px 1px 0px #cacaca;
+    height: 318px;
+  }
+
+  #profile-picture img {
+    text-align: center;
+    float: center;
+    max-width: 300%;
+    width: 210px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 0px;
+    top: 300px;
+    max-width: 1200px;
+    border: 2px solid white;
+    box-shadow: 0px 0px 6px #888888;
+    object-fit: cover;
+    width: 210px;
+    height: 210px;
+    position: absolute;
+    left: 35%;
+    right: 35%;
+    top: 70px;
+  }
+
+  #follow-button {
+    border-right: 0px;
+    border-left: 1px solid #cacaca;
+  }
+
+  #followers-button {
+    border-right: 0px;
+    border-left: 1px solid #cacaca;
+  }
+
+
+  #list-div {
+    margin-top: 0px;
+  }
+
+  #offset-column {
+    margin-top: 0px;
+  }
+
+  #search-icon {
+    display: none;
+  }
+}
+
+// MEDIUM SCREEN
+@media screen and (min-width: 64em) and (max-width: 75em) {}
+
+#following-check {
+  margin-bottom: 2px;
+}
+
+#see-all-users a  {
+  color: black;
+}
