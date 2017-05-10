@@ -1019,8 +1019,8 @@
   margin-left: 57px;
   top: 300px;
   max-width: 1200px;
-  border: 2px solid white;
-  box-shadow: 0px 0px 6px #888888;
+  border: 4px solid white;
+  box-shadow: 1px 1px 0px #cacaca;
   object-fit: cover;
   width:210px;
   height:210px;
@@ -1366,11 +1366,14 @@
   right: 25%;
   padding: 20px;
   z-index: 30;
+  padding-top: 10px;
 }
 
 .follower-info {
-  border: 1px solid black;
+  background-color: #f4f4f4;
   padding: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .follower-info img {
@@ -1448,6 +1451,20 @@
   margin-top: 26px;
 }
 
+#follow-popup-title {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline;
+}
+
+#popup-x {
+  display: inline;
+  text-align: right;
+  right: 10px;
+  top: 10px;
+  position: absolute;
+}
+
 // SMALL SCREEN ONLY
 @media screen and (max-width: 39.9375em) {
 
@@ -1461,6 +1478,11 @@
 
   #search-icon {
     display: none;
+  }
+
+  #follow-button-not-signed {
+    border-right: 0px solid black;
+    margin-right: 20px;
   }
 
   #see-all-users {
@@ -1503,6 +1525,10 @@
 
   #offset-column {
     margin-top: 0px;
+  }
+
+  #search-icon-not-signed {
+    display: none;
   }
 }
 
@@ -1563,6 +1589,7 @@
   #search-icon {
     display: none;
   }
+
 }
 
 // MEDIUM SCREEN
