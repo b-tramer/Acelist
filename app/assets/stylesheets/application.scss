@@ -666,9 +666,7 @@
 #media-search-button {
   border: 1px solid black;
   background-color: white;
-  height: 52.1px;
-  margin-top: 1px;
-  margin-bottom: -2px;
+  height: 52px;
   width: 117px;
   border-left: 0px;
   font-family: 'Ubuntu', sans-serif;
@@ -1441,26 +1439,36 @@
   height: 50px;
 }
 
+
+#list-div {
+  margin-top: 26px;
+}
+
+#offset-column {
+  margin-top: 26px;
+}
+
+// SMALL SCREEN ONLY
 @media screen and (max-width: 39.9375em) {
+
+  #follow-button {
+    border-right: 0px;
+  }
+
+  #followers-button {
+    display: none;
+  }
+
+  #search-icon {
+    display: none;
+  }
+
   #see-all-users {
     top: 338px;
     right: 0;
     left: auto;
     margin-left: auto;
     position: absolute;
-  }
-
-  #name-button-hidden {
-    display: none;
-  }
-
-  #followers-button {
-    border-left: 1px solid #cacaca;
-    border-right: 0px solid #cacaca;
-  }
-
-  #search-icon {
-    display: none;
   }
 
   .profile-container {
@@ -1486,6 +1494,15 @@
     margin-left: auto;
     margin-right: auto;
     position: relative;
+  }
+
+
+  #list-div {
+    margin-top: 0px;
+  }
+
+  #offset-column {
+    margin-top: 0px;
   }
 }
 
@@ -1523,16 +1540,38 @@
     right: 35%;
     top: 70px;
   }
+
+  #follow-button {
+    border-right: 0px;
+    border-left: 1px solid #cacaca;
+  }
+
+  #followers-button {
+    border-right: 0px;
+    border-left: 1px solid #cacaca;
+  }
+
+
+  #list-div {
+    margin-top: 0px;
+  }
+
+  #offset-column {
+    margin-top: 0px;
+  }
+
+  #search-icon {
+    display: none;
+  }
 }
 
-#list-div {
-  margin-top: 30px;
-}
-
-#offset-column {
-  margin-top: 30px;
-}
+// MEDIUM SCREEN
+@media screen and (min-width: 64em) and (max-width: 75em) {}
 
 #following-check {
   margin-bottom: 2px;
+}
+
+#see-all-users a  {
+  color: black;
 }
