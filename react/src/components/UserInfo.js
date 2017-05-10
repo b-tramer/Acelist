@@ -112,7 +112,7 @@ class UserInfo extends Component {
       profilePicture = 'http://gurucul.com/wp-content/uploads/2015/01/default-user-icon-profile.png'
       nameDisplay = <h3 id='see-all-users'>
         <button type="button" id='follow-button-not-signed'> <a href="/login"> Not Signed In? → Login/Signup </a> </button>
-        <Link to='/users'> Search Users <img src={assetHelper["search.svg"]} height="30" width="30"/></Link>
+        <Link to='/users' id='search-icon-not-signed'> Search Users <img src={assetHelper["search.svg"]} height="30" width="30"/></Link>
       </h3>
     }
     return(

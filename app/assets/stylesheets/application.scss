@@ -1463,6 +1463,11 @@
     display: none;
   }
 
+  #follow-button-not-signed {
+    border-right: 0px solid black;
+    margin-right: 20px;
+  }
+
   #see-all-users {
     top: 338px;
     right: 0;
@@ -1503,6 +1508,10 @@
 
   #offset-column {
     margin-top: 0px;
+  }
+
+  #search-icon-not-signed {
+    display: none;
   }
 }
 
@@ -1563,6 +1572,7 @@
   #search-icon {
     display: none;
   }
+
 }
 
 // MEDIUM SCREEN
