@@ -13,9 +13,18 @@ class Api::V1::MediaController < ApplicationController
   end
 
   def destroy
-    @mediaList = MediaList.find_by(list_id: params[:listId], media_id: params[:id])
-    @mediaList.destroy
-    render json: @mediaList
+    if Media.find_by(id: params[:id]).nil?
+      media = Media.find_by(data_id: params[:id])
+      mediaId = media.id
+      @mediaList = MediaList.find_by(list_id: params[:listId], media_id: mediaId)
+      @mediaList.destroy
+      render json: @mediaList
+    else
+      binding.pry
+      @mediaList = MediaList.find_by(list_id: params[:listId], media_id: params[:id])
+      @mediaList.destroy
+      render json: @mediaList
+    end
   end
 
   private
