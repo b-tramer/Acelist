@@ -102,8 +102,8 @@ class UserInfo extends Component {
       nameDisplay = <h3 id='see-all-users'>
         <button type="button" id={nameId}> {this.props.user.name} </button>
         {follow}
-        <button type="button" id='followers-button' onClick={this.clickViewFollowers}> FOLLOWERS </button>
         <button type="button" id='followers-button' onClick={this.clickViewFollowing}> FOLLOWING </button>
+        <button type="button" id='followers-button' onClick={this.clickViewFollowers}> FOLLOWERS </button>
         <Link to='/users' id='search-icon'> Search Users <img src={assetHelper["search.svg"]}  height="30" width="30"/></Link>
       </h3>
     } else {
