@@ -95,7 +95,7 @@ class UserInfo extends Component {
     let userSignedIn;
     let profilePicture;
     let nameDisplay;
-    if (this.props.current_user) {
+    if (this.props.user.image) {
       userNotSignedIn = 'hidden'
       userSignedIn = 'show'
       profilePicture = this.props.user.image + "/picture?type=large"
