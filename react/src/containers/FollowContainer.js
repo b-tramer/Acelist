@@ -37,17 +37,6 @@ class FollowContainer extends Component {
     })
   }
 
-  // handleDeleteMedia(id) {
-  //   let listId = this.state.selectedId
-  //   fetch(`/api/v1/media/${id}?listId=${listId}`, {
-  //     credentials: "same-origin",
-  //     method: "DELETE",
-  //     headers: { "Content-Type": "application/json" }
-  //   })
-  //   .then(response => response.json())
-  //   .then(data => this.removeMediaFromPage(id))
-  // }
-
   render() {
     return(
       <div>

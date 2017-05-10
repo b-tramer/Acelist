@@ -95,7 +95,7 @@ class UserInfo extends Component {
     let userSignedIn;
     let profilePicture;
     let nameDisplay;
-    if (this.props.user.image) {
+    if (this.props.user.id === this.props.current_user.id) {
       userNotSignedIn = 'hidden'
       userSignedIn = 'show'
       profilePicture = this.props.user.image + "/picture?type=large"
@@ -106,10 +106,6 @@ class UserInfo extends Component {
         <button type="button" id='followers-button' onClick={this.clickViewFollowing}> FOLLOWING </button>
         <Link to='/users' id='search-icon'> Search Users <img src={assetHelper["search.svg"]}  height="30" width="30"/></Link>
       </h3>
-    } else if (this.props.user.name){
-      profilePicture = this.props.user.image
-      userNotSignedIn = 'hidden'
-      userSignedIn = 'show'
     } else {
       userNotSignedIn = 'show'
       userSignedIn = 'hidden'
