@@ -37,7 +37,7 @@ class Api::V1::ListsController < ApplicationController
   def list_params
     params.require(:list).permit(
     :name, :user_id,
-    media_attributes: [ :id, :title, :data_id, :overview, :poster_path, :release_date, :created_at, :updated_at ]
+    media_attributes: [ :id, :title, :data_id, :overview, :poster_path, :release_date, :created_at, :updated_at, :media_type ]
     )
   end
 

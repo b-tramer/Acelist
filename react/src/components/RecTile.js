@@ -7,9 +7,15 @@ class RecTile extends React.Component {
   }
 
   render() {
+    let title;
+    if (this.props.media_type === 'tv') {
+      title = this.props.tv_title
+    } else {
+      title = this.props.title
+    }
     let poster = 'https://image.tmdb.org/t/p/w500' + this.props.poster_path
     return(
-        <h4 id='rec-tile'> <img src={poster} height="70px" width="70px"/> {this.props.title} </h4>
+        <h4 id='rec-tile'> <img src={poster} height="70px" width="70px"/> {title} </h4>
     )
   }
 

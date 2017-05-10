@@ -75,7 +75,8 @@ class MainContainer extends Component{
         data_id: this.state.id,
         overview: this.state.overview,
         poster_path: this.state.poster_path,
-        release_date: this.state.release_date
+        release_date: this.state.release_date,
+        media_type: this.state.media_type
       }
       this.sendSearch(searchPayload)
     } else {
@@ -84,7 +85,8 @@ class MainContainer extends Component{
         data_id: this.state.id,
         overview: this.state.overview,
         poster_path: this.state.poster_path,
-        release_date: this.state.first_air_date
+        release_date: this.state.first_air_date,
+        media_type: this.state.media_type
       }
       this.sendSearch(searchPayload)
     }

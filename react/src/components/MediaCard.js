@@ -18,9 +18,9 @@ class MediaCard extends Component {
     .then(data => this.setState({ recMedia: data.results }))
   }
 
-  onRecClick(id) {
+  onRecClick(id, mediaType) {
     if (this.state.recMediaID === 'hidden') {
-      let url = `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=4ce5312dd9fd3f292ee4e7597f92342c&language=en-US&page=1`
+      let url = `https://api.themoviedb.org/3/${mediaType}/${id}/recommendations?api_key=4ce5312dd9fd3f292ee4e7597f92342c&language=en-US&page=1`
       this.fetchRecsAPI(url)
       this.setState({ recMediaID: 'rec-popup' })
     } else {
@@ -37,6 +37,8 @@ class MediaCard extends Component {
           title = {media.title}
           poster_path = {media.poster_path}
           media_type = {media.media_type}
+          tv_title = {media.original_name}
+          media_type = {this.props.media_type}
         />
       )
     })
@@ -44,6 +46,7 @@ class MediaCard extends Component {
     let poster = 'https://image.tmdb.org/t/p/w500' + this.props.poster_path
     let id = this.props.id
     let data_id = this.props.data_id
+    let media_type = this.props.media_type
     let name;
     let release;
     if (this.props.title) {
@@ -53,10 +56,11 @@ class MediaCard extends Component {
       name = this.props.original_name
       release = this.props.first_air_date
     };
+
     return(
       <div>
+      <button type='button' id='delete-media-button' onClick={() => this.onRecClick(data_id, media_type)}><img src={assetHelper["info-button.svg"]} height="20" width="20"/></button>
       <div className={this.props.mediaDeleteClass}>
-      <button type='button' id='delete-media-button' onClick={() => this.onRecClick(data_id)}><img src={assetHelper["info-button.svg"]} height="20" width="20"/></button>
         <button id='delete-media-button' type="button" onClick={() => this.props.handleDeleteMedia(id)}>
 
         <img src={assetHelper["delete-media-x.svg"]} height="20" width="20"/></button> </div>
@@ -72,7 +76,7 @@ class MediaCard extends Component {
         </div>
 
         <div id={this.state.recMediaID} className="rec-popup">
-          <center> <h4> RECOMMENDATIONS </h4> </center>
+          <center> <h4> You Might Also Like... </h4> </center>
             {recMedia}
         </div>
 

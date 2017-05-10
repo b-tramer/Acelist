@@ -29,6 +29,6 @@ class Api::V1::MediaController < ApplicationController
   private
 
   def media_params
-    params.permit(:title, :data_id, :overview, :poster_path, :release_date)
+    params.permit(:title, :data_id, :overview, :poster_path, :release_date, :media_type)
   end
 end
