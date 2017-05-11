@@ -33,12 +33,19 @@ class MainContainer extends Component{
     this.listNameSubmit = this.listNameSubmit.bind(this)
     this.handleDeleteMedia = this.handleDeleteMedia.bind(this)
     this.handleDeleteList = this.handleDeleteList.bind(this)
+    this.handleClickSubmit = this.handleClickSubmit.bind(this)
   }
 
   // bound to 'search' for media in SearchBox
   handleSubmit(event) {
     event.preventDefault();
     let url = `https://api.themoviedb.org/3/search/multi?api_key=4ce5312dd9fd3f292ee4e7597f92342c&language=en-US&page=1&include_adult=false&query==${this.state.title}`
+    this.fetchAPI(url)
+  }
+
+  // bound to rec tile - each item can be added when clicked
+  handleClickSubmit(title) {
+    let url = `https://api.themoviedb.org/3/search/multi?api_key=4ce5312dd9fd3f292ee4e7597f92342c&language=en-US&page=1&include_adult=false&query==${title}`
     this.fetchAPI(url)
   }
 
@@ -75,7 +82,8 @@ class MainContainer extends Component{
         data_id: this.state.id,
         overview: this.state.overview,
         poster_path: this.state.poster_path,
-        release_date: this.state.release_date
+        release_date: this.state.release_date,
+        media_type: this.state.media_type
       }
       this.sendSearch(searchPayload)
     } else {
@@ -84,7 +92,8 @@ class MainContainer extends Component{
         data_id: this.state.id,
         overview: this.state.overview,
         poster_path: this.state.poster_path,
-        release_date: this.state.first_air_date
+        release_date: this.state.first_air_date,
+        media_type: this.state.media_type
       }
       this.sendSearch(searchPayload)
     }
@@ -326,6 +335,8 @@ class MainContainer extends Component{
 
               mediaDeleteClass = {mediaDeleteClass}
               showSearch = {showSearch}
+
+              handleClickSubmit = {this.handleClickSubmit}
             />
           </div>
         </div>

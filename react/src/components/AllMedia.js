@@ -30,6 +30,8 @@ class AllMedia extends React.Component {
           first_air_date = {media.first_air_date}
           handleDeleteMedia = {this.props.handleDeleteMedia}
           mediaDeleteClass = {this.props.mediaDeleteClass}
+          data_id = {media.data_id}
+          handleClickSubmit = {this.props.handleClickSubmit}
         />
       )
     })
