@@ -18,15 +18,18 @@ class MediaCard extends Component {
     .then(data => this.setState({ recMedia: data.results }))
   }
 
-  onRecClick(id, mediaType) {
+  onRecClick(id, media_type, media_id) {
     if (this.state.recMediaID === 'hidden') {
-      let url = `https://api.themoviedb.org/3/${mediaType}/${id}/recommendations?api_key=4ce5312dd9fd3f292ee4e7597f92342c&language=en-US&page=1`
+      let url = `https://api.themoviedb.org/3/${media_type}/${media_id}/recommendations?api_key=4ce5312dd9fd3f292ee4e7597f92342c&language=en-US&page=1`
       this.fetchRecsAPI(url)
+      let url_two = `https://api.themoviedb.org/3/${media_type}/${id}/recommendations?api_key=4ce5312dd9fd3f292ee4e7597f92342c&language=en-US&page=1`
+      this.fetchRecsAPI(url_two)
       this.setState({ recMediaID: 'rec-popup' })
     } else {
       this.setState({ recMediaID: 'hidden' })
     }
   }
+
 
   render() {
     let recMedia = this.state.recMedia.map((media) => {
@@ -47,6 +50,7 @@ class MediaCard extends Component {
     let id = this.props.id
     let data_id = this.props.data_id
     let media_type = this.props.media_type
+    let media_id = this.props.id
     let name;
     let release;
     if (this.props.title) {
@@ -56,14 +60,16 @@ class MediaCard extends Component {
       name = this.props.original_name
       release = this.props.first_air_date
     };
-
     return(
       <div>
-      <button type='button' id='delete-media-button' onClick={() => this.onRecClick(data_id, media_type)}><img src={assetHelper["info-button.svg"]} height="20" width="20"/></button>
       <div className={this.props.mediaDeleteClass}>
         <button id='delete-media-button' type="button" onClick={() => this.props.handleDeleteMedia(id)}>
+        <img src={assetHelper["delete-media-x.svg"]} height="20" width="20"/></button>
+      </div>
 
-        <img src={assetHelper["delete-media-x.svg"]} height="20" width="20"/></button> </div>
+      <button type='button' id='delete-media-button' onClick={() => this.onRecClick(data_id, media_type, media_id)}><img src={assetHelper["info-button.svg"]} height="20" width="20"/></button>
+
+
         <div className="row" id="movie-row">
           <div className="small-12 large-3 columns">
             <img src={poster} height="150" width="150"/>
