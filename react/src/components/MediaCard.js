@@ -18,12 +18,16 @@ class MediaCard extends Component {
     .then(data => this.setState({ recMedia: data.results }))
   }
 
-  onRecClick(id, media_type, media_id) {
-    if (this.state.recMediaID === 'hidden') {
-      let url = `https://api.themoviedb.org/3/${media_type}/${media_id}/recommendations?api_key=4ce5312dd9fd3f292ee4e7597f92342c&language=en-US&page=1`
-      this.fetchRecsAPI(url)
+  // immediately after being added medias media_id (which is needed to fetch API), will be called simply id - until there is a page refresh or navigation. In this case, it must search based on its 'id' --- id = this.props.id | data_id = this.props.data_id
+  // if data_id is undefined, fetch the api using id
+  onRecClick(id, media_type, data_id) {
+    if (this.state.recMediaID === 'hidden' && typeof data_id === 'undefined') {
       let url_two = `https://api.themoviedb.org/3/${media_type}/${id}/recommendations?api_key=4ce5312dd9fd3f292ee4e7597f92342c&language=en-US&page=1`
       this.fetchRecsAPI(url_two)
+      this.setState({ recMediaID: 'rec-popup' })
+    } else if (this.state.recMediaID === 'hidden' && typeof data_id !== 'undefined') {
+      let url = `https://api.themoviedb.org/3/${media_type}/${data_id}/recommendations?api_key=4ce5312dd9fd3f292ee4e7597f92342c&language=en-US&page=1`
+      this.fetchRecsAPI(url)
       this.setState({ recMediaID: 'rec-popup' })
     } else {
       this.setState({ recMediaID: 'hidden' })
@@ -70,7 +74,7 @@ class MediaCard extends Component {
         </button>
       </div>
 
-      <button type='button' id='delete-media-button' onClick={() => this.onRecClick(data_id, media_type, media_id)}>
+      <button type='button' id='delete-media-button' onClick={() => this.onRecClick(id, media_type, data_id)}>
         RECOMMENDATIONS
       <img src={assetHelper["info-button.svg"]} height="20" width="20"/>
       </button>
