@@ -94,7 +94,7 @@ class MediaCard extends Component {
         <div id={this.state.recMediaID} className="rec-popup">
           <div> <center> <h5 id='follow-popup-title'> You Might Also Like... </h5> </center> <img src={assetHelper["delete-media-x-rec.svg"]} height="20" width="20" id='popup-x' onClick={this.onRecClick} id="rec-x"/>
         </div>
-            {recMedia}
+          {recMedia}
         </div>
 
       </div>
