@@ -30,7 +30,6 @@ class MediaCard extends Component {
     }
   }
 
-
   render() {
     let recMedia = this.state.recMedia.map((media) => {
       return (
@@ -42,6 +41,7 @@ class MediaCard extends Component {
           media_type = {media.media_type}
           tv_title = {media.original_name}
           media_type = {this.props.media_type}
+          handleClickSubmit = {this.props.handleClickSubmit}
         />
       )
     })
@@ -82,7 +82,8 @@ class MediaCard extends Component {
         </div>
 
         <div id={this.state.recMediaID} className="rec-popup">
-          <center> <h4> You Might Also Like... </h4> </center>
+          <div> <center> <h5 id='follow-popup-title'> You Might Also Like... </h5> </center> <img src={assetHelper["delete-media-x.svg"]} height="20" width="20" id='popup-x' onClick={this.onRecClick} id="rec-x"/>
+        </div>
             {recMedia}
         </div>
 

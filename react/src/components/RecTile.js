@@ -15,7 +15,9 @@ class RecTile extends React.Component {
     }
     let poster = 'https://image.tmdb.org/t/p/w500' + this.props.poster_path
     return(
-        <h4 id='rec-tile'> <img src={poster} height="70px" width="70px"/> {title} </h4>
+      <h4 id='rec-tile' onClick={() => this.props.handleClickSubmit(title)} > <img src={poster} height="70px" width="70px"/> {title} </h4>
+
+
     )
   }
 

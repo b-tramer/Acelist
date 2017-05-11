@@ -31,6 +31,7 @@ class AllMedia extends React.Component {
           handleDeleteMedia = {this.props.handleDeleteMedia}
           mediaDeleteClass = {this.props.mediaDeleteClass}
           data_id = {media.data_id}
+          handleClickSubmit = {this.props.handleClickSubmit}
         />
       )
     })
