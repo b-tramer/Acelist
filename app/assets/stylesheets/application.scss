@@ -1415,7 +1415,7 @@
   position: fixed;
   top: 13.6%;
   float: right;
-  right: 34.3%;
+  right: 32%;
   z-index: 35;
 }
 
@@ -1516,21 +1516,65 @@
 }
 
 .rec-popup {
-  width: 35%;
+  width: 40%;
   text-transform: uppercase;
   letter-spacing: 1px;
   position: absolute;
   top: 25%;
   margin: 0 auto;
+  display: inline;
+}
+
+.rec-popup img {
+  display: inline;
+}
+
+.rec-popup h4 {
+  display: inline;
+  margin: 0px;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 #rec-tile {
   padding: 12px;
   background-color: #f4f4f4;
+  margin-bottom: 10px;
 }
 
 // SMALL SCREEN ONLY
 @media screen and (max-width: 39.9375em) {
+
+  .rec-popup {
+    text-align: center;
+    font-size: 80%;
+    width: 50%;
+    display: block;
+  }
+
+  .rec-popup img {
+    text-align: center;
+    display: block;
+    margin-left: 25%;
+  }
+
+  .rec-popup h4 {
+    text-align: center;
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  #add-media-button {
+    right: 40%;
+    margin-top: -40px;
+  }
+
+  #rec-x {
+    position: fixed;
+    top: 13.25%;
+    float: right;
+    right: 27.3%;
+    z-index: 35;
+  }
 
   #follow-button {
     border-right: 0px;
