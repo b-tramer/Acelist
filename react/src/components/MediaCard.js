@@ -42,6 +42,7 @@ class MediaCard extends Component {
           tv_title = {media.original_name}
           media_type = {this.props.media_type}
           handleClickSubmit = {this.props.handleClickSubmit}
+          mediaDeleteClass = {this.props.mediaDeleteClass}
         />
       )
     })
@@ -82,7 +83,7 @@ class MediaCard extends Component {
         </div>
 
         <div id={this.state.recMediaID} className="rec-popup">
-          <div> <center> <h5 id='follow-popup-title'> You Might Also Like... </h5> </center> <img src={assetHelper["delete-media-x.svg"]} height="20" width="20" id='popup-x' onClick={this.onRecClick} id="rec-x"/>
+          <div> <center> <h5 id='follow-popup-title'> You Might Also Like... </h5> </center> <img src={assetHelper["delete-media-x-rec.svg"]} height="20" width="20" id='popup-x' onClick={this.onRecClick} id="rec-x"/>
         </div>
             {recMedia}
         </div>
