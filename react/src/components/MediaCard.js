@@ -65,10 +65,15 @@ class MediaCard extends Component {
       <div>
       <div className={this.props.mediaDeleteClass}>
         <button id='delete-media-button' type="button" onClick={() => this.props.handleDeleteMedia(id)}>
-        <img src={assetHelper["delete-media-x.svg"]} height="20" width="20"/></button>
+          DELETE
+          <img src={assetHelper["delete-media-x.svg"]} height="20" width="20"/>
+        </button>
       </div>
 
-      <button type='button' id='delete-media-button' onClick={() => this.onRecClick(data_id, media_type, media_id)}><img src={assetHelper["info-button.svg"]} height="20" width="20"/></button>
+      <button type='button' id='delete-media-button' onClick={() => this.onRecClick(data_id, media_type, media_id)}>
+        RECOMMENDATIONS
+      <img src={assetHelper["info-button.svg"]} height="20" width="20"/>
+      </button>
 
 
         <div className="row" id="movie-row">
