@@ -1151,6 +1151,17 @@
   outline: none;
 }
 
+#add-media-button {
+  margin-top: -88px;
+  margin-right: 10px;
+  float: right;
+  position: relative;
+  clear: both;
+  text-align: right;
+  outline: none;
+  display: inline;
+}
+
 .delete-media-button-hidden {
   display: none;
 }
@@ -1396,7 +1407,7 @@
   position: fixed;
   top: 13%;
   float: right;
-  right: 34%;
+  right: 34.3%;
 }
 
 .follower-info {

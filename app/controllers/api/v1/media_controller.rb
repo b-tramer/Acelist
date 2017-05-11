@@ -8,7 +8,6 @@ class Api::V1::MediaController < ApplicationController
   end
 
   def create
-    binding.pry
     @media = Media.create(media_params)
     render json: @media
   end
