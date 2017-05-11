@@ -1254,13 +1254,68 @@
   box-shadow: 0px 0px 8px #888888;
 }
 
-#info-area {
-  margin-top: 50px;
+#home-gif-small {
+  box-shadow: 0px 0px 8px #888888;
+}
+
+#info-area-one {
+  margin-top: 100px;
   text-align: left;
 }
 
-#info-area h4 {
-  margin-top: 37px;
+#info-area-one-small {
+  margin-top: 40px;
+  text-align: center;
+}
+
+#info-area-two-small {
+  margin-top: 40px;
+  text-align: center;
+}
+
+#info-area-one-small image {
+  text-align: center;
+}
+
+#info-area-two-small image {
+  text-align: center;
+}
+
+#info-area-one-small h4 {
+  margin-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  color: #333333;
+  font-size: 90%;
+}
+
+#info-area-two-small h4 {
+  margin-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  color: #333333;
+  font-size: 68%;
+}
+
+#info-area-one h4 {
+  margin-top: 75px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  color: #333333;
+}
+
+#info-area-two {
+  border-top: 1px solid #cacaca;
+  margin-top: 50px;
+  text-align: right;
+  padding-top: 50px;
+}
+
+#info-area-two h4 {
+  margin-top: 75px;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: bold;
