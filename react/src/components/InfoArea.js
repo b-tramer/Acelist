@@ -28,7 +28,7 @@ import ReactDOM from 'react-dom';
           <div className="row" id="info-area">
 
           <div className="small-12 large-6 columns">
-            <img src={assetHelper["acelist-gif3.gif"]} height="600" width="600" id='home-gif'/>
+            <img src={assetHelper["acelist-gif4.gif"]} height="600" width="600" id='home-gif'/>
           </div>
 
           <div className="small-12 large-6 columns">
