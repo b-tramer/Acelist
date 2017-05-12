@@ -58,7 +58,7 @@ class Navigation extends Component{
             <li className="list-item"> <Link to='/'>HOME</Link> </li>
             <li className="list-item"> <Link to='/users'>SEARCH USERS</Link> </li>
             <li className="list-item"> <a href={`/users/${userId}`}>MY PROFILE</a> </li>
-            <li className="list-item"> <a href="/login">LOGIN/SIGNUP</a> </li>
+            <li className="list-item"> <a href="/login">LOGIN/SIGNOUT</a> </li>
           </ul>
         </div>
       </div>
@@ -91,7 +91,7 @@ class Navigation extends Component{
               <li className="list-item"> <Link to='/'>HOME</Link> </li>
               <li className="list-item"> <Link to='/users'>SEARCH USERS</Link> </li>
               <li className="list-item"> <a href={`/users/${userId}`}>MY PROFILE</a> </li>
-              <li className="list-item"> <a href="/login">LOGIN/SIGNUP</a> </li>
+              <li className="list-item"> <a href="/login">LOGIN/SIGNOUT</a> </li>
             </ul>
           </div>
         </div>
