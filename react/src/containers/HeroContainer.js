@@ -75,7 +75,7 @@ class HeroContainer extends Component{
             </div>
             <center>
               <div className='toggle-hero'>
-                <h3 onClick={this.heroSwitch}>⟵  ⟶</h3>
+                <h3 id='toggle-arrow'onClick={this.heroSwitch}>⟵  ⟶</h3>
               </div>
             </center>
           </div>

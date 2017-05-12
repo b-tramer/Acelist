@@ -10,20 +10,12 @@ class MediaCard extends Component {
       recMediaID: 'hidden'
     }
     this.onRecClick = this.onRecClick.bind(this)
-    this.onRecClickNewPage = this.onRecClickNewPage.bind(this)
   }
 
   fetchRecsAPI(url) {
     fetch(url)
     .then(response => response.json())
     .then(data => this.setState({ recMedia: data.results }))
-  }
-
-  fetchRecsAPIMore(url) {
-    fetch(url)
-    .then(response => response.json())
-    .then(data => this.setState({ recMedia: data.results }))
-    console.log(url)
   }
 
   // immediately after being added medias media_id (which is needed to fetch API), will be called simply id - until there is a page refresh or navigation. In this case, it must search based on its 'id' --- id = this.props.id | data_id = this.props.data_id
@@ -37,20 +29,6 @@ class MediaCard extends Component {
       let url = `https://api.themoviedb.org/3/${media_type}/${data_id}/recommendations?api_key=4ce5312dd9fd3f292ee4e7597f92342c&language=en-US&page=1`
       this.fetchRecsAPI(url)
       this.setState({ recMediaID: 'rec-popup', current_id: id, current_media_type: media_type, current_data_id: data_id })
-    } else {
-      this.setState({ recMediaID: 'hidden', recMedia: [] })
-    }
-  }
-
-  onRecClickNewPage() {
-    if (typeof this.state.current_data_id === 'undefined') {
-      let url_two = `https://api.themoviedb.org/3/${this.state.current_media_type}/${this.state.current_id}/recommendations?api_key=4ce5312dd9fd3f292ee4e7597f92342c&language=en-US&page=2`
-      this.fetchRecsAPIMore(url_two)
-      this.setState({ recMediaID: 'rec-popup' })
-    } else if (typeof this.state.current_data_id !== 'undefined') {
-      let url = `https://api.themoviedb.org/3/${this.state.current_media_type}/${this.state.current_data_id}/recommendations?api_key=4ce5312dd9fd3f292ee4e7597f92342c&language=en-US&page=2`
-      this.fetchRecsAPIMore(url)
-      this.setState({ recMediaID: 'rec-popup' })
     } else {
       this.setState({ recMediaID: 'hidden', recMedia: [] })
     }
@@ -117,9 +95,7 @@ class MediaCard extends Component {
           <div> <center> <h5 id='follow-popup-title'> You Might Also Like... </h5> </center> <img src={assetHelper["delete-media-x-rec.svg"]} height="20" width="20" id='popup-x' onClick={this.onRecClick} id="rec-x"/>
         </div>
           {recMedia}
-          <button type="button" onClick={this.onRecClickNewPage}> LOAD MORE TITLES </button>
         </div>
-
       </div>
     )
   }
