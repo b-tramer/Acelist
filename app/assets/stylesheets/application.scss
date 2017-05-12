@@ -1258,8 +1258,24 @@
   box-shadow: 0px 0px 8px #888888;
 }
 
+#info-area-title {
+  margin-top: 18px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #333333;
+  font-weight: bold;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+#info-area-title h2 {
+  color: #333333;
+  font-weight: bold;
+  font-family: 'Ubuntu', sans-serif;
+}
+
 #info-area-one {
-  margin-top: 100px;
+  margin-top: 15px;
   text-align: left;
 }
 
