@@ -50,7 +50,6 @@ import ReactDOM from 'react-dom';
             </div>
 
             <div className="row" id="info-area-two-small">
-
               <div >
                 <div className="small-6 large-6 columns">
                   <img src="./home-rec.svg" height="60" width="60"/> <h4> Get Recommendations </h4>
@@ -60,13 +59,7 @@ import ReactDOM from 'react-dom';
                   <img src="./share.svg" height="60" width="60"/> <h4>  Share With Friends </h4>
                 </div>
               </div>
-
             </div>
-
-
-
-
-
 
             <div id="started-area">
               <Link to={`/users/${userId}`}> <h6> <button type="button" className="button" id="get-started-button-info">GET STARTED</button> </h6> </Link>
@@ -76,8 +69,14 @@ import ReactDOM from 'react-dom';
 
 
 
-
           <div className="show-for-medium">
+
+          <div className="row" id="info-area-title">
+            <div className='small-12 large-12 columns'>
+              <h2> How Does It Work? </h2>
+            </div>
+          </div>
+
             <div className="row" id="info-area-one">
               <div className="small-12 large-6 columns">
                 <img src={assetHelper["acelist-gif4.gif"]} height="600" width="600" id='home-gif'/>
