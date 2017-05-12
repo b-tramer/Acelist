@@ -26,9 +26,15 @@ import ReactDOM from 'react-dom';
       return(
         <div>
           <div className="show-for-small-only">
+            <div className="row" id="info-area-title">
+              <div className='small-12 large-12 columns'>
+                <h2> How Does It Work? </h2>
+              </div>
+            </div>
+
             <div className="row" id="info-area-one-small">
               <div className="small-12 large-6 columns">
-                <img src={assetHelper["acelist-gif4.gif"]} height="600" width="600" id='home-gif-small'/>
+                <img src={assetHelper["acelist-gif4.gif"]} height="600" width="600" id='home-gif-small-one'/>
               </div>
             </div>
 
@@ -50,7 +56,7 @@ import ReactDOM from 'react-dom';
             </div>
 
             <div className="row" id="info-area-two-small">
-              <div >
+              <div>
                 <div className="small-6 large-6 columns">
                   <img src="./home-rec.svg" height="60" width="60"/> <h4> Get Recommendations </h4>
                 </div>
