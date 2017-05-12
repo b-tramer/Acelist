@@ -51,7 +51,7 @@ import ReactDOM from 'react-dom';
 
             <div className="row" id="info-area-two-small">
               <div className='small-12 large-6 columns'>
-                <img src={assetHelper["rec-gif.gif"]} height="600" width="600" id='home-gif-small'/>
+                <img src={assetHelper["rec-gif2.gif"]} height="600" width="600" id='home-gif-small'/>
               </div>
             </div>
 
@@ -99,7 +99,7 @@ import ReactDOM from 'react-dom';
                 <h4> Share With Friends <img src="./share.svg" height="70" width="70"/> </h4>
               </div>
               <div className='small-12 large-6 columns'>
-                <img src={assetHelper["rec-gif.gif"]} height="600" width="600" id='home-gif'/>
+                <img src={assetHelper["rec-gif2.gif"]} height="600" width="600" id='home-gif'/>
               </div>
             </div>
             <div id="started-area">
