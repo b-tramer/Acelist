@@ -211,7 +211,7 @@ class MainContainer extends Component{
 
   // bound to 'create new list' button in AllLists, displays create input on click
   handleCreate() {
-    this.setState({ showCreate: true, selectedId: 0, listName: '', currentMedia: [] })
+    this.setState({ showCreate: true, showSearch: true, selectedId: 0, listName: '', currentMedia: [] })
   }
 
   // bound to create button in searchBox.js
@@ -275,14 +275,15 @@ class MainContainer extends Component{
       mediaDeleteClass = 'delete-media-button-hidden'
     }
 
+    let showSearch;
     let showCreateClass;
     if (this.state.showCreate === false) {
       showCreateClass = 'hidden'
     } else {
       showCreateClass = 'show'
+      showSearch = 'show'
     }
 
-    let showSearch;
     if (this.state.showSearch === false) {
       showSearch = 'hidden'
     } else {
