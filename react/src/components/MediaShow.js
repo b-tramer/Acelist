@@ -67,26 +67,38 @@ class MediaShow extends Component {
     }
     return(
       <div id='top-media-show-info'>
-
         <div className='row'>
-          <div className='small-12 medium-4 columns'>
+          <div className='large-4 columns'>
             <img src={poster}/>
           </div>
 
-          <div className='small-12 medium-8 columns' id='main-info-card'>
-            <h1> <strong> {title} </strong> </h1>
-            <h5> <em>{this.state.tagline}</em> </h5>
-            <p> {this.state.overview} </p>
-            <h5> <strong>Original Release:</strong> {this.state.release_date} </h5>
-            <h5> <strong>Running Time:</strong> {this.state.runtime} Mins </h5>
-            <h5> <strong>Box Office:</strong> ${revenue} </h5>
-            <h5> <strong>Rating:</strong> {vote} </h5>
+          <div className='large-8 large-offset-2 columns' id='main-info-card'>
+            <div id='show-header'>
+              <center> <h1> <strong> {title} </strong> </h1>
+              <h5> <em>{this.state.tagline}</em> </h5> </center>
+            </div>
+            <center> <p> {this.state.overview} </p> </center>
+
+          <center>
+          <div className='row' id='show-data-info'>
+            <div className='large-6 large-offset-2 columns data-info'>
+              <h5> <strong>Original Release:</strong> <span id='show-data'> {this.state.release_date} </span> </h5>
+              <h5> <strong>Running Time:</strong> <span id='show-data'> {this.state.runtime} Mins </span> </h5>
+            </div>
+            <div className='large-6 large-offset-2 columns data-info'>
+              <h5> <strong>Box Office:</strong> <span id='show-data'> ${revenue} </span> </h5>
+              <h5> <strong>Rating:</strong> <span id='show-data'> {vote} </span> </h5>
+            </div>
           </div>
+          </center>
+
+        </div>
         </div>
 
       </div>
     )
   }
 }
+
 
 export default MediaShow

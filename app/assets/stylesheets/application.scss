@@ -1811,18 +1811,45 @@
   margin-bottom: 0px;
 }
 
+#top-media-show-info p {
+  margin-top: 10px;
+}
+
 #main-info-card {
-  background-color: #f4f4f4;
-  padding: 5px;
   height: 554.97px;
-  padding-left: 30px;
+  padding: 15px;
+  margin: 0px;
+  background: linear-gradient(-45deg, #e2e2e2 0%, transparent 100%), url(image-path('geo-hero-show.png')) no-repeat center;
+  background-size: cover;
+}
+
+#main-info-card p {
+  border-bottom: 1px solid #808080;
+  border-top: 1px solid #808080;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#show-data {
+  display: block;
+  padding: 0px;
+  padding-bottom: 15px;
+}
+
+.data-info {
+  margin-left: 0px;
+}
+
+#show-data-info {
+  margin-top: 15px;
+}
+
+#show-data-info h5 {
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 #top-media-show-info {
   margin-top: 85px;
   font-family: 'Ubuntu', sans-serif;
-}
-
-#top-media-show-info img {
-  display: inline;
 }
