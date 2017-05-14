@@ -1796,3 +1796,33 @@
 #see-all-users a  {
   color: black;
 }
+
+// MEDIA SHOW PAGE STYLING
+
+#top-media-show-info h1, h2, h3, h4, h5, h6, p {
+  font-family: 'Ubuntu', sans-serif;
+  color: #333333;
+}
+
+#top-media-show-info h1 {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: 'Ubuntu', sans-serif;
+  margin-bottom: 0px;
+}
+
+#main-info-card {
+  background-color: #f4f4f4;
+  padding: 5px;
+  height: 554.97px;
+  padding-left: 30px;
+}
+
+#top-media-show-info {
+  margin-top: 85px;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+#top-media-show-info img {
+  display: inline;
+}

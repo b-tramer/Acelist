@@ -7,6 +7,15 @@ class Api::V1::MediaController < ApplicationController
     render json: @media
   end
 
+  def show
+    media = Media.find(params[:id])
+    @media_type = media.media_type
+    @media_data_id = media.data_id
+    respond_to do |format|
+      format.json  { render :json => {:media_type => @media_type, :media_data_id => @media_data_id }}
+    end
+  end
+
   def create
     @media = Media.create(media_params)
     render json: @media

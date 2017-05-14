@@ -5,6 +5,7 @@ import NavContainer from './containers/NavContainer';
 import MainContainer from './containers/MainContainer';
 import LoginContainer from './containers/LoginContainer';
 import AllUsersContainer from './containers/AllUsersContainer';
+import MediaShowContainer from './containers/MediaShowContainer';
 
 class App extends Component {
   constructor(props){
@@ -21,6 +22,7 @@ class App extends Component {
           <Route path='users' component={AllUsersContainer} />
           <Route path='users/:id' component={MainContainer} />
           <Route path='media' component={MainContainer} />
+          <Route path='media/:id' component={MediaShowContainer} />
         </Route>
       </Router>
     )
