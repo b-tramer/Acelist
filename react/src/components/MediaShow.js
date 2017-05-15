@@ -31,8 +31,6 @@ class MediaShow extends Component {
     }
   }
 
-  // `http://api-public.guidebox.com/v2/shows/${id}/available_content?api_key=f28df615560e5dab026b4e490e91faa4094b5f81`
-
   fetchAPI(url) {
     fetch(url)
     .then(response => response.json())
@@ -63,20 +61,32 @@ class MediaShow extends Component {
   fetchGuideBoxID(url) {
     fetch(url)
     .then(response => response.json())
-    .then(data => this.fetchGuideBoxAPI(data.id, data.type))
+    .then(data => this.fetchGuideBoxAPI(data.id, data.tvdb))
   }
 
-  fetchGuideBoxAPI(id, type) {
+  fetchGuideBoxAPI(id, tvdb) {
     let url;
-    if (type === 'television') {
+    if (typeof tvdb !== 'undefined') {
       url = `http://api-public.guidebox.com/v1.43/us/f28df615560e5dab026b4e490e91faa4094b5f81/show/${id}`
+      this.fetchTV(url)
     } else {
       url = `http://api-public.guidebox.com/v1.43/us/f28df615560e5dab026b4e490e91faa4094b5f81/movie/${id}`
+      this.fetchMovie(url)
     }
+  }
+
+  fetchTV(url) {
+    fetch(url)
+    .then(response => response.json())
+    .then(data => this.setState({ cast: data.cast }))
+  }
+
+  fetchMovie(url) {
     fetch(url)
     .then(response => response.json())
     .then(data => this.setState({ cast: data.cast, sources: data.subscription_web_sources }))
   }
+
 
   render() {
     let poster = 'https://image.tmdb.org/t/p/w500' + this.state.poster_path
