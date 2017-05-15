@@ -44,7 +44,6 @@ class HeroContainer extends Component{
     }
     return(
       <div>
-
         <div className={this.state.heroOne}>
           <div className='information'>
             <div className='row'>
