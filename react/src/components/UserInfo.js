@@ -117,7 +117,8 @@ class UserInfo extends Component {
     }
     return(
       <div>
-        <div className="profile-container" id="top">
+
+        <div className="profile-container">
           <div className="row">
             <div className="large-1 columns" id="profile-picture">
            <img src={profilePicture}/>
@@ -134,7 +135,7 @@ class UserInfo extends Component {
 
           {nameDisplay}
 
-          <a href="#top" id="go-to-top">
+          <a href="#way-top" id="go-to-top">
           <img src={assetHelper["to-top-button2.svg"]} width="40"/>
           </a>
         </div>

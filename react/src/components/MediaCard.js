@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import RecTile from '../components/RecTile';
+import { Link } from 'react-router';
 
 class MediaCard extends Component {
   constructor(props){
@@ -65,6 +66,7 @@ class MediaCard extends Component {
       name = this.props.original_name
       release = this.props.first_air_date
     };
+
     return(
       <div>
       <div className={this.props.mediaDeleteClass}>
@@ -79,17 +81,18 @@ class MediaCard extends Component {
       <img src={assetHelper["info-button.svg"]} height="20" width="20"/>
       </button>
 
-
-        <div className="row" id="movie-row">
-          <div className="small-12 large-3 columns">
+        <Link to={`/media/${this.props.id}`}>
+          <div className="row" id="movie-row">
+            <div className="small-12 large-3 columns">
             <img src={poster} height="150" width="150"/>
+            </div>
+            <div className="small-12 large-9 columns" id="movie-info">
+              <h2> {name} </h2>
+              <h5> Release Date: {release} </h5>
+              <p> {this.props.overview} </p>
+            </div>
           </div>
-          <div className="small-12 large-9 columns" id="movie-info">
-            <h2> {name} </h2>
-            <h5> Release Date: {release} </h5>
-            <p> {this.props.overview} </p>
-          </div>
-        </div>
+        </Link>
 
         <div id={this.state.recMediaID} className="rec-popup">
           <div> <center> <h5 id='follow-popup-title'> You Might Also Like... </h5> </center> <img src={assetHelper["delete-media-x-rec.svg"]} height="20" width="20" id='popup-x' onClick={this.onRecClick} id="rec-x"/>

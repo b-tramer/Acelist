@@ -38,6 +38,7 @@ class NavContainer extends Component{
 
     return(
       <div>
+      <div id='way-top'>  </div>
         <Navigation
           handleClick={this.handleMenuClick}
           className={className}

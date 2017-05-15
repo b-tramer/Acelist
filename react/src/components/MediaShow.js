@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import BackButton from '../components/BackButton';
 
 class MediaShow extends Component {
   constructor(props){
@@ -40,18 +41,13 @@ class MediaShow extends Component {
         seasons: data.seasons,
         original_name: data.original_name,
         num_of_episodes: data.number_of_episodes,
-        num_of_seasons: data.number_of_seasons
+        num_of_seasons: data.number_of_seasons,
+        first_air_date: data.first_air_date,
+        episode_runtime: data.episode_run_time
     }))
   }
 
   render() {
-    let title;
-    if (this.state.media_type === 'movie') {
-      title = this.state.title
-    } else {
-      title = this.state.original_name
-    }
-
     // let genre_one = this.state.genres[0].name
     // let genre_two = this.state.genres[1].name
 
@@ -65,8 +61,32 @@ class MediaShow extends Component {
     if (this.state.popularity) {
       vote = this.state.popularity.toFixed(1) + '/10'
     }
+
+    let title;
+    let release_date;
+    let runtime;
+    let box_season;
+    if (this.state.media_type === 'movie') {
+      title = this.state.title
+      release_date = this.state.release_date
+      runtime = this.state.runtime
+      box_season = <h5> <strong>Box Office:</strong> <span id='show-data'> ${revenue} </span> </h5>
+    } else {
+      title = this.state.original_name
+      release_date = this.state.first_air_date
+      runtime = this.state.episode_runtime
+      box_season = <h5> <strong>Number Of Seasons:</strong> <span id='show-data'> {this.state.num_of_seasons} </span> </h5>
+    }
+
+    if (this.state.media_type === 'tv' && this.state.episode_runtime.length > 1) {
+      runtime = this.state.episode_runtime[0]
+    } else if (this.state.media_type === 'tv') {
+      runtime = this.state.episode_runtime
+    }
+
     return(
       <div id='top-media-show-info'>
+      <BackButton />
         <div className='row'>
           <div className='large-4 columns'>
             <img src={poster}/>
@@ -82,11 +102,11 @@ class MediaShow extends Component {
           <center>
           <div className='row' id='show-data-info'>
             <div className='large-6 large-offset-2 columns data-info'>
-              <h5> <strong>Original Release:</strong> <span id='show-data'> {this.state.release_date} </span> </h5>
-              <h5> <strong>Running Time:</strong> <span id='show-data'> {this.state.runtime} Mins </span> </h5>
+              <h5> <strong>Original Release:</strong> <span id='show-data'> {release_date} </span> </h5>
+              <h5> <strong>Running Time:</strong> <span id='show-data'> {runtime} Mins </span> </h5>
             </div>
             <div className='large-6 large-offset-2 columns data-info'>
-              <h5> <strong>Box Office:</strong> <span id='show-data'> ${revenue} </span> </h5>
+              {box_season}
               <h5> <strong>Rating:</strong> <span id='show-data'> {vote} </span> </h5>
             </div>
           </div>

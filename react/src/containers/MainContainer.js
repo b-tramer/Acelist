@@ -299,50 +299,51 @@ class MainContainer extends Component{
       errorDiv = <div className="callout-alert">{errorItems}</div>
     }
     return(
-      <div  id="profile-main-div">
-          <FollowContainer
-            user = {this.state.current_user}
-            current = {this.state.current}
-            follow_boolean = {this.state.follow_boolean}
-          />
-          <div className="row">
-            <div className="large-4 columns" id="list-div">
-              <AllLists
-              lists = {this.state.lists}
-              handleClick = {this.handleClick}
-              handleCreate = {this.handleCreate}
-              selectedBackgroundId = {this.state.selectedBackgroundId}
-              selectedId = {this.state.selectedId}
-              handleDeleteList = {this.handleDeleteList}
-              showSearchBarClass = {showSearchBarClass}
-              />
-          </div>
-          <div className="large-8 large-offset-3 columns" id="offset-column">
-          {errorDiv}
-            <AllMedia
-              mediaValue = {this.state.title}
-              handleTitleChange = {this.handleTitleChange}
-              handleTitleSubmit = {this.handleSubmit}
+      <div>
+        <div id="profile-main-div">
 
-              listNameValue = {this.state.listName}
-              listName = {this.state.listName}
-              handleListNameChange = {this.handleListNameChange}
-              listNameSubmit = {this.listNameSubmit}
-
-              handleDeleteMedia = {this.handleDeleteMedia}
-              showCreateClass = {showCreateClass}
-              media = {this.state.currentMedia}
-              showSearchBarClass = {showSearchBarClass}
-
-              mediaDeleteClass = {mediaDeleteClass}
-              showSearch = {showSearch}
-
-              handleClickSubmit = {this.handleClickSubmit}
+            <FollowContainer
+              user = {this.state.current_user}
+              current = {this.state.current}
+              follow_boolean = {this.state.follow_boolean}
             />
+            <div className="row">
+              <div className="large-4 columns" id="list-div">
+                <AllLists
+                lists = {this.state.lists}
+                handleClick = {this.handleClick}
+                handleCreate = {this.handleCreate}
+                selectedBackgroundId = {this.state.selectedBackgroundId}
+                selectedId = {this.state.selectedId}
+                handleDeleteList = {this.handleDeleteList}
+                showSearchBarClass = {showSearchBarClass}
+                />
+            </div>
+            <div className="large-8 large-offset-3 columns" id="offset-column">
+            {errorDiv}
+              <AllMedia
+                mediaValue = {this.state.title}
+                handleTitleChange = {this.handleTitleChange}
+                handleTitleSubmit = {this.handleSubmit}
+
+                listNameValue = {this.state.listName}
+                listName = {this.state.listName}
+                handleListNameChange = {this.handleListNameChange}
+                listNameSubmit = {this.listNameSubmit}
+
+                handleDeleteMedia = {this.handleDeleteMedia}
+                showCreateClass = {showCreateClass}
+                media = {this.state.currentMedia}
+                showSearchBarClass = {showSearchBarClass}
+
+                mediaDeleteClass = {mediaDeleteClass}
+                showSearch = {showSearch}
+
+                handleClickSubmit = {this.handleClickSubmit}
+              />
+            </div>
           </div>
         </div>
-
-
       </div>
     )
   }
