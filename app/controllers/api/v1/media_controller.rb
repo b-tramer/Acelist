@@ -3,8 +3,20 @@ class Api::V1::MediaController < ApplicationController
   protect_from_forgery unless: -> { request.format.json? }
 
   def index
-    @media = Media.all
-    render json: @media
+    media = Media.find_by(data_id: params[:data_id])
+    @id = media.id
+    respond_to do |format|
+      format.json  { render :json => { :current_primary_id => @id }}
+    end
+  end
+
+  def show
+    media = Media.find(params[:id])
+    @media_type = media.media_type
+    @media_data_id = media.data_id
+    respond_to do |format|
+      format.json  { render :json => {:media_type => @media_type, :media_data_id => @media_data_id }}
+    end
   end
 
   def create

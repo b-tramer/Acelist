@@ -955,6 +955,12 @@
   margin-right: 0px;
   margin-left: 0px;
   text-overflow: ellipsis;
+  cursor: pointer;
+  border: 1px solid #f4f4f4;
+}
+
+#movie-row:hover {
+  border: 1px solid black;
 }
 
 #movie-row p {
@@ -966,6 +972,7 @@
   margin-right: -1em;
   padding-right: 1em;
   margin-bottom: 0px;
+  cursor: pointer;
 }
 
 #movie-row h5 {
@@ -992,7 +999,7 @@
 // PROFILE STYLING
 
 #profile-main-div {
-  margin-top: 70px;
+  margin-top: 0px;
 }
 
 .profile-container {
@@ -1387,7 +1394,7 @@
   padding: 0px;
   margin-left: 5px;
   width: 99%;
-  margin-top: 70px;
+  margin-top: 15px;
 }
 
 #user-search-bar input {
@@ -1795,4 +1802,80 @@
 
 #see-all-users a  {
   color: black;
+}
+
+// MEDIA SHOW PAGE STYLING
+
+#top-media-show-info h1, h2, h3, h4, h5, h6, p {
+  font-family: 'Ubuntu', sans-serif;
+  color: #333333;
+}
+
+#top-media-show-info h1 {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: 'Ubuntu', sans-serif;
+  margin-bottom: 0px;
+}
+
+#top-media-show-info p {
+  margin-top: 10px;
+}
+
+#main-info-card {
+  height: 554.97px;
+  padding: 15px;
+  margin: 0px;
+  background: linear-gradient(-45deg, #e2e2e2 0%, transparent 100%), url(image-path('geo-hero-show.png')) no-repeat center;
+  background-size: cover;
+}
+
+#main-info-card p {
+  border-bottom: 1px solid #808080;
+  border-top: 1px solid #808080;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#show-data {
+  display: block;
+  padding: 0px;
+  padding-bottom: 15px;
+}
+
+.data-info {
+  margin-left: 0px;
+}
+
+#show-data-info {
+  margin-top: 15px;
+}
+
+#show-data-info h5 {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#top-media-show-info {
+  margin-top: 15px;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+#way-top {
+  background-color: transparent;
+  height: 69px;
+}
+
+#show-back-button {
+  font-family: 'Ubuntu', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: fixed;
+  top: 10;
+  left: 1%;
+  outline: none;
+}
+
+#show-back-button:hover {
+  font-weight: bold;
 }
