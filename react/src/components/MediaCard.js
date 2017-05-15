@@ -8,9 +8,21 @@ class MediaCard extends Component {
     super(props);
     this.state = {
       recMedia: [],
-      recMediaID: 'hidden'
+      recMediaID: 'hidden',
+      current_primary_id: this.props.id
     }
     this.onRecClick = this.onRecClick.bind(this)
+    this.onIdClick = this.onIdClick.bind(this)
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (typeof nextProps.data_id === 'undefined') {
+      fetch(`/api/v1/media?data_id=${nextProps.id}`, { credentials: 'same-origin' })
+        .then(response => response.json())
+        .then(responseData => { this.setState({ current_primary_id: responseData.current_primary_id }) });
+    } else {
+      this.setState({ current_primary_id: nextProps.id })
+    }
   }
 
   fetchRecsAPI(url) {
@@ -32,6 +44,19 @@ class MediaCard extends Component {
       this.setState({ recMediaID: 'rec-popup', current_id: id, current_media_type: media_type, current_data_id: data_id })
     } else {
       this.setState({ recMediaID: 'hidden', recMedia: [] })
+    }
+  }
+
+  // div where onClick sets the state of current_primary_id to whatever is clicked, and then that is interpolated into Link
+  onIdClick(id, data_id) {
+    if (typeof data_id === 'undefined') {
+      fetch(`/api/v1/media?data_id=${id}`, { credentials: 'same-origin' })
+        .then(response => response.json())
+        .then(responseData => {
+          this.setState({ current_primary_id: responseData.current_primary_id })
+      });
+    } else {
+      this.setState({ current_primary_id: id })
     }
   }
 
@@ -67,6 +92,7 @@ class MediaCard extends Component {
       release = this.props.first_air_date
     };
 
+    let prim_id = this.state.current_primary_id
     return(
       <div>
       <div className={this.props.mediaDeleteClass}>
@@ -81,7 +107,7 @@ class MediaCard extends Component {
       <img src={assetHelper["info-button.svg"]} height="20" width="20"/>
       </button>
 
-        <Link to={`/media/${this.props.id}`}>
+        <Link to={`/media/${prim_id}`}>
           <div className="row" id="movie-row">
             <div className="small-12 large-3 columns">
             <img src={poster} height="150" width="150"/>
