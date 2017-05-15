@@ -107,7 +107,7 @@ class MediaShow extends Component {
             </div>
             <div className='large-6 large-offset-2 columns data-info'>
               {box_season}
-              <h5> <strong>Rating:</strong> <span id='show-data'> {vote} </span> </h5>
+              <h5> <strong>Average Rating:</strong> <span id='show-data'> {vote} </span> </h5>
             </div>
           </div>
           </center>
