@@ -137,9 +137,12 @@ class MediaShow extends Component {
 
     let sources = this.state.sources.map((source) => {
       return(
+        <span>
         <a href={source.link}>
         <li id='source-list-li'> <button type='button' id='source-button'> {source.display_name} </button> </li>
         </a>
+        </span>
+
       )
     })
 
@@ -173,10 +176,10 @@ class MediaShow extends Component {
 
           <center>
             <ul id='source-list-ul'>
-              {sources}
+            {sources}
             </ul>
           </center>
-
+          
           </div>
 
         </div>

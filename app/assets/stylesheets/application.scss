@@ -1909,7 +1909,7 @@
 // SMALL ONLY
 @media screen and (max-width: 39.9375em) {
   #main-info-card {
-    height: 600px;
+    height: 630px;
   }
 }
 
@@ -1922,7 +1922,7 @@
 }
 
 #source-list-ul {
-  margin-top: 110px;
+  
 }
 
 #source-button {
@@ -1931,6 +1931,7 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   padding: 8px;
+  outline: none;
 }
 
 #source-button:hover {
