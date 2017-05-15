@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import BackButton from '../components/BackButton';
+// import CastTile from '../components/CastTile';
 
 class MediaShow extends Component {
   constructor(props){
@@ -10,7 +11,9 @@ class MediaShow extends Component {
       media_data_id: 0,
       genres: [],
       production_companies: [],
-      seasons: []
+      seasons: [],
+      sources: [],
+      cast: []
     }
   }
 
@@ -18,9 +21,17 @@ class MediaShow extends Component {
     this.setState({ media_type: nextProps.media_type })
     let url = `https://api.themoviedb.org/3/${nextProps.media_type}/${nextProps.media_data_id}?&api_key=4ce5312dd9fd3f292ee4e7597f92342c`
     this.fetchAPI(url)
-    let url_two = `http://api-public.guidebox.com/v1.43/us/f28df615560e5dab026b4e490e91faa4094b5f81/search/movie/id/themoviedb/${nextProps.media_data_id}`
-    this.fetchGuideBoxID(url_two)
+
+    if (nextProps.media_type === 'movie') {
+      let url_two = `http://api-public.guidebox.com/v1.43/us/f28df615560e5dab026b4e490e91faa4094b5f81/search/movie/id/themoviedb/${nextProps.media_data_id}`
+      this.fetchGuideBoxID(url_two)
+    } else {
+      let url_two = `http://api-public.guidebox.com/v1.43/us/f28df615560e5dab026b4e490e91faa4094b5f81/search/id/themoviedb/${nextProps.media_data_id}`
+      this.fetchGuideBoxID(url_two)
+    }
   }
+
+  // `http://api-public.guidebox.com/v2/shows/${id}/available_content?api_key=f28df615560e5dab026b4e490e91faa4094b5f81`
 
   fetchAPI(url) {
     fetch(url)
@@ -52,21 +63,22 @@ class MediaShow extends Component {
   fetchGuideBoxID(url) {
     fetch(url)
     .then(response => response.json())
-    .then(data => this.fetchGuideBoxAPI(`http://api-public.guidebox.com/v1.43/us/f28df615560e5dab026b4e490e91faa4094b5f81/movie/${data.id}`))
+    .then(data => this.fetchGuideBoxAPI(data.id, data.type))
   }
 
-  // fetchGuideBoxAPI(url) {
-  //   fetch(url)
-  //   .then(response => response.json())
-  //   .then(data =>
-  //     console.log(data)
-  //     this.setState({ title: data.title }))
-  // }
+  fetchGuideBoxAPI(id, type) {
+    let url;
+    if (type === 'television') {
+      url = `http://api-public.guidebox.com/v1.43/us/f28df615560e5dab026b4e490e91faa4094b5f81/show/${id}`
+    } else {
+      url = `http://api-public.guidebox.com/v1.43/us/f28df615560e5dab026b4e490e91faa4094b5f81/movie/${id}`
+    }
+    fetch(url)
+    .then(response => response.json())
+    .then(data => this.setState({ cast: data.cast, sources: data.subscription_web_sources }))
+  }
 
   render() {
-    // let genre_one = this.state.genres[0].name
-    // let genre_two = this.state.genres[1].name
-
     let poster = 'https://image.tmdb.org/t/p/w500' + this.state.poster_path
     let backdrop = 'https://image.tmdb.org/t/p/w500' + this.state.backdrop_path
     let revenue;
@@ -100,11 +112,32 @@ class MediaShow extends Component {
       runtime = this.state.episode_runtime
     }
 
+    let main_cast = this.state.cast.slice(0, 6)
+
+    let cast = main_cast.map((person) => {
+      return(
+        <div className='small-4 medium-2 columns' id='cast-tile'>
+          <img src={person.image}/>
+          <center>
+          <h5> {person.name} </h5>
+          </center>
+        </div>
+      )
+    })
+
+    let sources = this.state.sources.map((source) => {
+      return(
+        <a href={source.link}>
+        <li id='source-list-li'> <button type='button' id='source-button'> {source.display_name} </button> </li>
+        </a>
+      )
+    })
+
     return(
       <div id='top-media-show-info'>
       <BackButton />
         <div className='row'>
-          <div className='large-4 columns'>
+          <div className='large-4 columns' id='show-page-poster'>
             <img src={poster}/>
           </div>
 
@@ -116,19 +149,30 @@ class MediaShow extends Component {
             <center> <p> {this.state.overview} </p> </center>
 
           <center>
-          <div className='row' id='show-data-info'>
-            <div className='large-6 large-offset-2 columns data-info'>
-              <h5> <strong>Original Release:</strong> <span id='show-data'> {release_date} </span> </h5>
-              <h5> <strong>Running Time:</strong> <span id='show-data'> {runtime} Mins </span> </h5>
+            <div className='row' id='show-data-info'>
+              <div className='large-6 large-offset-2 columns data-info'>
+                <h5> <strong>Original Release:</strong> <span id='show-data'> {release_date} </span> </h5>
+                <h5> <strong>Running Time:</strong> <span id='show-data'> {runtime} Mins </span> </h5>
+              </div>
+              <div className='large-6 large-offset-2 columns data-info'>
+                {box_season}
+                <h5> <strong>Average Rating:</strong> <span id='show-data'> {vote} </span> </h5>
+              </div>
             </div>
-            <div className='large-6 large-offset-2 columns data-info'>
-              {box_season}
-              <h5> <strong>Average Rating:</strong> <span id='show-data'> {vote} </span> </h5>
-            </div>
-          </div>
           </center>
 
+          <center>
+            <ul id='source-list-ul'>
+              {sources}
+            </ul>
+          </center>
+
+          </div>
+
         </div>
+
+        <div className='row'>
+          {cast}
         </div>
 
       </div>
