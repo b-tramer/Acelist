@@ -1806,6 +1806,22 @@
 
 // MEDIA SHOW PAGE STYLING
 
+// BETWEEN SMALL AND MEDIUM
+@media screen and (min-width: 39.9375em) and (max-width: 63.9375em){
+  #show-page-poster {
+    padding-left: 0px;
+    height: 577.47px;
+  }
+}
+
+// MEDIUM AND UP
+@media screen and (min-width: 40em) {
+  #show-page-poster {
+    padding-left: 0px;
+    height: 577.47px;
+  }
+}
+
 #top-media-show-info h1, h2, h3, h4, h5, h6, p {
   font-family: 'Ubuntu', sans-serif;
   color: #333333;
@@ -1823,7 +1839,7 @@
 }
 
 #main-info-card {
-  height: 554.97px;
+  height: 577.47px;
   padding: 15px;
   margin: 0px;
   background: linear-gradient(-45deg, #e2e2e2 0%, transparent 100%), url(image-path('geo-hero-show.png')) no-repeat center;
@@ -1878,4 +1894,46 @@
 
 #show-back-button:hover {
   font-weight: bold;
+}
+
+#cast-tile {
+  padding: 0px;
+  padding-top: 15px;
+}
+
+#show-page-poster img {
+  padding-left: 0px;
+  height: 577.47px;
+}
+
+// SMALL ONLY
+@media screen and (max-width: 39.9375em) {
+  #main-info-card {
+    height: 600px;
+  }
+}
+
+// SOURCES STYLING
+
+#source-list-li {
+  display: inline;
+  margin: 6px;
+  margin-top: 50px;
+}
+
+#source-list-ul {
+  margin-top: 110px;
+}
+
+#source-button {
+  color: #333333;
+  border: 1px solid #333333;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 8px;
+}
+
+#source-button:hover {
+  background-color: #333333;
+  color: white;
 }
