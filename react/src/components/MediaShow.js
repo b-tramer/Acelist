@@ -18,6 +18,8 @@ class MediaShow extends Component {
     this.setState({ media_type: nextProps.media_type })
     let url = `https://api.themoviedb.org/3/${nextProps.media_type}/${nextProps.media_data_id}?&api_key=4ce5312dd9fd3f292ee4e7597f92342c`
     this.fetchAPI(url)
+    let url_two = `http://api-public.guidebox.com/v1.43/us/f28df615560e5dab026b4e490e91faa4094b5f81/search/movie/id/themoviedb/${nextProps.media_data_id}`
+    this.fetchGuideBoxID(url_two)
   }
 
   fetchAPI(url) {
@@ -46,6 +48,20 @@ class MediaShow extends Component {
         episode_runtime: data.episode_run_time
     }))
   }
+
+  fetchGuideBoxID(url) {
+    fetch(url)
+    .then(response => response.json())
+    .then(data => this.fetchGuideBoxAPI(`http://api-public.guidebox.com/v1.43/us/f28df615560e5dab026b4e490e91faa4094b5f81/movie/${data.id}`))
+  }
+
+  // fetchGuideBoxAPI(url) {
+  //   fetch(url)
+  //   .then(response => response.json())
+  //   .then(data =>
+  //     console.log(data)
+  //     this.setState({ title: data.title }))
+  // }
 
   render() {
     // let genre_one = this.state.genres[0].name
