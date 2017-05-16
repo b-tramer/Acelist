@@ -968,7 +968,11 @@
 }
 
 #movie-row:hover {
-  border: 1px solid black;
+  border: 1px solid #333333;
+}
+
+.toggle-hero {
+  cursor: pointer;
 }
 
 #movie-row p {
@@ -1125,6 +1129,7 @@
   margin-bottom: 3px;
   bottom: 0;
   right: 0;
+  z-index: 30;
 }
 
 #see-all-users {
@@ -1149,6 +1154,7 @@
 
   #name-button-hidden {
     border-right: 0px solid;
+    outline: none;
   }
 
 }
@@ -1176,6 +1182,8 @@
 
 #delete-media-button:hover {
   color: black;
+  background-color: #f4f4f4;
+  padding-left: 3px;
 }
 
 #add-media-button {
@@ -1584,6 +1592,7 @@
   padding-left: 10px;
   font-weight: bold;
   height: 50px;
+  outline: none;
 }
 
 
@@ -1834,6 +1843,7 @@
 
   #name-button-hidden {
     border-right: 1px solid #cacaca;
+    outline: none;
   }
 }
 
@@ -1924,8 +1934,30 @@
 // SMALL ONLY
 @media screen and (max-width: 39.9375em) {
   #main-info-card {
-    height: 630px;
+    height: auto;
+    padding: 25px;
   }
+
+  #show-page-poster {
+    text-align: center;
+  }
+
+}
+
+// BETWEEN MEDIUM AND SMALL
+@media screen and (min-width: 39.9375em) and (max-width: 63.9375em){
+  #main-info-card {
+    height: auto;
+    padding: 45px;
+  }
+
+  #show-page-poster {
+    text-align: center;
+  }
+}
+
+#source-button {
+  margin: 6px;
 }
 
 // SOURCES STYLING
