@@ -1129,7 +1129,7 @@
 
 #see-all-users {
   right: 1%;
-  top: 235px;
+  top: 233px;
   position: absolute;
   color: black;
 }
@@ -1144,7 +1144,11 @@
 // BETWEEN SMALL AND MEDIUM SIZE
 @media screen and (min-width: 39.9375em) and (max-width: 63.9375em){
   #see-all-users {
-    top: 338px;
+    top: 336px;
+  }
+
+  #name-button-hidden {
+    border-right: 0px solid;
   }
 
 }
@@ -1579,7 +1583,6 @@
   padding-right: 10px;
   padding-left: 10px;
   font-weight: bold;
-  border-right: 1px solid #cacaca;
   height: 50px;
 }
 
@@ -1828,6 +1831,10 @@
     padding-left: 0px;
     height: 577.47px;
   }
+
+  #name-button-hidden {
+    border-right: 1px solid #cacaca;
+  }
 }
 
 #top-media-show-info h1, h2, h3, h4, h5, h6, p {
@@ -1887,7 +1894,7 @@
 
 #way-top {
   background-color: transparent;
-  height: 70px;
+  height: 68px;
 }
 
 #show-back-button {
