@@ -93,7 +93,9 @@ class MediaShow extends Component {
     let backdrop = 'https://image.tmdb.org/t/p/w500' + this.state.backdrop_path
     let revenue;
     if (this.state.revenue) {
-      revenue = this.state.revenue.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,')
+      revenue = '$' + this.state.revenue.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,')
+    } else {
+      revenue = 'Not Yet Available'
     }
     let vote;
     if (this.state.popularity) {
@@ -108,7 +110,7 @@ class MediaShow extends Component {
       title = this.state.title
       release_date = this.state.release_date
       runtime = this.state.runtime
-      box_season = <h5> <strong>Box Office:</strong> <span id='show-data'> ${revenue} </span> </h5>
+      box_season = <h5> <strong>Box Office:</strong> <span id='show-data'> {revenue} </span> </h5>
     } else {
       title = this.state.original_name
       release_date = this.state.first_air_date
@@ -123,7 +125,6 @@ class MediaShow extends Component {
     }
 
     let main_cast = this.state.cast.slice(0, 6)
-
     let cast = main_cast.map((person) => {
       return(
         <div className='small-4 medium-2 columns' id='cast-tile'>
@@ -179,7 +180,7 @@ class MediaShow extends Component {
             {sources}
             </ul>
           </center>
-          
+
           </div>
 
         </div>
