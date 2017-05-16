@@ -1,4 +1,4 @@
-![alt text](public/ace-logo.png)
+![alt text](public/Read-Logo.png)
 
 Made by Bradley Tramer (live @ www.ace-list.com)
 
@@ -9,10 +9,7 @@ Made by Bradley Tramer (live @ www.ace-list.com)
 
 Acelist allows users to make custom lists displaying their favorite movies & TV shows, with the ability to save those lists to their profile and share with friends.
 
-Video Demo:
-
-<iframe src="https://player.vimeo.com/video/217258926" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-<p><a href="https://vimeo.com/217258926">Acelist Demo</a> from <a href="https://vimeo.com/user66576303">Bradley Tramer</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+Video Demo: https://vimeo.com/217258926
 
 ER Diagram:
 
