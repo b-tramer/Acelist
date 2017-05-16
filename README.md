@@ -1,6 +1,5 @@
-![alt text](public/Read-Logo.svg)
-
-Made by Bradley Tramer (live @ www.ace-list.com)
+Made by Bradley Tramer (live at www.ace-list.com)
+Connect with me: https://www.linkedin.com/in/btramer
 
 - React JavaScript front-end
 - Ruby on Rails back-end
