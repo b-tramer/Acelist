@@ -1,4 +1,4 @@
-![alt text](public/Read-Logo.png)
+![alt text](public/Read-Logo.svg)
 
 Made by Bradley Tramer (live @ www.ace-list.com)
 
