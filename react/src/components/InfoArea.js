@@ -77,35 +77,45 @@ import ReactDOM from 'react-dom';
 
           <div className="show-for-medium">
 
-          <div className="row" id="info-area-title">
-            <div className='small-12 large-12 columns'>
-              <h2> How Does It Work? </h2>
-            </div>
-          </div>
+
 
             <div className="row" id="info-area-one">
-              <div className="small-12 large-6 columns">
+
+              <div className="small-12 large-6 columns" id='info-area-gif-column'>
                 <img src={assetHelper["acelist-gif4.gif"]} height="600" width="600" id='home-gif'/>
               </div>
-              <div className="small-12 large-6 columns">
-                <h4> <img src="./list.svg" height="70" width="70"/>  Name Your List </h4>
-                <h4>   <img src="./search.svg" height="70" width="70"/>  Search For Media </h4>
+
+              <div className="small-12 large-6 columns" id='info-area-description-one'>
+                <h3> How Does It Work? </h3>
+                <img src="./list.svg" height="70" width="70"/>
+                <h4 id='name-your-list'> Name Your List </h4>
+                <img src="./search.svg" height="70" width="70"/>
+                <h4> Search For Media </h4>
               </div>
+            </div>
+
+            <div className='info-area-half'>
+              <h3 id="half-fb-button"> <a id="sign_in" href="/auth/facebook"><img src={assetHelper["fb-login-two.svg"]} width="300px"/></a> </h3>
             </div>
 
             <div className="row" id="info-area-two">
-              <div className='small-12 large-6 columns'>
-                <h4> Get Recommendations <img src="./home-rec.svg" height="70" width="70"/> </h4>
-                <h4> Share With Friends <img src="./share.svg" height="70" width="70"/> </h4>
+            <div className='small-12 large-6 columns' id='info-area-gif-column'>
+              <img src={assetHelper["rec-gif2.gif"]} height="600" width="600" id='home-gif'/>
+            </div>
+
+              <div className='small-12 large-6 columns' id='info-area-description-two'>
+                <img src="./home-rec.svg" height="70" width="70"/>
+                <h4 id='get-recommendations'> Get Recommendations </h4>
+                <img src="./share.svg" height="70" width="70"/>
+                <h4> Share With Friends </h4>
               </div>
-              <div className='small-12 large-6 columns'>
-                <img src={assetHelper["rec-gif2.gif"]} height="600" width="600" id='home-gif'/>
-              </div>
+
             </div>
             <div id="started-area">
               <Link to={`/users/${userId}`}> <h6> <button type="button" className="button" id="get-started-button-info">GET STARTED</button> </h6> </Link>
             </div>
           </div>
+
         </div>
       )
     }

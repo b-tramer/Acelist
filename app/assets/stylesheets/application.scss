@@ -4,6 +4,8 @@
 
 @import url('https://fonts.googleapis.com/css?family=Courgette|Damion|PT+Sans+Caption|Ubuntu|Voltaire');
 
+@import url('https://fonts.googleapis.com/css?family=Dosis|Istok+Web|Slabo+27px');
+
 /* NAVIGATION BAR STYLING */
 
 .top-bar  {
@@ -193,6 +195,14 @@
 }
 
 /*MAIN CONTAINER BELOW NAV*/
+
+#facebook-permission {
+  color: black;
+  font-size: 30%;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: -5px;
+}
 
 .main-content {
   margin-top: 80px;
@@ -1278,16 +1288,28 @@
 // AREA BELOW HERO
 
 #home-gif {
-  box-shadow: 0px 0px 8px #888888;
+  border: 1px solid #cacaca;
+  height: 360px;
 }
 
 #home-gif-small-one {
-  box-shadow: 0px 0px 8px #888888;
+  border: 1px solid #cacaca;
   margin-top: -31px;
 }
 
 #home-gif-small {
-  box-shadow: 0px 0px 8px #888888;
+  border: 1px solid #cacaca;
+}
+
+.info-area-half {
+  background-color: #eaeaea;
+  height: 100px;
+  width: 100%;
+  text-align: center;
+}
+
+#half-fb-button {
+  line-height: 100px;
 }
 
 #info-area-title {
@@ -1307,8 +1329,52 @@
 }
 
 #info-area-one {
-  margin-top: 15px;
-  text-align: left;
+  text-align: center;
+  margin-top: 45px;
+  margin-bottom: 45px;
+}
+
+#info-area-description-one {
+  border: 1px solid #cacaca;
+  padding: 0px;
+  height: 360px;
+}
+
+#info-area-description-one img {
+  margin-top: 10px;
+}
+
+#info-area-description-two {
+  border: 1px solid #cacaca;
+  padding: 0px;
+  height: 360px;
+}
+
+#info-area-description-two img {
+  margin-top: 30px;
+}
+
+#get-recommendations {
+  border-bottom: 1px solid #cacaca;
+  padding-bottom: 30px;
+}
+
+#info-area-gif-column {
+  height: 360px;
+}
+
+#name-your-list {
+  border-bottom: 1px solid #cacaca;
+  padding-bottom: 15px;
+}
+
+#info-area-one h3 {
+  color: #333333;
+  font-family: 'Ubuntu', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 1px solid #cacaca;
+  padding: 10px;
 }
 
 #info-area-one-small {
@@ -1348,7 +1414,7 @@
 }
 
 #info-area-one h4 {
-  margin-top: 75px;
+  margin-top: 10px;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: bold;
@@ -1356,14 +1422,23 @@
 }
 
 #info-area-two {
-  border-top: 1px solid #cacaca;
-  margin-top: 50px;
-  text-align: right;
-  padding-top: 50px;
+  margin-top: 15px;
+  text-align: center;
+  margin-top: 45px;
+  margin-bottom: 45px;
+}
+
+#info-area-two h3 {
+  color: #333333;
+  font-family: 'Ubuntu', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 1px solid #cacaca;
+  padding: 10px;
 }
 
 #info-area-two h4 {
-  margin-top: 75px;
+  margin-top: 10px;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: bold;
@@ -1395,7 +1470,6 @@
   margin-left: 0 auto;
   margin-right: 0 auto;
   width: 100%;
-  margin-top: 40px;
   text-align: center;
   background: linear-gradient(180deg, #eaeaea 0%, #fff 100%)
 }
@@ -1647,6 +1721,10 @@
 // SMALL SCREEN ONLY
 @media screen and (max-width: 39.9375em) {
 
+  #started-area {
+    margin-top: 40px;
+  }
+
   .rec-popup {
     text-align: center;
     font-size: 80%;
@@ -1745,6 +1823,9 @@
 
 // BETWEEN SMALL AND MEDIUM SIZE
 @media screen and (min-width: 39.9375em) and (max-width: 63.9375em){
+  #info-area-gif-column {
+    margin-bottom: 45px;
+  }
   .profile-container {
     overflow: hidden;
     top: 0;
