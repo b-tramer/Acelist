@@ -43,7 +43,7 @@ class Navigation extends Component{
           </div>
 
           <div className="small-6 large-10 columns" id="logo-center">
-            <span id='nav-logo-mobile'> <Link to='/'> <img src={assetHelper["ace-logo.png"]} height="150" width="162"/> </Link> </span>
+            <span id='nav-logo-mobile'> <Link to='/'> <img src={assetHelper["Acelist-Logo-New.svg"]} height="150" width="162"/> </Link> </span>
           </div>
 
           <div className="small-3 large-1 columns profile" id='menu-profile-div'>
@@ -76,7 +76,7 @@ class Navigation extends Component{
             </div>
 
             <div className="small-6 large-10 columns" id="logo-center">
-              <span id='nav-logo'> <Link to='/'> <img src={assetHelper["ace-logo.png"]} height="150" width="220"/> </Link> </span>
+              <span id='nav-logo'> <Link to='/'> <img src={assetHelper["Acelist-Logo-New.svg"]} height="150" width="220"/> </Link> </span>
             </div>
 
             <div className="small-3 large-1 columns profile" id='menu-profile-div'>
