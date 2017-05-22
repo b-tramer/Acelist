@@ -82,15 +82,17 @@ import ReactDOM from 'react-dom';
             <div className="row" id="info-area-one">
 
               <div className="small-12 large-6 columns" id='info-area-gif-column'>
-                <img src={assetHelper["acelist-gif4.gif"]} height="600" width="600" id='home-gif'/>
+                <img src={assetHelper["acelist-gif4.gif"]} id='home-gif'/>
               </div>
 
-              <div className="small-12 large-6 columns" id='info-area-description-one'>
-                <h3> How Does It Work? </h3>
-                <img src="./list.svg" height="70" width="70"/>
-                <h4 id='name-your-list'> Name Your List </h4>
-                <img src="./search.svg" height="70" width="70"/>
-                <h4> Search For Media </h4>
+              <div className='info-outer'>
+                <div className="small-12 large-6 columns" id='info-area-description-one'>
+                  <h3> How Does It Work? </h3>
+                  <img src="./list.svg" height="70" width="70"/>
+                  <h4 id='name-your-list'> Name Your List </h4>
+                  <img src="./search.svg" height="70" width="70"/>
+                  <h4> Search For Media </h4>
+                </div>
               </div>
             </div>
 
@@ -100,14 +102,16 @@ import ReactDOM from 'react-dom';
 
             <div className="row" id="info-area-two">
             <div className='small-12 large-6 columns' id='info-area-gif-column'>
-              <img src={assetHelper["rec-gif2.gif"]} height="600" width="600" id='home-gif'/>
+              <img src={assetHelper["rec-gif2.gif"]} id='home-gif'/>
             </div>
 
-              <div className='small-12 large-6 columns' id='info-area-description-two'>
-                <img src="./home-rec.svg" height="70" width="70"/>
-                <h4 id='get-recommendations'> Get Recommendations </h4>
-                <img src="./share.svg" height="70" width="70"/>
-                <h4> Share With Friends </h4>
+              <div className='info-outer'>
+                <div className='small-12 large-6 columns' id='info-area-description-two'>
+                  <img src="./home-rec.svg" height="70" width="70"/>
+                  <h4 id='get-recommendations'> Get Recommendations </h4>
+                  <img src="./share.svg" height="70" width="70"/>
+                  <h4> Share With Friends </h4>
+                </div>
               </div>
 
             </div>

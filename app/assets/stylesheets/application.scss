@@ -1340,6 +1340,11 @@
   height: 360px;
 }
 
+.info-outer {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
 #info-area-description-one img {
   margin-top: 10px;
 }
@@ -1823,9 +1828,14 @@
 
 // BETWEEN SMALL AND MEDIUM SIZE
 @media screen and (min-width: 39.9375em) and (max-width: 63.9375em){
+  #info-area-description-one {
+    padding-right: 15px;
+  }
+
   #info-area-gif-column {
     margin-bottom: 45px;
   }
+
   .profile-container {
     overflow: hidden;
     top: 0;
