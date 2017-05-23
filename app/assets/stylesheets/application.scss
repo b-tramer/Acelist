@@ -538,6 +538,24 @@
   color: black;
 }
 
+#get-started-button-two {
+  font-family: 'Ubuntu', sans-serif;
+  background-color: transparent;
+  border: 2px solid #333333;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-top: 28px;
+  outline: none;
+  text-transform: uppercase;
+  color: #333333;
+  padding-right: 10px;
+}
+
+#get-started-button-two:hover {
+  background-color: #333333;
+  color: white;
+}
+
 .hero-text button:hover {
   background-color: #1f3033;
 }

@@ -17,12 +17,19 @@ import ReactDOM from 'react-dom';
       fetch(`/api/v1/users`, { credentials: 'same-origin' })
         .then(response => response.json())
         .then(responseData => {
-          this.setState({ user: responseData.current_user.id })
+          this.setState({ user: responseData.current_user.id, userImage: responseData.current_user.image })
       });
     }
 
     render() {
       let userId = this.state.user
+      let profilePicture = this.state.userImage + "/picture?type=large"
+      let showLogin;
+      if (this.state.userImage) {
+        showLogin = <Link to={`/users/${userId}`}> <p> <button type="button" id='get-started-button-two'> <img src={profilePicture} height="40px" width="40px"/>  My Profile → </button> </p> </Link>
+      } else {
+        showLogin = <h3 id="half-fb-button"> <a id="sign_in" href="/auth/facebook"><img src={assetHelper["fb-login-two.svg"]} width="300px"/></a> </h3>
+      }
       return(
         <div>
           <div className="show-for-small-only">
@@ -97,7 +104,7 @@ import ReactDOM from 'react-dom';
             </div>
 
             <div className='info-area-half'>
-              <h3 id="half-fb-button"> <a id="sign_in" href="/auth/facebook"><img src={assetHelper["fb-login-two.svg"]} width="300px"/></a> </h3>
+              {showLogin}
             </div>
 
             <div className="row" id="info-area-two">
