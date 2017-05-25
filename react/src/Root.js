@@ -6,6 +6,7 @@ import MainContainer from './containers/MainContainer';
 import LoginContainer from './containers/LoginContainer';
 import AllUsersContainer from './containers/AllUsersContainer';
 import MediaShowContainer from './containers/MediaShowContainer';
+import LandingContainer from './containers/LandingContainer';
 
 class App extends Component {
   constructor(props){
@@ -17,7 +18,7 @@ class App extends Component {
     return(
       <Router history={browserHistory}>
         <Route path="/" component={NavContainer}>
-          <IndexRoute component={HeroContainer} />
+          <IndexRoute component={LandingContainer} />
           <Route path='login' component={() => (<LoginContainer user={this.props.user} />)}/>
           <Route path='users' component={AllUsersContainer} />
           <Route path='users/:id' component={MainContainer} />

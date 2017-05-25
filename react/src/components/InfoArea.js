@@ -31,7 +31,7 @@ import ReactDOM from 'react-dom';
         showLogin = <h3 id="half-fb-button"> <a id="sign_in" href="/auth/facebook"><img src={assetHelper["fb-login-two.svg"]} width="300px"/></a> </h3>
       }
       return(
-        <div>
+        <div className='info-area-master' id='info-area-master'>
           <div className="show-for-small-only">
             <div className="row" id="info-area-title">
               <div className='small-12 large-12 columns'>
@@ -94,7 +94,6 @@ import ReactDOM from 'react-dom';
 
               <div className='info-outer'>
                 <div className="small-12 large-6 columns" id='info-area-description-one'>
-                  <h3> How Does It Work? </h3>
                   <img src="./list.svg" height="70" width="70"/>
                   <h4 id='name-your-list'> Name Your List </h4>
                   <img src="./search.svg" height="70" width="70"/>
@@ -104,7 +103,7 @@ import ReactDOM from 'react-dom';
             </div>
 
             <div className='info-area-half'>
-              {showLogin}
+              
             </div>
 
             <div className="row" id="info-area-two">
@@ -122,11 +121,8 @@ import ReactDOM from 'react-dom';
               </div>
 
             </div>
-            <div id="started-area">
-              <Link to={`/users/${userId}`}> <h6> <button type="button" className="button" id="get-started-button-info">GET STARTED</button> </h6> </Link>
-            </div>
-          </div>
 
+          </div>
         </div>
       )
     }
