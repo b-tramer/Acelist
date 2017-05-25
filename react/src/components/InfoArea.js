@@ -35,7 +35,7 @@ import ReactDOM from 'react-dom';
           <div className="show-for-small-only">
             <div className="row" id="info-area-title">
               <div className='small-12 large-12 columns'>
-                <h2> How Does It Work? </h2>
+                
               </div>
             </div>
 
@@ -84,8 +84,6 @@ import ReactDOM from 'react-dom';
 
           <div className="show-for-medium">
 
-
-
             <div className="row" id="info-area-one">
 
               <div className="small-12 large-6 columns" id='info-area-gif-column'>
@@ -103,7 +101,7 @@ import ReactDOM from 'react-dom';
             </div>
 
             <div className='info-area-half'>
-              
+
             </div>
 
             <div className="row" id="info-area-two">

@@ -2122,6 +2122,14 @@
   }
 }
 
+@media screen and (max-width: 39.9375em) {
+  #signup-row {
+    margin-left: 0px;
+    left: 0%;
+    top: 35%;
+  }
+}
+
 #get-started-button-landing {
   font-family: 'Ubuntu', sans-serif;
   background-color: transparent;
