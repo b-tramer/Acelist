@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import InfoArea from '../components/InfoArea';
 import ScrollableAnchor from 'react-scrollable-anchor'
+import { configureAnchors } from 'react-scrollable-anchor'
 
 class LandingContainer extends Component{
   constructor(props){
@@ -45,7 +46,7 @@ class LandingContainer extends Component{
           </div>
 
           <ScrollableAnchor id={'anchor-info'}>
-          <p id='anchor'> a </p>
+            <p id='anchor'> a </p>
           </ScrollableAnchor>
 
           <InfoArea/>
