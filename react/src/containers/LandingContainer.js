@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import InfoArea from '../components/InfoArea';
+import ScrollableAnchor from 'react-scrollable-anchor'
 
 class LandingContainer extends Component{
   constructor(props){
@@ -39,10 +40,14 @@ class LandingContainer extends Component{
               <h4> Save & Share Your Favorite Movies & TV Shows </h4>
               {showLogin}
 
-              <a href='#anchor'> <p> <img src={assetHelper["info-button.svg"]} height="20" width="20"/> How Does It Work? </p> </a>
+              <a href='#anchor-info'> <p> <img src={assetHelper["info-button.svg"]} height="20" width="20"/> How Does It Work? </p> </a>
             </div>
           </div>
+
+          <ScrollableAnchor id={'anchor-info'}>
           <p id='anchor'> a </p>
+          </ScrollableAnchor>
+
           <InfoArea/>
       </div>
 
