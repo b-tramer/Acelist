@@ -41,7 +41,7 @@ class LandingContainer extends Component{
               <h4> Save & Share Your Favorite Movies & TV Shows </h4>
               {showLogin}
 
-              <a href='#anchor-info'> <p> <img src={assetHelper["info-button.svg"]} height="20" width="20"/> How Does It Work? </p> </a>
+              <a href='#anchor-info'> <p> How Does It Work? </p> <img src={assetHelper["Scroll-Arrow.svg"]} height="21" width="21" id='scroll-arrow'/> </a>
             </div>
           </div>
 
